@@ -16,8 +16,10 @@
 (load custom-file t)
 
 ;; font
-(add-to-list 'default-frame-alist
-	     '(font . "JetBrainsMono Nerd Font-20"))
+;; (add-to-list 'default-frame-alist
+	     ;; '(font . "JetBrainsMono Nerd Font-20"))
+
+(set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
 
 ;; Remove lame startup screen
 (setq inhibit-startup-message t)
