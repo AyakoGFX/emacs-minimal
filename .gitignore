@@ -1,0 +1,13 @@
+tramp
+tabsession.el
+places
+org-roam.db
+history
+org-persist/
+emojis/
+elpy/
+auto-save-list/
+eln-cache/
+elpa/
+.cache/
+transient/
