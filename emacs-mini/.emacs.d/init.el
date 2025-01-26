@@ -15,11 +15,11 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file t)
 
-;; font
-;; (add-to-list 'default-frame-alist
-	     ;; '(font . "JetBrainsMono Nerd Font-20"))
+;; font for Linux JetBrainsMono Nerd Font-20
+(add-to-list 'default-frame-alist
+	     '(font . "JetBrainsMono NF-14"))
 
-(set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
+;; (set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
 
 ;; Remove lame startup screen
 (setq inhibit-startup-message t)
@@ -340,3 +340,27 @@
  (setq tramp-remote-path
        (append tramp-remote-path
   	       '(tramp-own-remote-path)))
+
+;; my/func
+
+(defun replace-with-numbers ()
+  "Prompt the user for a string to replace with incrementing numbers across the entire buffer."
+  (interactive)
+  (let ((target (read-string "Enter the text to replace with numbers: "))
+        (counter 1))  ; Reset the counter for each replacement
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward target nil t)
+        (replace-match (number-to-string counter))
+        (setq counter (1+ counter))))
+    (message "Replaced '%s' with numbers!" target)))
+
+
+
+
+
+
+
+
+
+
