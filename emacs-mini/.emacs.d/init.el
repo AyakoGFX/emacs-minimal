@@ -158,6 +158,15 @@
 
 ;; Completion end
 
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-cycle t)             
+  (corfu-auto t)              
+  (corfu-quit-no-match 'separator) 
+  :init
+  (global-corfu-mode))
+
 ;; consult tools
 (use-package consult
   :ensure t
@@ -358,7 +367,7 @@
 
 
 
-
+(load (expand-file-name "Note.el" user-emacs-directory))
 
 
 
