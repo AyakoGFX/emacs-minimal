@@ -68,6 +68,12 @@
     :ensure t
     :config
     (which-key-mode))
+(use-package nix-mode
+  :ensure t
+  
+
+  )
+
 ;; ibuffer
 
   (global-set-key (kbd "C-x C-b") 'ibuffer)
