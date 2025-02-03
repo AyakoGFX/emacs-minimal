@@ -78,6 +78,10 @@
 
 ;; ibuffer
 
+(use-package calfw
+  :ensure t)
+	    
+;; ibuffer
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-expert t)
 ;; word wrap

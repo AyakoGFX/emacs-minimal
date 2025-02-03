@@ -1,0 +1,5 @@
+https://github.com/BurntSushi/ripgrep
+
+#+begin_src ps1
+winget install BurntSushi.ripgrep.MSVC
+#+end_src
