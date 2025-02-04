@@ -15,9 +15,13 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file t)
 
-;; font for Linux JetBrainsMono Nerd Font-20
-(add-to-list 'default-frame-alist
-	     '(font . "JetBrainsMono NF-14"))
+(if (eq window-system 'w32)
+    (add-to-list 'default-frame-alist
+                 '(font . "JetBrainsMono NF-14"))
+
+  (add-to-list 'default-frame-alist
+               '(font . "JetBrainsMono Nerd Font-20")))
+
 
 ;; (set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
 

@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(wombat))
  '(package-selected-packages
-   '(denote corfu calfw nix-mode visual-fill-column magit vundo consult sudo-edit move-text vterm which-key vertico orderless marginalia)))
+   '(org-roam-ui websocket simple-httpd org-roam deft denote-menu denote corfu calfw nix-mode visual-fill-column magit vundo consult sudo-edit move-text vterm which-key vertico orderless marginalia)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
