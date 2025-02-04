@@ -312,6 +312,9 @@
 
   ;; key-map
 
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-c d h") #'org-toggle-inline-images))
+
   (global-set-key [mouse-9] #'next-buffer)
   (global-set-key [mouse-8] #'previous-buffer)
   (global-set-key (kbd "M-1") 'previous-buffer)
