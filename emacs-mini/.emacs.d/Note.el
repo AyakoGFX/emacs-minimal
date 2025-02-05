@@ -6,6 +6,15 @@
 #+IDENTIFIER: %s
 \n")
 
+
+(setq org-agenda-files (list "~/denote/org/agenda.org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+;; open org-agenda-files
+(global-set-key (kbd "C-c o")
+		(lambda ()
+		  (interactive)
+		  (find-file (car org-agenda-files))))
+
   ;; migerate all org roam notes to denote
   ;; (load-file "~/.emacs.d/manual/nm-org-roam-to-denote.el")
 
@@ -145,7 +154,7 @@ SUBDIR is chosen interactively relative to `denote-directory'."
 (use-package deft
   :ensure t
   :custom
-  (deft-directory "~/denote/")
+  (deft-directory "~/roam/")
   (deft-extension '("txt" "org" "md"))
   (deft-use-filename-as-title t)
   (deft-recursive t))

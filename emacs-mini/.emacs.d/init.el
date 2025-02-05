@@ -74,16 +74,15 @@
     :ensure t
     :config
     (which-key-mode))
+
 (use-package nix-mode
-  :ensure t
-  
-
-  )
-
-;; ibuffer
+  :ensure t)
 
 (use-package calfw
   :ensure t)
+(use-package calfw-org
+  :ensure t)
+;; (setq cfw:org-agenda-schedule-args '(:timestamp))
 	    
 ;; ibuffer
   (global-set-key (kbd "C-x C-b") 'ibuffer)
