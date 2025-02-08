@@ -62,11 +62,9 @@
   :ensure nil
   :config ; Guess a default target directory
   (setq dired-dwim-target t)
-
   ;; Always delete and copy recursively
   (setq dired-recursive-deletes 'always
 	dired-recursive-copies 'always)
-
   ;; Show directory first
   (setq dired-listing-switches "-alh --group-directories-first"))
 
