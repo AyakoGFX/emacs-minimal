@@ -90,7 +90,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; relative line numbers
-(setq display-line-numbers-type 'relative)  ;; Use 't for absolute numbers
+;; (setq display-line-numbers-type 'relative)  ;; Use 't for absolute numbers
 (global-display-line-numbers-mode 1)
 
 (save-place-mode 1)
@@ -169,14 +169,14 @@
 
 ;; Completion end
 
-(use-package corfu
-  :ensure t
-  :custom
-  (corfu-cycle t)             
-  (corfu-auto t)              
-  (corfu-quit-no-match 'separator) 
-  :init
-  (global-corfu-mode))
+;;(use-package corfu
+;;  :ensure t
+;;  :custom
+;;  (corfu-cycle t)             
+;;  (corfu-auto t)              
+;;  (corfu-quit-no-match 'separator) 
+;;  :init
+;;  (global-corfu-mode))
 
 ;; consult tools
 (use-package consult
