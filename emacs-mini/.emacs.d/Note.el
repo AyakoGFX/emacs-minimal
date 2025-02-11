@@ -124,31 +124,28 @@ SUBDIR is chosen interactively relative to `denote-directory'."
 
 
   ;; list all the keywords = #+FILETAGS
-  (defun my-denote-list-all-keywords ()
-    "List all unique keywords used in Denote files and show them in message buffer."
-    (interactive)
-    (let* ((files (directory-files (denote-directory) t "\\..*$"))
-	   (all-keywords '()))
-      (dolist (file files)
-	(when-let ((keywords (denote-retrieve-filename-keywords file)))
-		(setq all-keywords 
-		(append all-keywords 
-			;; Split by -- to get each keyword group
-			(mapcar (lambda (kw)
-					;; Split each keyword group by underscore
-					(split-string 
-					 (replace-regexp-in-string "_" " " kw) 
-					 " " t))
-				(split-string keywords "--" t))))))
-      (message "All keywords: %s" 
-	       (string-join 
-		(delete-dups 
-		 (sort 
-			(cl-remove-duplicates 
-		   (flatten-list all-keywords)
-		   :test #'string-equal)
-			#'string-lessp))
-		", "))))
+(defun my-denote-list-all-keywords ()
+  "List all unique keywords used in Denote files recursively and show them in the message buffer."
+  (interactive)
+  (let* ((files (directory-files-recursively (denote-directory) "\\..*$"))
+         (all-keywords '()))
+    (dolist (file files)
+      (when-let ((keywords (denote-retrieve-filename-keywords file)))
+        (setq all-keywords
+              (append all-keywords
+                      (mapcar (lambda (kw)
+                                (split-string 
+                                 (replace-regexp-in-string "_" " " kw) 
+                                 " " t))
+                              (split-string keywords "--" t))))))
+    (message "All keywords: %s"
+             (string-join 
+              (delete-dups 
+               (sort (cl-remove-duplicates (apply #'append all-keywords)
+                                           :test #'string-equal)
+                     #'string-lessp))
+              ", "))))
+
 
 
 (use-package deft

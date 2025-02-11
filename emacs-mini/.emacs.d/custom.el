@@ -4,12 +4,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi))
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
  '(package-selected-packages
-   '(calfw-org jumplist jump-tree goto-last-change org-roam-ui websocket
-	       simple-httpd org-roam deft denote-menu denote corfu
-	       calfw nix-mode visual-fill-column magit vundo consult
-	       sudo-edit move-text vterm which-key vertico orderless
-	       marginalia)))
+   '(calfw calfw-org consult corfu deft denote denote-menu
+	   goto-last-change jinx jump-tree jumplist keycast magit
+	   marginalia move-text nix-mode orderless org-roam
+	   org-roam-ui ox-reveal simple-httpd sudo-edit vertico
+	   visual-fill-column vterm vundo websocket which-key))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
