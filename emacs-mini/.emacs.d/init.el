@@ -25,8 +25,17 @@
 
 ;; (set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
 
+;; (blink-cursor-mode -1) ;; Disable cursor blinking
+;; (blink-cursor-mode t) ;; Enable cursor blinking
+
+;; Toggle line highlighting in all buffers
+(global-hl-line-mode 1)
 ;; Remove lame startup screen
 (setq inhibit-startup-message t)
+(setq initial-scratch-message "M-x remember-notes
+
+
+")
 
 ;; Disable menus and scroll-bars
 (tool-bar-mode -1)
@@ -67,11 +76,52 @@
 	dired-recursive-copies 'always)
   ;; Show directory first
   (setq dired-listing-switches "-alh --group-directories-first"))
+;; Hide the details in dired
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
+(add-hook 'dired-mode-hook (lambda () (denote-dired-mode 1)))
+
+(use-package dired-x
+   :demand t
+   :config
+   (let ((cmd (cond ((eq system-type 'darwin) "open")   ;; macOS
+		     ((eq system-type 'gnu/linux) "xdg-open")   ;; Linux
+		     ((eq system-type 'windows-nt) "start")   ;; Windows
+		     (t ""))))  ;; Default to empty for unknown OS
+     (setq dired-guess-shell-alist-user
+	    `(("\\.pdf\\'" ,cmd)
+	      ("\\.docx\\'" ,cmd)
+	      ("\\.\\(?:djvu\\|eps\\)\\'" ,cmd)
+	      ("\\.\\(?:jpg\\|jpeg\\|png\\|gif\\|xpm\\)\\'" ,cmd)
+	      ("\\.\\(?:xcf\\)\\'" ,cmd)
+	      ("\\.csv\\'" ,cmd)
+	      ("\\.tex\\'" ,cmd)
+	      ("\\.\\(?:mp4\\|mkv\\|avi\\|flv\\|rm\\|rmvb\\|ogv\\)\\(?:\\.part\\)?\\'" ,cmd)
+	      ("\\.\\(?:mp3\\|flac\\)\\'" ,cmd)
+	      ("\\.html?\\'" ,cmd)
+	      ("\\.md\\'" ,cmd)))))
+
+     ;; Colorful dired
+(use-package diredfl
+  :ensure t
+  :hook (dired-mode . diredfl-mode))
+
+(use-package nerd-icons-dired
+  :ensure t
+  :diminish
+  :if (featurep 'all-the-icons)
+  :custom-face
+  (nerd-icons-dired-dir-face ((t (:inherit nerd-icons-dsilver :foreground unspecified))))
+  :hook (dired-mode . nerd-icons-dired-mode))
+
 
   (use-package which-key
     :ensure t
     :config
     (which-key-mode))
+
+
+(use-package lua-mode
+  :ensure t)
 
 (use-package nix-mode
   :ensure t)
@@ -129,6 +179,18 @@
     ;; (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
     :init
     (vertico-mode))
+
+(use-package vertico-directory
+  :after vertico
+  :ensure nil
+  ;; More convenient directory navigation commands
+  :bind (:map vertico-map
+              ("RET" . vertico-directory-enter)
+              ("DEL" . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  ;; Tidy shadowed file names
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
 
   ;; Persist history over Emacs restarts. Vertico sorts by history position.
   (use-package savehist
@@ -192,6 +254,27 @@
 ;;  (corfu-quit-no-match 'separator) 
 ;;  :init
 ;;  (global-corfu-mode))
+;;
+;;(use-package cape
+;;  ;; Bind prefix keymap providing all Cape commands under a mnemonic key.
+;;  ;; Press C-c p ? to for help.
+;;  :bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
+;;  ;; Alternatively bind Cape commands individually.
+;;  ;; :bind (("C-c p d" . cape-dabbrev)
+;;  ;;        ("C-c p h" . cape-history)
+;;  ;;        ("C-c p f" . cape-file)
+;;  ;;        ...)
+;;  :init
+;;  ;; Add to the global default value of `completion-at-point-functions' which is
+;;  ;; used by `completion-at-point'.  The order of the functions matters, the
+;;  ;; first function returning a result wins.  Note that the list of buffer-local
+;;  ;; completion functions takes precedence over the global list.
+;;  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+;;  (add-hook 'completion-at-point-functions #'cape-file)
+;;  (add-hook 'completion-at-point-functions #'cape-elisp-block)
+;;  ;; (add-hook 'completion-at-point-functions #'cape-history)
+;;  ;; ...
+;;)
 
 ;; consult tools
 (use-package consult
@@ -323,7 +406,6 @@
 
 
   ;; key-map
-
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "C-c d h") #'org-toggle-inline-images))
 
@@ -395,10 +477,10 @@
 
 
 
-
+(load (expand-file-name "lsp.el" user-emacs-directory))
 (load (expand-file-name "Note.el" user-emacs-directory))
 (load (expand-file-name "YT.el" user-emacs-directory))
-
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 
 

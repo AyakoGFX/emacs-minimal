@@ -7,11 +7,12 @@
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(calfw calfw-org consult corfu deft denote denote-menu
-	   goto-last-change jinx jump-tree jumplist keycast magit
-	   marginalia move-text nix-mode orderless org-roam
-	   org-roam-ui ox-reveal simple-httpd sudo-edit vertico
-	   visual-fill-column vterm vundo websocket which-key))
+   '(calfw calfw-org company company-mode consult corfu deft denote
+	   denote-menu diredfl goto-last-change jinx jump-tree
+	   jumplist keycast lua-mode magit marginalia move-text
+	   nerd-icons-dired nix-mode orderless org-roam org-roam-ui
+	   ox-reveal simple-httpd sudo-edit vertico visual-fill-column
+	   vterm vundo websocket which-key xah-fly-keys))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
