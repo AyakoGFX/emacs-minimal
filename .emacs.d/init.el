@@ -119,6 +119,22 @@
     :config
     (which-key-mode))
 
+(use-package casual-suite
+  :ensure t)
+(keymap-set calc-mode-map "C-`" #'casual-calc-tmenu)
+(keymap-set dired-mode-map "C-`" #'casual-dired-tmenu)
+(keymap-set isearch-mode-map "C-`" #'casual-isearch-tmenu)
+(keymap-set ibuffer-mode-map "C-`" #'casual-ibuffer-tmenu)
+(keymap-set ibuffer-mode-map "F" #'casual-ibuffer-filter-tmenu)
+(keymap-set ibuffer-mode-map "s" #'casual-ibuffer-sortby-tmenu)
+(keymap-set Info-mode-map "C-`" #'casual-info-tmenu)
+(keymap-set reb-mode-map "C-`" #'casual-re-builder-tmenu)
+(keymap-set reb-lisp-mode-map "C-`" #'casual-re-builder-tmenu)
+(keymap-set bookmark-bmenu-mode-map "C-`" #'casual-bookmarks-tmenu)
+(keymap-set org-agenda-mode-map "C-`" #'casual-agenda-tmenu)
+(keymap-global-set "M-0" #'casual-avy-tmenu)
+(keymap-set symbol-overlay-map "C-`" #'casual-symbol-overlay-tmenu)
+(keymap-global-set "C-`" #'casual-editkit-main-tmenu)
 
 (use-package lua-mode
   :ensure t)
@@ -131,7 +147,7 @@
 (use-package calfw-org
   :ensure t)
 ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
-	    
+  
 ;; ibuffer
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-expert t)

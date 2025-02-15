@@ -1,0 +1,1 @@
+/home/ayako/emacs-minimal/.emacs.d

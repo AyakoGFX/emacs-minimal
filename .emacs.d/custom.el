@@ -7,8 +7,8 @@
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(calfw calfw-org company company-mode consult corfu deft denote
-	   denote-menu diredfl goto-last-change jinx jump-tree
+   '(calfw calfw-org casual-suite company company-mode consult corfu deft
+	   denote denote-menu diredfl goto-last-change jinx jump-tree
 	   jumplist keycast lua-mode magit marginalia move-text
 	   nerd-icons-dired nix-mode orderless org-roam org-roam-ui
 	   ox-reveal simple-httpd sudo-edit vertico visual-fill-column
