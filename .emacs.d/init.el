@@ -79,7 +79,7 @@
 ;; Hide the details in dired
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 (add-hook 'dired-mode-hook (lambda () (denote-dired-mode 1)))
-
+(setq dired-mouse-drag-files t)
 (use-package dired-x
    :demand t
    :config
