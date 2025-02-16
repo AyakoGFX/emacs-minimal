@@ -37,7 +37,8 @@
 (global-hl-line-mode 1)
 ;; Remove lame startup screen
 (setq inhibit-startup-message t)
-(setq initial-scratch-message "M-x remember-notes\n")
+(setq initial-scratch-message ";; M-x org-remember-view `C-c_r_c'\n")
+
 
 ;; Disable menus and scroll-bars
 (tool-bar-mode -1)
