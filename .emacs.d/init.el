@@ -501,9 +501,9 @@
 (load (expand-file-name "YT.el" user-emacs-directory))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; my own package
-(require 'remember-org)
-(remember-org-mode 1)
-
-
-
+;; my own packages
+(require 'org-remember)
+(org-remember-mode 1)
+(global-set-key (kbd "C-c r c") 'org-remember-capture)
+(global-set-key (kbd "C-c r v") 'org-remember-view)
+(global-set-key (kbd "C-c r s") 'org-remember-search)
