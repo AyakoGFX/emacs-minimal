@@ -4,6 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi))
+ '(custom-safe-themes
+   '("09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93"
+     default))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
  '(package-selected-packages
@@ -12,7 +15,8 @@
 	   jumplist keycast lua-mode magit marginalia move-text
 	   nerd-icons-dired nix-mode orderless org-roam org-roam-ui
 	   ox-reveal simple-httpd sudo-edit vertico visual-fill-column
-	   vterm vundo websocket which-key xah-fly-keys))
+	   vterm vundo websocket which-key xah-fly-keys zenburn
+	   zenburn-theme))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

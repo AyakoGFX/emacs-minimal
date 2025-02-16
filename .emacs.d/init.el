@@ -23,6 +23,11 @@
                '(font . "JetBrainsMono Nerd Font-20")))
 
 
+(setq explicit-shell-file-name "/run/current-system/sw/bin/bash")
+(setq explicit-bash-args '("--login" "-i"))
+(setq term-shell "/run/current-system/sw/bin/bash")
+(setq shell-file-name "/run/current-system/sw/bin/bash")
+
 ;; (set-face-attribute 'default nil :font "Courier New" :height 160) ;; fow windows
 
 ;; (blink-cursor-mode -1) ;; Disable cursor blinking
@@ -32,15 +37,15 @@
 (global-hl-line-mode 1)
 ;; Remove lame startup screen
 (setq inhibit-startup-message t)
-(setq initial-scratch-message "M-x remember-notes
-
-
-")
+(setq initial-scratch-message "M-x remember-notes\n")
 
 ;; Disable menus and scroll-bars
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; (use-package zenburn-theme
+;;   :ensure t)
 
 ;; Disable bell
 (setq ring-bell-function 'ignore)
@@ -491,12 +496,14 @@
         (setq counter (1+ counter))))
     (message "Replaced '%s' with numbers!" target)))
 
-
-
 (load (expand-file-name "lsp.el" user-emacs-directory))
 (load (expand-file-name "Note.el" user-emacs-directory))
 (load (expand-file-name "YT.el" user-emacs-directory))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; my own package
+(require 'remember-org)
+(remember-org-mode 1)
 
 
 
