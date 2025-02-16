@@ -1,6 +1,0 @@
-#+TITLE: Remembered Notes
-#+DATE: Created on 2025-02-16
-#+STARTUP: showeverything
-
-* [2025-02-16 Sun 19:35]
-install emacs in macos

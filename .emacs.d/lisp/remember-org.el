@@ -36,8 +36,9 @@ By default, this is 'remember.org' in your Emacs user directory."
   :type 'file
   :group 'remember-org)
 
-(defcustom remember-org-time-format "[%Y-%m-%d %a %H:%M]"
+(defcustom remember-org-time-format "[%Y-%m-%d %a %I:%M %p]"
   "Format for timestamps in remembered notes.
+Uses 12-hour clock with AM/PM indicator.
 See `format-time-string' for possible formats."
   :type 'string
   :group 'remember-org)
@@ -80,7 +81,7 @@ See `format-time-string' for possible formats."
   (unless (file-exists-p remember-org-file)
     (with-current-buffer (find-file-noselect remember-org-file)
       (insert "#+TITLE: Remembered Notes\n")
-      (insert "#+DATE: Created on " (format-time-string "%Y-%m-%d") "\n")
+      ;; (insert "#+DATE: Created on " (format-time-string "%Y-%m-%d") "\n")
       (insert "#+STARTUP: showeverything\n\n")
       (save-buffer))))
 
