@@ -52,21 +52,56 @@ See `format-time-string' for possible formats."
   :group 'org-remember)
 
 ;;;###autoload
+;;(defun org-remember-capture ()
+;;  "Capture a new remembered note with timestamp."
+;;  (interactive)
+;;  (let ((note (read-string "Remember: ")))
+;;    (with-current-buffer (find-file-noselect org-remember-file)
+;;      (goto-char (point-max))
+;;      (unless (bolp) (insert "\n"))
+;;      (insert (replace-regexp-in-string
+;;               "%t" (format-time-string org-remember-time-format)
+;;               (replace-regexp-in-string
+;;                "%i" note
+;;                org-remember-capture-template)))
+;;      (save-buffer))
+;;    (message "Remembered in %s (in your Emacs directory)" 
+;;             (file-name-nondirectory org-remember-file))))
+
+
 (defun org-remember-capture ()
-  "Capture a new remembered note with timestamp."
+  "Capture a new remembered note in a pop-up buffer."
   (interactive)
-  (let ((note (read-string "Remember: ")))
+  (let ((buffer (get-buffer-create "*Org Remember*")))
+    (with-current-buffer buffer
+      (erase-buffer)
+      (insert (format-time-string org-remember-time-format) "\n\n")
+      (org-mode)
+      (use-local-map (let ((map (copy-keymap org-mode-map)))
+                       (define-key map (kbd "C-c C-c") #'org-remember-save)
+                       (define-key map (kbd "C-c C-k") #'org-remember-cancel)
+                       map)))
+    (pop-to-buffer buffer '(display-buffer-pop-up-window))))
+
+(defun org-remember-save ()
+  "Save the remembered note and close the capture buffer."
+  (interactive)
+  (let ((note (buffer-string)))
     (with-current-buffer (find-file-noselect org-remember-file)
       (goto-char (point-max))
       (unless (bolp) (insert "\n"))
-      (insert (replace-regexp-in-string
-               "%t" (format-time-string org-remember-time-format)
-               (replace-regexp-in-string
-                "%i" note
-                org-remember-capture-template)))
-      (save-buffer))
-    (message "Remembered in %s (in your Emacs directory)" 
-             (file-name-nondirectory org-remember-file))))
+      (insert "* " note "\n")
+      (save-buffer)))
+  (quit-window t)
+  (message "Note saved in %s" (file-name-nondirectory org-remember-file)))
+
+(defun org-remember-cancel ()
+  "Cancel note-taking and close the buffer."
+  (interactive)
+  (quit-window t)
+  (message "Note canceled."))
+
+
 
 ;;;###autoload
 (defun org-remember-view ()

@@ -500,7 +500,10 @@
 (load (expand-file-name "lsp.el" user-emacs-directory))
 (load (expand-file-name "Note.el" user-emacs-directory))
 (load (expand-file-name "YT.el" user-emacs-directory))
+(load (expand-file-name "Erc.el" user-emacs-directory))
+(load (expand-file-name "elfeed.el" user-emacs-directory))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
 
 ;; my own packages
 (require 'org-remember)

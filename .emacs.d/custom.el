@@ -11,12 +11,12 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    '(calfw calfw-org casual-suite company company-mode consult corfu deft
-	   denote denote-menu diredfl goto-last-change jinx jump-tree
-	   jumplist keycast lua-mode magit marginalia move-text
-	   nerd-icons-dired nix-mode orderless org-roam org-roam-ui
-	   ox-reveal simple-httpd sudo-edit vertico visual-fill-column
-	   vterm vundo websocket which-key xah-fly-keys zenburn
-	   zenburn-theme))
+	   denote denote-menu diredfl elfeed-autotag goto-last-change
+	   jinx jump-tree jumplist keycast lua-mode magit marginalia
+	   move-text nerd-icons-dired nix-mode orderless org-roam
+	   org-roam-ui ox-reveal simple-httpd sudo-edit vertico
+	   visual-fill-column vterm vundo websocket which-key
+	   xah-fly-keys zenburn zenburn-theme))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
