@@ -5,18 +5,12 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-vivendi))
  '(custom-safe-themes
-   '("09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93"
+   '("5bf1afc14ac2e3379f1acc7a9390da62eba0333a76faf289b9e7a7c28ed4b8fd"
+     "09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93"
      default))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
- '(package-selected-packages
-   '(calfw calfw-org casual-suite company company-mode consult corfu deft
-	   denote denote-menu diredfl elfeed-autotag goto-last-change
-	   jinx jump-tree jumplist keycast lua-mode magit marginalia
-	   move-text nerd-icons-dired nix-mode orderless org-roam
-	   org-roam-ui ox-reveal simple-httpd sudo-edit vertico
-	   visual-fill-column vterm vundo websocket which-key
-	   xah-fly-keys zenburn zenburn-theme))
+ '(package-selected-packages nil)
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -3,3 +3,11 @@ emacs music played "EMMS emacs"
 * [2025-02-19 Wed 03:27:07 PM]
 https://github.com/Wilfred/helpful
 
+* [2025-02-19 Wed 04:08:03 PM]
+
+Thunderbird vs Emacs Email
+- https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
+
+* [2025-02-21 Fri 05:16:45 AM]
+
+NixOS best practices

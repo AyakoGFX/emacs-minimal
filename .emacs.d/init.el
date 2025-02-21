@@ -1,3 +1,10 @@
+;; * Emacs Reference Config i use
+;; https://github.com/systematician/emacs-web-dev/blob/master/init.el
+;; https://github.com/seagle0128/.emacs.d?tab=readme-ov-file#manual
+;; https://github.com/Bugswriter/.emacs.d/blob/master/config.org
+;; https://github.com/Bugswriter/BugsWritersEmacs
+;; https://github.com/doomemacs/doomemacs
+;; https://gitlab.com/Clsmith1/dotfiles
 (require 'package)
 (setq package-enable-at-startup nil)
 
@@ -44,6 +51,9 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+
+(use-package notink-theme
+  :ensure t)
 
 ;; (use-package zenburn-theme
 ;;   :ensure t)
@@ -502,6 +512,7 @@
 (load (expand-file-name "YT.el" user-emacs-directory))
 (load (expand-file-name "Erc.el" user-emacs-directory))
 (load (expand-file-name "elfeed.el" user-emacs-directory))
+(load (expand-file-name "treesit.el" user-emacs-directory))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 
@@ -511,3 +522,4 @@
 (global-set-key (kbd "C-c r c") 'org-remember-capture)
 (global-set-key (kbd "C-c r v") 'org-remember-view)
 (global-set-key (kbd "C-c r s") 'org-remember-search)
+
