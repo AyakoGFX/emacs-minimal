@@ -23,3 +23,26 @@ dexter 4:2 32:16
 
 https://github.com/Zyphra/Zonos/issues/135
 
+* [2025-02-22 Sat 04:41:02 PM]
+https://github.com/susam/devil
+emacs in android devil-mode in termux
+https://www.youtube.com/live/WcDhmW3gB4A?si=9KQQP98lOz80wfKH&t=1001
+
+* [2025-02-22 Sat 05:23:55 PM]
+
+https://youtu.be/IifoxBN1wDY?si=1V_hF_nGTtOmA7CG
+
+
+* [2025-02-22 Sat 05:32:44 PM]
+
+https://github.com/jdtsmith/ultra-scroll.git
+
+* [2025-02-22 Sat 05:40:32 PM]
+
+emacs completion preview mode
+
+https://www.youtube.com/live/WcDhmW3gB4A?si=SHdvoksKvDzRknZw&t=3549
+* [2025-02-22 Sat 05:42:35 PM]
+
+fido emacs
+http://xahlee.info/emacs/emacs/emacs_fido_mode.html

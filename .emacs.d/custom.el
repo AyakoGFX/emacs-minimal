@@ -10,6 +10,8 @@
      default))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
+ '(org-safe-remote-resources
+   '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
  '(package-selected-packages nil)
  '(tool-bar-mode nil))
 (custom-set-faces

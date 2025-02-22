@@ -37,7 +37,7 @@
   (setq denote-backlinks-show-context t)
   (add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe)
   (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
-
+;; (add-hook 'dired-mode-hook #'denote-dired-mode) ;; on in dired
   (denote-rename-buffer-mode 1)
 
   (let ((map global-map))

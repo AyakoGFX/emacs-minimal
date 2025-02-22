@@ -86,16 +86,19 @@
 (use-package dired
   :ensure nil
   :config ; Guess a default target directory
+  (setq dired-mouse-drag-files t)
   (setq dired-dwim-target t)
   ;; Always delete and copy recursively
   (setq dired-recursive-deletes 'always
 	dired-recursive-copies 'always)
   ;; Show directory first
   (setq dired-listing-switches "-alh --group-directories-first"))
+
 ;; Hide the details in dired
-(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
-(add-hook 'dired-mode-hook (lambda () (denote-dired-mode 1)))
-(setq dired-mouse-drag-files t)
+;; (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
+(add-hook 'dired-mode-hook #'dired-hide-details-mode) ;; on in dired
+
+
 (use-package dired-x
    :demand t
    :config
@@ -120,15 +123,6 @@
 (use-package diredfl
   :ensure t
   :hook (dired-mode . diredfl-mode))
-
-(use-package nerd-icons-dired
-  :ensure t
-  :diminish
-  :if (featurep 'all-the-icons)
-  :custom-face
-  (nerd-icons-dired-dir-face ((t (:inherit nerd-icons-dsilver :foreground unspecified))))
-  :hook (dired-mode . nerd-icons-dired-mode))
-
 
   (use-package which-key
     :ensure t
