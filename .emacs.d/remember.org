@@ -11,3 +11,15 @@ Thunderbird vs Emacs Email
 * [2025-02-21 Fri 05:16:45 AM]
 
 NixOS best practices
+* [2025-02-22 Sat 05:00:12 AM]
+
+dexter 4:2 32:16
+* [2025-02-22 Sat 02:20:10 PM]
+
+- dired-preview.el
+  https://protesilaos.com/emacs/dired-preview
+
+* [2025-02-22 Sat 02:26:57 PM]
+
+https://github.com/Zyphra/Zonos/issues/135
+
