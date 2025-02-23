@@ -46,3 +46,6 @@ https://www.youtube.com/live/WcDhmW3gB4A?si=SHdvoksKvDzRknZw&t=3549
 
 fido emacs
 http://xahlee.info/emacs/emacs/emacs_fido_mode.html
+* [2025-02-23 Sun 06:00:45 PM]
+
+learn about =fd= (Simple, fast and user-friendly alternative to find) 
