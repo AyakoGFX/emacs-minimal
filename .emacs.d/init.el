@@ -480,7 +480,6 @@
   :hook
   (org-mode . visual-line-mode))
 
-
 ;; nixos
  (require 'tramp-sh)
  (setq tramp-remote-path
@@ -488,6 +487,21 @@
   	       '(tramp-own-remote-path)))
 
 ;; my/func
+
+(defun my/toggle-org-fundamental-mode ()
+  "Toggle between `org-mode` and `fundamental-mode`.
+This function only works when the current buffer is in `org-mode` or `fundamental-mode`."
+  (interactive)
+  (cond
+   ((eq major-mode 'org-mode)   ; If in org-mode, switch to fundamental-mode
+    (fundamental-mode))
+   ((eq major-mode 'fundamental-mode)  ; If in fundamental-mode, switch to org-mode
+    (org-mode))
+   (t  ; Otherwise, do nothing
+    (message "This function only works in `org-mode` or `fundamental-mode`."))))
+
+;; Bind the function to F4
+(global-set-key (kbd "<f4>") 'my/toggle-org-fundamental-mode)
 
 (defun replace-with-numbers ()
   "Prompt the user for a string to replace with incrementing numbers across the entire buffer."

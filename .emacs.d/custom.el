@@ -12,7 +12,12 @@
  '(menu-bar-mode nil)
  '(org-safe-remote-resources
    '("\\`https://fniessen\\.github\\.io/org-html-themes/org/theme-readtheorg\\.setup\\'"))
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(calfw calfw-org casual-suite company consult deft denote-menu
+	   diredfl elfeed-autotag emojify erc-hl-nicks erc-image jinx
+	   keycast lua-mode magit marginalia move-text nix-mode
+	   notink-theme orderless org-roam-ui ox-reveal sudo-edit
+	   treesit-auto vertico visual-fill-column vterm vundo yeetube))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
