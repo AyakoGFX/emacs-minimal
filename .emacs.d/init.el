@@ -5,9 +5,9 @@
 ;; https://github.com/Bugswriter/BugsWritersEmacs
 ;; https://github.com/doomemacs/doomemacs
 ;; https://gitlab.com/Clsmith1/dotfiles
+;; https://github.com/daviwil
 (require 'package)
 (setq package-enable-at-startup nil)
-
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("elpa-devel" . "https://elpa.gnu.org/devel/")
@@ -85,12 +85,18 @@
 
 (use-package dired
   :ensure nil
+  :bind (:map dired-mode-map
+              ("b" . dired-up-directory))
   :config ; Guess a default target directory
-  (setq dired-mouse-drag-files t)
-  (setq dired-dwim-target t)
-  ;; Always delete and copy recursively
-  (setq dired-recursive-deletes 'always
-	dired-recursive-copies 'always)
+  (setq dired-mouse-drag-files t
+	dired-dwim-target t
+	dired-omit-verbose nil
+	delete-by-moving-to-trash t
+        dired-recursive-deletes 'always
+	dired-recursive-copies 'always
+	dired-hide-details-hide-symlink-targets nil
+	dired-kill-when-opening-new-dired-buffer t)
+	
   ;; Show directory first
   (setq dired-listing-switches "-alh --group-directories-first"))
 
@@ -479,6 +485,18 @@
   :ensure nil
   :hook
   (org-mode . visual-line-mode))
+
+(use-package 0x0
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c 0 o") #'0x0-dwim)
+  (global-set-key (kbd "C-c 0 t") #'0x0-upload-text)
+  (global-set-key (kbd "C-c 0 f") #'0x0-upload-file)
+  (global-set-key (kbd "C-c 0 k") #'0x0-upload-kill-ring)
+  (global-set-key (kbd "C-c 0 p") #'0x0-popup)
+  (global-set-key (kbd "C-c 0 s") #'0x0-shorten-uri))
+
+
 
 ;; nixos
  (require 'tramp-sh)
