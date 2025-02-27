@@ -55,3 +55,4 @@
 (load "~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/org.el")
+(load "~/.emacs.d/moduals/latex.el")
