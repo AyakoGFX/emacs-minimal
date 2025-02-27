@@ -1,3 +1,8 @@
+ ;; Colorful dired
+(use-package diredfl
+  :ensure t)
+;; (add-hook 'dired-mode-hook #'diredfl-mode)
+
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
@@ -39,7 +44,4 @@
 	      ("\\.html?\\'" ,cmd)
 	      ("\\.md\\'" ,cmd)))))
 
-     ;; Colorful dired
-(use-package diredfl
-  :ensure t
-  :hook (dired-mode . diredfl-mode))
+

@@ -15,7 +15,6 @@ https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
 * [2025-02-21 Fri 05:16:45 AM]
 NixOS best practices
 
-
 * [2025-02-22 Sat 02:20:10 PM]
 - dired-preview.el
   https://protesilaos.com/emacs/dired-preview
