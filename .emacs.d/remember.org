@@ -1,26 +1,26 @@
+#+TITLE: Remembered Notes
+#+DATE: Created on 2025-02-27
+#+STARTUP: showeverything
+
 * [2025-02-19 Wed 03:26:38 PM]
 emacs music played "EMMS emacs"
+
 * [2025-02-19 Wed 03:27:07 PM]
 https://github.com/Wilfred/helpful
 
 * [2025-02-19 Wed 04:08:03 PM]
-
 Thunderbird vs Emacs Email
-- https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
+https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
 
 * [2025-02-21 Fri 05:16:45 AM]
-
 NixOS best practices
-* [2025-02-22 Sat 05:00:12 AM]
 
-dexter 4:2 32:16
+
 * [2025-02-22 Sat 02:20:10 PM]
-
 - dired-preview.el
   https://protesilaos.com/emacs/dired-preview
 
 * [2025-02-22 Sat 02:26:57 PM]
-
 https://github.com/Zyphra/Zonos/issues/135
 
 * [2025-02-22 Sat 04:41:02 PM]
@@ -29,32 +29,27 @@ emacs in android devil-mode in termux
 https://www.youtube.com/live/WcDhmW3gB4A?si=9KQQP98lOz80wfKH&t=1001
 
 * [2025-02-22 Sat 05:23:55 PM]
-
 https://youtu.be/IifoxBN1wDY?si=1V_hF_nGTtOmA7CG
 
-
 * [2025-02-22 Sat 05:32:44 PM]
-
 https://github.com/jdtsmith/ultra-scroll.git
 
 * [2025-02-22 Sat 05:40:32 PM]
-
 emacs completion preview mode
 
 https://www.youtube.com/live/WcDhmW3gB4A?si=SHdvoksKvDzRknZw&t=3549
 * [2025-02-22 Sat 05:42:35 PM]
-
 fido emacs
 http://xahlee.info/emacs/emacs/emacs_fido_mode.html
+
 * [2025-02-23 Sun 06:00:45 PM]
-
 learn about =fd= (Simple, fast and user-friendly alternative to find) 
+
 * [2025-02-26 Wed 06:52:44 PM]
-
 regnumidiotaes search in teligram museleni
+
 * [2025-02-26 Wed 11:33:44 PM]
-
 https://github.com/kakakaya/random-splash-image
-* [2025-02-26 Wed 11:35:24 PM]
 
+* [2025-02-26 Wed 11:35:24 PM]
 Image-Dired
