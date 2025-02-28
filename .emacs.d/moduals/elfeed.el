@@ -1,6 +1,6 @@
 (use-package elfeed-autotag
   :ensure t)
-
+(setq elfeed-search-title-max-width 100)
 (setq elfeed-feeds (quote
                     (("https://www.reddit.com/r/linux.rss" reddit linux)
                      ("https://www.reddit.com/r/commandline.rss" reddit commandline)
@@ -19,3 +19,28 @@
                      ("https://www.techrepublic.com/rssfeeds/topic/open-source/" techrepublic linux)
                      ("https://betanews.com/feed" betanews linux)
                      ("http://lxer.com/module/newswire/headlines.rss" lxer linux))))
+
+(defun my/elfeed-print-entry (entry)
+  "Custom Elfeed entry display without tags and feed name, keeping colors."
+  (let* ((title (elfeed-entry-title entry))
+         (date (elfeed-search-format-date (elfeed-entry-date entry)))
+         (tags (elfeed-entry-tags entry))
+         (unread (memq 'unread tags))
+         (title-faces (if unread '(elfeed-search-title-face bold) 'elfeed-search-title-face))
+         (date-faces 'elfeed-search-date-face))
+    (insert (propertize date 'face date-faces) "  "
+            (propertize title 'face title-faces))))
+
+(setq elfeed-search-print-entry-function #'my/elfeed-print-entry)
+
+
+
+
+
+
+
+
+
+
+
+

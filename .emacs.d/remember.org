@@ -52,3 +52,11 @@ https://github.com/kakakaya/random-splash-image
 
 * [2025-02-26 Wed 11:35:24 PM]
 Image-Dired
+
+* [2025-02-28 Fri 03:27:29 AM]
+- WTF is is magic-wormhole look in to this if interested,
+  Description = get things from one computer to another, safely 
+* [2025-02-28 Fri 03:32:09 AM]
+- Term Utilities
+  ncdu,duf
+
