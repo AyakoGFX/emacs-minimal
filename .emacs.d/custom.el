@@ -12,13 +12,7 @@
      "cbd85ab34afb47003fa7f814a462c24affb1de81ebf172b78cb4e65186ba59d2"
      "8f5b54bf6a36fe1c138219960dd324aad8ab1f62f543bed73ef5ad60956e36ae"
      default))
- '(package-selected-packages
-   '(0x0 almost-mono-themes auctex casual-suite company consult
-	 denote-menu diredfl doom-themes elfeed-autotag emojify
-	 erc-hl-nicks erc-image gruvbox-theme jinx lsp-latex lua-mode
-	 magit marginalia move-text nix-mode notink-theme orderless
-	 org-tempo sudo-edit vertico vscode-dark-plus-theme vterm
-	 vundo yasnippet zenburn-theme)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
