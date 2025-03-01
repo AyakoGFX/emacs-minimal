@@ -6,12 +6,18 @@
 (use-package eglot
   :ensure t
   :commands (eglot))
+(add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1))) ;; off inlay hints 
+
 (add-hook 'c-mode-hook 'eglot-ensure)        ;; C
 (add-hook 'c++-mode-hook 'eglot-ensure)      ;; C++
 (add-hook 'LaTeX-mode 'eglot-ensure)        ;; latex
 (add-hook 'bibtex-mode-hook 'eglot-ensure)
-;;  (add-hook 'python-mode-hook 'eglot-ensure)   ;; Python
 
+
+(use-package eldoc-box
+  :ensure t)
+(global-set-key (kbd "C-c h") 'eldoc-box-help-at-point)
+(add-hook 'eglot-managed-mode-hook #'eldoc-mode)
 
 (defvar eglot-prefix-map (make-sparse-keymap)
   "Keymap for Eglot commands.")

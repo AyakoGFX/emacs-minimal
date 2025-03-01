@@ -4,15 +4,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(modus-vivendi))
+ '(custom-enabled-themes '(doom-nord))
  '(custom-safe-themes
-   '("3061706fa92759264751c64950df09b285e3a2d3a9db771e99bcbb2f9b470037"
+   '("34cf3305b35e3a8132a0b1bdf2c67623bc2cb05b125f8d7d26bd51fd16d547ec"
+     "d481904809c509641a1a1f1b1eb80b94c58c210145effc2631c1a7f2e4a2fdf4"
+     "3061706fa92759264751c64950df09b285e3a2d3a9db771e99bcbb2f9b470037"
      "0325a6b5eea7e5febae709dab35ec8648908af12cf2d2b569bedc8da0a3a81c1"
      "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8"
      "cbd85ab34afb47003fa7f814a462c24affb1de81ebf172b78cb4e65186ba59d2"
      "8f5b54bf6a36fe1c138219960dd324aad8ab1f62f543bed73ef5ad60956e36ae"
      default))
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(0x0 almost-mono-themes auctex casual-suite company denote-menu
+	 diredfl doom-themes eldoc-box elfeed-autotag emojify
+	 erc-hl-nicks erc-image gruvbox-theme jinx lsp-latex lua-mode
+	 magit marginalia move-text nix-mode notink-theme orderless
+	 sudo-edit vertico vscode-dark-plus-theme vundo yasnippet
+	 zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
