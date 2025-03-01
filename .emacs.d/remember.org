@@ -60,3 +60,14 @@ Image-Dired
 - Term Utilities
   ncdu,duf
 
+* [2025-03-02 Sun 01:38:18 AM]
+- dogears.el
+  https://github.com/alphapapa/dogears.el.git
+
+* [2025-03-02 Sun 01:41:14 AM]
+ergoemacs-mode
+
+* [2025-03-02 Sun 01:44:28 AM]
+- Compiling LaTeX document with AucTeX with a single comman d
+  https://www.reddit.com/r/emacs/comments/1iyz6wt/compiling_latex_document_with_auctex_with_a/
+

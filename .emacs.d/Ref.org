@@ -1,0 +1,16 @@
+https://github.com/systematician/emacs-web-dev/blob/master/init.el
+https://github.com/seagle0128/.emacs.d?tab=readme-ov-file#manual
+https://github.com/Bugswriter/.emacs.d/blob/master/config.org
+https://github.com/Bugswriter/BugsWritersEmacs
+https://github.com/doomemacs/doomemacs
+https://gitlab.com/Clsmith1/dotfiles
+https://github.com/daviwil
+
+- Minimal
+  https://sr.ht/~ashton314/emacs-bedrock/
+  https://github.com/LionyxML/emacs-kick
+  https://github.com/SystemCrafters/crafted-emacs
+  https://github.com/jamescherti/minimal-emacs.d
+  https://codeberg.org/ashton314/emacs-bedrock
+ 
+
