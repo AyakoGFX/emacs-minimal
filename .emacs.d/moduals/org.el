@@ -1,3 +1,6 @@
+;; Hide Org emphasis markers for cleaner display
+(setq org-hide-emphasis-markers t)
+
 (custom-set-faces
  ;; Font sizes and colors for Org mode headers using theme colors
  '(org-level-1 ((t (:height 1.4  :inherit outline-1 ultra-bold))))

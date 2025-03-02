@@ -34,9 +34,9 @@ https://youtu.be/IifoxBN1wDY?si=1V_hF_nGTtOmA7CG
 https://github.com/jdtsmith/ultra-scroll.git
 
 * [2025-02-22 Sat 05:40:32 PM]
-emacs completion preview mode
-
+Emacs completion preview mode
 https://www.youtube.com/live/WcDhmW3gB4A?si=SHdvoksKvDzRknZw&t=3549
+
 * [2025-02-22 Sat 05:42:35 PM]
 fido emacs
 http://xahlee.info/emacs/emacs/emacs_fido_mode.html
@@ -50,12 +50,14 @@ regnumidiotaes search in teligram museleni
 * [2025-02-26 Wed 11:33:44 PM]
 https://github.com/kakakaya/random-splash-image
 
+
 * [2025-02-26 Wed 11:35:24 PM]
 Image-Dired
 
 * [2025-02-28 Fri 03:27:29 AM]
 - WTF is is magic-wormhole look in to this if interested,
   Description = get things from one computer to another, safely 
+
 * [2025-02-28 Fri 03:32:09 AM]
 - Term Utilities
   ncdu,duf
@@ -70,4 +72,15 @@ ergoemacs-mode
 * [2025-03-02 Sun 01:44:28 AM]
 - Compiling LaTeX document with AucTeX with a single comman d
   https://www.reddit.com/r/emacs/comments/1iyz6wt/compiling_latex_document_with_auctex_with_a/
+
+* [2025-03-02 Sun 04:14:34 PM]
+how to stop charging laptop battery at 80 nixos
+* [2025-03-02 Sun 05:06:10 PM]
+- Black Arch Distro
+  https://blackarch.org/
+
+* [2025-03-02 Sun 05:27:23 PM]
+- How to use GenP 
+  https://www.reddit.com/r/GenP/
+  https://youtu.be/Av57XP29jho?si=CEWnSPsLB1V0GdIk
 

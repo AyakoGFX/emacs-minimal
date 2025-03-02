@@ -4,9 +4,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-nord))
+ '(custom-enabled-themes '(modus-vivendi))
  '(custom-safe-themes
-   '("ffba0482d3548c9494e84c1324d527f73ea4e43fff8dfd0e48faa8fc6d5c2bc7"
+   '("df6dfd55673f40364b1970440f0b0cb8ba7149282cf415b81aaad2d98b0f0290"
+     "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19"
+     "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c"
+     "09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93"
+     "ffba0482d3548c9494e84c1324d527f73ea4e43fff8dfd0e48faa8fc6d5c2bc7"
      "571661a9d205cb32dfed5566019ad54f5bb3415d2d88f7ea1d00c7c794e70a36"
      "e4a702e262c3e3501dfe25091621fe12cd63c7845221687e36a79e17cf3a67e0"
      "30d174000ea9cbddecd6cc695943afb7dba66b302a14f9db5dd65074e70cc744"
@@ -30,10 +34,10 @@
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex casual-suite company denote-menu
 	 diredfl doom-themes eldoc-box elfeed-autotag emojify
-	 erc-hl-nicks erc-image gruvbox-theme jinx lsp-latex lua-mode
-	 magit marginalia move-text nix-mode notink-theme orderless
-	 sudo-edit vertico vscode-dark-plus-theme vundo yasnippet
-	 zenburn-theme)))
+	 erc-hl-nicks erc-image gruvbox-theme helpful jinx lsp-latex
+	 lua-mode magit marginalia move-text nix-mode notink-theme
+	 orderless sudo-edit vertico vscode-dark-plus-theme vundo
+	 yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -14,3 +14,10 @@ https://github.com/daviwil
   https://codeberg.org/ashton314/emacs-bedrock
  
 
+_Emacs_
++Emacs+
+/Emacs/
+
+#+begin_src emacs-lisp
+(setq org-hide-emphasis-markers t)
+#+end_src
