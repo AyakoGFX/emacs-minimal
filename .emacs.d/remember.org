@@ -84,3 +84,7 @@ how to stop charging laptop battery at 80 nixos
   https://www.reddit.com/r/GenP/
   https://youtu.be/Av57XP29jho?si=CEWnSPsLB1V0GdIk
 
+* [2025-03-03 Mon 03:31:20 AM]
+
+- configuring eww https://youtu.be/xSBStpCtCVw?si=rdebwgNYUkrTyUcC
+  https://github.com/LennyHirsch/dotfiles.git
