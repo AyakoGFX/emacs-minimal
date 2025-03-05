@@ -53,8 +53,8 @@
 (load "~/.emacs.d/moduals/note.el")
 (load "~/.emacs.d/moduals/org.el")
 ;; (load "~/.emacs.d/moduals/os.el")
-(load "~/.emacs.d/moduals/shell.el")
 (load "~/.emacs.d/moduals/spell.el")
+(load "~/.emacs.d/moduals/shell.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/trans.el")
 

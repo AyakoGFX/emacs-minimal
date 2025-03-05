@@ -34,10 +34,10 @@
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex casual-suite company denote-menu
 	 diredfl doom-themes eldoc-box elfeed-autotag emojify
-	 erc-hl-nicks erc-image gruvbox-theme helpful jinx lsp-latex
-	 lua-mode magit marginalia move-text nix-mode notink-theme
-	 orderless sudo-edit vertico vscode-dark-plus-theme vundo
-	 yasnippet zenburn-theme)))
+	 erc-hl-nicks erc-image flyspell-correct gruvbox-theme helpful
+	 jinx lsp-latex lua-mode magit marginalia move-text nix-mode
+	 notink-theme orderless sudo-edit vertico
+	 vscode-dark-plus-theme vundo yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

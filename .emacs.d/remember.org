@@ -88,3 +88,6 @@ how to stop charging laptop battery at 80 nixos
 
 - configuring eww https://youtu.be/xSBStpCtCVw?si=rdebwgNYUkrTyUcC
   https://github.com/LennyHirsch/dotfiles.git
+* [2025-03-05 Wed 03:41:01 AM]
+[[https://youtu.be/O0xpTtdPD4w?si=4MT2K-RQyMusNzwj][Convert Images to ASCII Art in Linux Terminal]]
+
