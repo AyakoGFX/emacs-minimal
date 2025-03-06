@@ -89,6 +89,13 @@
   ;; `context-menu-mode'.
   (add-hook 'context-menu-functions #'denote-context-menu)
 
+
+;; (use-package consult-denote
+;;   :ensure t)
+;; (define-key global-map (kbd "C-c d f") #'consult-denote-find)
+;; (define-key global-map (kbd "C-c d g") #'consult-denote-grep)
+;; (consult-denote-mode 1)
+
   (use-package denote-menu
     :ensure t)
   (setq denote-menu-title-column-width 60) ;; <-- default is 85

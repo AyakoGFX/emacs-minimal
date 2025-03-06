@@ -15,6 +15,7 @@
 (use-package flyspell-correct
   :ensure t)
 (define-key flyspell-mode-map (kbd "C-=") #'flyspell-correct-wrapper)
+(global-set-key (kbd "C-+") 'flyspell-buffer)
 
 (setq ispell-program-name "hunspell")
 (setq ispell-dictionary "en_US") ;; Change to your preferred language
