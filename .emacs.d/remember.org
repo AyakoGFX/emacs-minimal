@@ -50,7 +50,6 @@ regnumidiotaes search in teligram museleni
 * [2025-02-26 Wed 11:33:44 PM]
 https://github.com/kakakaya/random-splash-image
 
-
 * [2025-02-26 Wed 11:35:24 PM]
 Image-Dired
 
@@ -91,3 +90,8 @@ how to stop charging laptop battery at 80 nixos
 * [2025-03-05 Wed 03:41:01 AM]
 [[https://youtu.be/O0xpTtdPD4w?si=4MT2K-RQyMusNzwj][Convert Images to ASCII Art in Linux Terminal]]
 
+* [2025-03-07 Fri 01:40:14 AM]
+** TODO hyprland resize window with keybindings
+* [2025-03-07 Fri 01:45:49 AM]
+Standalone Monocle Layout hyprland
+https://github.com/hyprwm/Hyprland/issues/2050
