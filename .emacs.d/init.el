@@ -56,7 +56,7 @@
 (load "~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/shell.el")
 (load "~/.emacs.d/moduals/themes.el")
-(load "~/.emacs.d/moduals/trans.el")
+;; (load "~/.emacs.d/moduals/trans.el")
 
 
 

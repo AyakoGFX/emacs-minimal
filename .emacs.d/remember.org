@@ -7,7 +7,7 @@ emacs music played "EMMS emacs"
 
 * [2025-02-19 Wed 03:27:07 PM]
 https://github.com/Wilfred/helpful
-
+    
 * [2025-02-19 Wed 04:08:03 PM]
 Thunderbird vs Emacs Email
 https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
@@ -74,6 +74,7 @@ ergoemacs-mode
 
 * [2025-03-02 Sun 04:14:34 PM]
 how to stop charging laptop battery at 80 nixos
+
 * [2025-03-02 Sun 05:06:10 PM]
 - Black Arch Distro
   https://blackarch.org/
@@ -91,7 +92,8 @@ how to stop charging laptop battery at 80 nixos
 [[https://youtu.be/O0xpTtdPD4w?si=4MT2K-RQyMusNzwj][Convert Images to ASCII Art in Linux Terminal]]
 
 * [2025-03-07 Fri 01:40:14 AM]
-** TODO hyprland resize window with keybindings
+- TODO hyprland resize window with keybindings
+
 * [2025-03-07 Fri 01:45:49 AM]
 Standalone Monocle Layout hyprland
 https://github.com/hyprwm/Hyprland/issues/2050
