@@ -61,9 +61,17 @@
 ;; (load "~/.emacs.d/moduals/trans.el")
 
 (require 'org-link-desc)
-;; Define keybindings
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
+
+(require 'org-remember)
+(global-set-key (kbd "C-c r r") #'org-remember-capture)
+(global-set-key (kbd "C-c r v") #'org-remember-view)
+(global-set-key (kbd "C-c r s") #'org-remember-search)
+
+(require 'espeak)
+(global-set-key (kbd "C-c e") #'espeak-region)
+(global-set-key (kbd "C-c q") #'espeak-cancel)
 
 
 (use-package theme-magic
