@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: html doc
+# key: <!
+# --
+<!doctype html>
+<html>
+  <title>title</title>
+  <head></head>
+  <body>
+    <h1></h1>
+  </body>
+</html>

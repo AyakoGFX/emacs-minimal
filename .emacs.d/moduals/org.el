@@ -11,9 +11,8 @@
  '(org-level-6 ((t (:height 0.9  :inherit outline-6 normal))))
  '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
  '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
- ;; Add more levels and colors as needed
+ ;; more levels and colors as needed
  )
-
 
 ;; Block Templates
 ;; This is needed as of Org 9.2

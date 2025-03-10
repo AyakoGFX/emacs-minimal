@@ -52,11 +52,19 @@
 (load "~/.emacs.d/moduals/lsp.el")
 (load "~/.emacs.d/moduals/note.el")
 (load "~/.emacs.d/moduals/org.el")
-;; (load "~/.emacs.d/moduals/os.el")
 (load "~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/shell.el")
 (load "~/.emacs.d/moduals/themes.el")
+(load "~/.emacs.d/moduals/themes.el")
+(load "~/.emacs.d/moduals/display-buffer.el")
+;; (load "~/.emacs.d/moduals/os.el")
 ;; (load "~/.emacs.d/moduals/trans.el")
+
+(require 'org-link-desc)
+;; Define keybindings
+(define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
+(define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
+
 
 (use-package theme-magic
   :ensure t)

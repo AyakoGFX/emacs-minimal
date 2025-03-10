@@ -543,9 +543,15 @@ This function only works when the current buffer is in `org-mode` or `fundamenta
 
 
 ;; my own packages
+(require ')
+
 (require 'org-remember)
 (org-remember-mode 1)
 (global-set-key (kbd "C-c r c") 'org-remember-capture)
 (global-set-key (kbd "C-c r v") 'org-remember-view)
 (global-set-key (kbd "C-c r s") 'org-remember-search)
 
+
+(require 'espeak)
+(global-set-key (kbd "C-c e") 'espeak-region)
+(global-set-key (kbd "C-c q") 'espeak-cancel)

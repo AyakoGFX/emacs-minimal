@@ -2,7 +2,9 @@
   (global-set-key [mouse-8] #'previous-buffer)
   (global-set-key (kbd "M-1") 'previous-buffer)
   (global-set-key (kbd "M-2") 'next-buffer)
-  (global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-c f") #'find-file-at-point)
+
 
   (defun my/backward-kill-spaces-or-char-or-word ()
     (interactive)

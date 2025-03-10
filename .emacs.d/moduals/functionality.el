@@ -51,17 +51,6 @@
   (global-set-key (kbd "C-c 0 p") #'0x0-popup)
   (global-set-key (kbd "C-c 0 s") #'0x0-shorten-uri))
 
-(require 'org-remember)
-(org-remember-mode 1)
-(global-set-key (kbd "C-c r c") 'org-remember-capture)
-(global-set-key (kbd "C-c r v") 'org-remember-view)
-(global-set-key (kbd "C-c r s") 'org-remember-search)
-
-(require 'espeak)
-(global-set-key (kbd "C-c e") 'espeak-region)
-(global-set-key (kbd "C-c q") 'espeak-cancel)
-
-
 
 (use-package casual-suite
   :ensure t)
