@@ -97,3 +97,10 @@ how to stop charging laptop battery at 80 nixos
 * [2025-03-07 Fri 01:45:49 AM]
 Standalone Monocle Layout hyprland
 https://github.com/hyprwm/Hyprland/issues/2050
+* [2025-03-09 Sun 02:30:24 AM]
+- rebos
+  https://gitlab.com/Oglo12/rebos
+  https://gitlab.com/Oglo12/rebos-config
+
+* [2025-03-10 Mon 01:08:57 AM]
+colorful-mode.el

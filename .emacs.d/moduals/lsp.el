@@ -8,9 +8,9 @@
   :commands (eglot))
 (add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1))) ;; off inlay hints 
 
+(add-hook 'LaTeX-mode 'eglot-ensure)        ;; latex
 (add-hook 'c-mode-hook 'eglot-ensure)        ;; C
 (add-hook 'c++-mode-hook 'eglot-ensure)      ;; C++
-(add-hook 'LaTeX-mode 'eglot-ensure)        ;; latex
 (add-hook 'bibtex-mode-hook 'eglot-ensure)
 
 

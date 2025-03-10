@@ -4,9 +4,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(modus-vivendi))
+ '(custom-enabled-themes '(doom-gruvbox))
  '(custom-safe-themes
-   '("df6dfd55673f40364b1970440f0b0cb8ba7149282cf415b81aaad2d98b0f0290"
+   '("48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710"
+     "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
+     "df6dfd55673f40364b1970440f0b0cb8ba7149282cf415b81aaad2d98b0f0290"
      "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19"
      "ffafb0e9f63935183713b204c11d22225008559fa62133a69848835f4f4a758c"
      "09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93"
@@ -34,11 +36,12 @@
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex casual-suite company consult-denote
 	 denote-menu diredfl doom-themes eldoc-box elfeed-autotag
-	 emojify erc-hl-nicks erc-image flyspell-correct gruvbox-theme
-	 helpful jinx lsp-latex lua-mode magit marginalia move-text
-	 nix-mode notink-theme orderless sudo-edit vertico
-	 volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-	 yasnippet zenburn-theme)))
+	 emojify erc-hl-nicks erc-image ewal flyspell-correct
+	 gruvbox-theme helpful jinx lsp-latex lua-mode magit
+	 marginalia move-text nix-mode notink-theme orderless pywal
+	 sudo-edit theme-magic vertico volatile-highlights
+	 vscode-dark-plus-theme vundo xah-fly-keys yasnippet
+	 zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

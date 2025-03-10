@@ -58,5 +58,6 @@
 (load "~/.emacs.d/moduals/themes.el")
 ;; (load "~/.emacs.d/moduals/trans.el")
 
-
-
+(use-package theme-magic
+  :ensure t)
+(theme-magic-export-theme-mode 1)
