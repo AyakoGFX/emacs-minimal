@@ -73,6 +73,9 @@
 (global-set-key (kbd "C-c e") #'espeak-region)
 (global-set-key (kbd "C-c q") #'espeak-cancel)
 
+(use-package evil
+  :ensure t)
+(global-set-key (kbd "C-x /") #'evil-ex)
 
 (use-package theme-magic
   :ensure t)

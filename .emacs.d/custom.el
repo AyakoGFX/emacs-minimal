@@ -36,7 +36,7 @@
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex casual-suite company consult-denote
 	 denote-menu diredfl doom-themes eldoc-box elfeed-autotag
-	 emmet-mode emojify erc-hl-nicks erc-image ewal
+	 emmet-mode emojify erc-hl-nicks erc-image evil ewal
 	 flyspell-correct gruvbox-theme helpful jinx lsp-latex
 	 lua-mode magit marginalia move-text nix-mode notink-theme
 	 orderless pywal sudo-edit theme-magic vertico
