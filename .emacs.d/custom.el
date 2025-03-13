@@ -34,14 +34,15 @@
      "8f5b54bf6a36fe1c138219960dd324aad8ab1f62f543bed73ef5ad60956e36ae"
      default))
  '(package-selected-packages
-   '(0x0 almost-mono-themes auctex casual-suite company consult-denote
-	 denote-menu diredfl doom-themes eldoc-box elfeed-autotag
-	 emmet-mode emojify erc-hl-nicks erc-image evil ewal
-	 flyspell-correct gruvbox-theme helpful jinx lsp-latex
-	 lua-mode magit marginalia move-text nix-mode notink-theme
-	 orderless pywal sudo-edit theme-magic vertico
-	 volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-	 yasnippet zenburn-theme)))
+   '(0x0 almost-mono-themes auctex beframe casual-suite company
+	 consult-denote denote-menu diredfl doom-themes eldoc-box
+	 elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
+	 ewal expand-region flyspell-correct gruvbox-theme helpful
+	 jinx keycast lsp-latex lua-mode magit marginalia move-text
+	 multiple-cursors nix-mode notink-theme orderless pywal
+	 sudo-edit tabspaces theme-magic vertico volatile-highlights
+	 vscode-dark-plus-theme vundo xah-fly-keys yasnippet
+	 zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

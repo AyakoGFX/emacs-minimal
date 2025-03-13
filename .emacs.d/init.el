@@ -57,6 +57,7 @@
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/display-buffer.el")
+(load "~/.emacs.d/moduals/workspace.el")
 ;; (load "~/.emacs.d/moduals/os.el")
 ;; (load "~/.emacs.d/moduals/trans.el")
 
@@ -76,6 +77,9 @@
 (use-package evil
   :ensure t)
 (global-set-key (kbd "C-x /") #'evil-ex)
+
+(use-package keycast
+  :ensure t)
 
 (use-package theme-magic
   :ensure t)

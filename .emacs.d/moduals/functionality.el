@@ -1,3 +1,26 @@
+(use-package multiple-cursors
+  :ensure t)
+;; Do What I Mean
+(global-set-key (kbd "C-M-j") 'mc/mark-all-dwim) ;; both marked and unmarked region. multiple presses.
+
+;; For continuous lines: Mark lines, then create cursors. Can be mid-line.
+(global-set-key (kbd "C-M-c") 'mc/edit-lines)
+
+;; Select region first, then create cursors.
+(global-set-key (kbd "C-M-/") 'mc/mark-all-like-this) ; select text first. finds all occurrences.
+(global-set-key (kbd "C-M-,") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-M-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-'") 'mc-hide-unmatched-lines-mode)
+
+;; Skip this match and move to next one. 
+(global-set-key (kbd "C-M-<") 'mc/skip-to-previous-like-this)
+(global-set-key (kbd "C-M->") 'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-M-y") 'mc/insert-numbers)
+(setq mc/insert-numbers-default 1)
+
+(with-eval-after-load 'multiple-cursors
+  (define-key mc/keymap (kbd "C-j C-i C-SPC") 'just-one-space))
+
 (use-package move-text
   :ensure t)
 (global-set-key (kbd "M-p") 'move-text-up)
@@ -76,3 +99,9 @@
 ;;(use-package calfw-org
 ;;  :ensure t)
 ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+
+;;(use-package expand-region
+;;  :ensure t)
+;;;; Expand region. (Also from Magnar Sveen)
+;;(global-set-key (kbd "C-M-l") 'er/expand-region) ; only type once, then l, -, 0  sc
+;;
