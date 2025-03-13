@@ -1,2 +1,2 @@
-(use-package lua-mode
+(use-package lua-ts-mode
   :ensure t)

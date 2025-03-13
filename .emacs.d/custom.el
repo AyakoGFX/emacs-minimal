@@ -37,12 +37,12 @@
    '(0x0 almost-mono-themes auctex beframe casual-suite company
 	 consult-denote denote-menu diredfl doom-themes eldoc-box
 	 elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
-	 ewal expand-region flyspell-correct gruvbox-theme helpful
-	 jinx keycast lsp-latex lua-mode magit marginalia move-text
-	 multiple-cursors nix-mode notink-theme orderless pywal
-	 sudo-edit tabspaces theme-magic vertico volatile-highlights
-	 vscode-dark-plus-theme vundo xah-fly-keys yasnippet
-	 zenburn-theme)))
+	 ewal expand-region flyspell-correct go-mode gruvbox-theme
+	 helpful jinx keycast lsp-latex lua-mode magit marginalia
+	 move-text multiple-cursors nix-mode nix-ts-mode notink-theme
+	 orderless pywal sudo-edit tabspaces theme-magic vertico
+	 volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
+	 yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

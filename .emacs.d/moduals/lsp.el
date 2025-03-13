@@ -4,5 +4,5 @@
 (load "~/.emacs.d/moduals/lsp/latex.el")
 (load "~/.emacs.d/moduals/lsp/lua.el")
 (load "~/.emacs.d/moduals/lsp/nix.el")
-;; (load "~/.emacs.d/moduals/lsp/go.el")
+(load "~/.emacs.d/moduals/lsp/go.el")
        
