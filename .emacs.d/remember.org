@@ -106,3 +106,6 @@ https://github.com/hyprwm/Hyprland/issues/2050
 colorful-mode.el
 * [2025-03-11 Tue 04:10:39 AM]
 [[https://youtu.be/fnCMv975Ywo?si=RUOVmSJRjgiQwdL8][Linux Literacy | TAR - YouTube]]
+* [2025-03-14 Fri 12:26:32 AM]
+
+fix beframe by removeing */scratch*/

@@ -4,9 +4,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-gruvbox))
+ '(custom-enabled-themes '(wheatgrass))
  '(custom-safe-themes
-   '("48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710"
+   '("5aedf993c7220cbbe66a410334239521d8ba91e1815f6ebde59cecc2355d7757"
+     "75b371fce3c9e6b1482ba10c883e2fb813f2cc1c88be0b8a1099773eb78a7176"
+     "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
+     "113a135eb7a2ace6d9801469324f9f7624f8c696b72e3709feb7368b06ddaccc"
+     "6e18353d35efc18952c57d3c7ef966cad563dc65a2bba0660b951d990e23fc07"
+     "1f292969fc19ba45fbc6542ed54e58ab5ad3dbe41b70d8cb2d1f85c22d07e518"
+     "4d5d11bfef87416d85673947e3ca3d3d5d985ad57b02a7bb2e32beaf785a100e"
+     "48042425e84cd92184837e01d0b4fe9f912d875c43021c3bcb7eeb51f1be5710"
      "2721b06afaf1769ef63f942bf3e977f208f517b187f2526f0e57c1bd4a000350"
      "df6dfd55673f40364b1970440f0b0cb8ba7149282cf415b81aaad2d98b0f0290"
      "b5fd9c7429d52190235f2383e47d340d7ff769f141cd8f9e7a4629a81abc6b19"
@@ -35,14 +42,14 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-	 consult-denote denote-menu diredfl doom-themes eldoc-box
-	 elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
-	 ewal expand-region flyspell-correct go-mode gruvbox-theme
-	 helpful jinx keycast lsp-latex lua-mode magit marginalia
-	 move-text multiple-cursors nix-mode nix-ts-mode notink-theme
-	 orderless pywal sudo-edit tabspaces theme-magic vertico
-	 volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-	 yasnippet zenburn-theme)))
+         consult-denote denote-menu diredfl doom-themes eldoc-box
+         elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
+         ewal expand-region flyspell-correct go-mode gruvbox-theme
+         helpful jinx keycast lsp-latex lua-mode magit marginalia
+         move-text multiple-cursors nix-mode nix-ts-mode notink-theme
+         orderless pywal sudo-edit tabspaces theme-magic vertico
+         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
+         yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

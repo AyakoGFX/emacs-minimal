@@ -34,7 +34,7 @@
 
 ;; Disable tabs globally and set tab width
 (setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
-(setq-default tab-width 4)            ;; Set tab width to 4 spaces
+;; (setq-default tab-width 4)            ;; Set tab width to 4 spaces
 ;; Converting Tabs and Spaces
     ;; Convert Tabs to Spaces: Use M-x untabify
     ;; Convert Spaces to Tabs: Use M-x tabify
@@ -89,6 +89,6 @@
 (use-package keycast
   :ensure t)
 
-(use-package theme-magic
-  :ensure t)
-(theme-magic-export-theme-mode 1)
+;; (use-package theme-magic
+  ;; :ensure t)
+;; (theme-magic-export-theme-mode 1)
