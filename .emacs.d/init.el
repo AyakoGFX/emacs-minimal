@@ -32,6 +32,14 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Disable tabs globally and set tab width
+(setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
+(setq-default tab-width 4)            ;; Set tab width to 4 spaces
+;; Converting Tabs and Spaces
+    ;; Convert Tabs to Spaces: Use M-x untabify
+    ;; Convert Spaces to Tabs: Use M-x tabify
+
+
 ;; Set UTF-8 encoding
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -40,7 +48,7 @@
 (prefer-coding-system 'utf-8)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-;; moduals completion 
+;; moduals completion
 (load "~/.emacs.d/moduals/completion.el")
 (load "~/.emacs.d/moduals/consult.el")
 (load "~/.emacs.d/moduals/dired.el")
