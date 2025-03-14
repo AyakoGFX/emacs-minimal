@@ -78,6 +78,7 @@ how to stop charging laptop battery at 80 nixos
 * [2025-03-02 Sun 05:06:10 PM]
 - Black Arch Distro
   https://blackarch.org/
+  Black Arch Distro
 
 * [2025-03-02 Sun 05:27:23 PM]
 - How to use GenP 
@@ -92,7 +93,7 @@ how to stop charging laptop battery at 80 nixos
 [[https://youtu.be/O0xpTtdPD4w?si=4MT2K-RQyMusNzwj][Convert Images to ASCII Art in Linux Terminal]]
 
 * [2025-03-07 Fri 01:40:14 AM]
-- TODO hyprland resize window with keybindings
+** DONE hyprland resize window with keybindings 
 
 * [2025-03-07 Fri 01:45:49 AM]
 Standalone Monocle Layout hyprland
@@ -107,5 +108,12 @@ colorful-mode.el
 * [2025-03-11 Tue 04:10:39 AM]
 [[https://youtu.be/fnCMv975Ywo?si=RUOVmSJRjgiQwdL8][Linux Literacy | TAR - YouTube]]
 * [2025-03-14 Fri 12:26:32 AM]
-
 fix beframe by removeing */scratch*/
+* [2025-03-14 Fri 09:32:18 PM]
+** emacs mark mode not showing
+
+* [2025-03-14 Fri 11:02:25 PM]
+** TODO look in to emacs-eat
+* [2025-03-14 Fri 11:14:18 PM]
+*** trool emacs users with this. (macro lock)
+<ashraz> Press F3 F3 F3 F4 M-100 F4 

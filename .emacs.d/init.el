@@ -11,7 +11,7 @@
                '(font . "JetBrainsMono Nerd Font-20")))
 
 ;; basic modes
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -62,6 +62,7 @@
 (load "~/.emacs.d/moduals/org.el")
 (load "~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/shell.el")
+(load "~/.emacs.d/moduals/my-func.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/display-buffer.el")
@@ -92,3 +93,5 @@
 ;; (use-package theme-magic
   ;; :ensure t)
 ;; (theme-magic-export-theme-mode 1)
+
+

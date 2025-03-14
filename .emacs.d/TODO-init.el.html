@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>emacs/init.el</title>
+    <style>html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font: 18px/1.4 serif;
+    max-width: 60em;
+    margin: 0;
+    padding: 0 1em;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main {
+    flex: 1;
+}
+
+.ll {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+    padding-right: 0.5em;
+    margin-right: 0.5em;
+}
+
+#readme {
+    max-width: 40em;
+}
+
+nav ul li {
+    display: inline;
+    padding: 1em;
+}
+
+header,footer p {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+header { border-bottom: 1px solid; }
+
+footer { border-top: 1px solid; }</style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/code">code</a> /
+      <!--NORMAL--><a href="/code/dots/">dots</a> /<!--/NORMAL-->
+      emacs/init.el</h1>
+      <!--
+      my dotfiles
+      -->
+      <!--NORMAL-->
+      <nav>
+        <ul>
+          <li><a href="init.el.txt">raw</a></li>
+        </ul>
+      </nav>
+      <!--/NORMAL-->
+    </header>
+    <main>
+      <pre><code><span class="ln" id="l1"><a class="ll" href="#l1">1</a>;;; ~/.emacs -*- mode: emacs-lisp; lexical-binding: t; -*-</span>
+<span class="ln" id="l2"><a class="ll" href="#l2">2</a>;; Author: Case Duckworth &lt;acdw@acdw.net&gt;</span>
+<span class="ln" id="l3"><a class="ll" href="#l3">3</a>;; Bankruptcy: 12</span>
+<span class="ln" id="l4"><a class="ll" href="#l4">4</a></span>
+<span class="ln" id="l5"><a class="ll" href="#l5">5</a>;;; Initialization -- see also ~/.emacs.d/early-init.el</span>
+<span class="ln" id="l6"><a class="ll" href="#l6">6</a>;; TODO -- think about making C-q a personal leader</span>
+<span class="ln" id="l7"><a class="ll" href="#l7">7</a></span>
+<span class="ln" id="l8"><a class="ll" href="#l8">8</a>(setopt custom-file (locate-user-emacs-file "custom.el"))</span>
+<span class="ln" id="l9"><a class="ll" href="#l9">9</a>(load custom-file :no-error)</span>
+<span class="ln" id="l10"><a class="ll" href="#l10">10</a>(add-hook 'Custom-mode-hook</span>
+<span class="ln" id="l11"><a class="ll" href="#l11">11</a>          (lambda ()</span>
+<span class="ln" id="l12"><a class="ll" href="#l12">12</a>            (run-with-idle-timer 0.25 nil #'custom-show-all-widgets)))</span>
+<span class="ln" id="l13"><a class="ll" href="#l13">13</a></span>
+<span class="ln" id="l14"><a class="ll" href="#l14">14</a>(defvar user-private-file (locate-user-emacs-file "private.el")</span>
+<span class="ln" id="l15"><a class="ll" href="#l15">15</a>  "Private customizations")</span>
+<span class="ln" id="l16"><a class="ll" href="#l16">16</a>;; make sure it's really private!</span>
+<span class="ln" id="l17"><a class="ll" href="#l17">17</a>(and (file-exists-p user-private-file)</span>
+<span class="ln" id="l18"><a class="ll" href="#l18">18</a>     (= (file-attribute-user-id (file-attributes user-private-file))</span>
+<span class="ln" id="l19"><a class="ll" href="#l19">19</a>        (user-uid)) ; is it owned by this me?</span>
+<span class="ln" id="l20"><a class="ll" href="#l20">20</a>     (set-file-modes user-private-file #o600))</span>
+<span class="ln" id="l21"><a class="ll" href="#l21">21</a>(load user-private-file :no-error)</span>
+<span class="ln" id="l22"><a class="ll" href="#l22">22</a></span>
+<span class="ln" id="l23"><a class="ll" href="#l23">23</a>(setopt case-foreground "black"</span>
+<span class="ln" id="l24"><a class="ll" href="#l24">24</a>        case-background "linen"</span>
+<span class="ln" id="l25"><a class="ll" href="#l25">25</a>        case-highlight-1 "cyan"</span>
+<span class="ln" id="l26"><a class="ll" href="#l26">26</a>        case-highlight-2 "salmon"</span>
+<span class="ln" id="l27"><a class="ll" href="#l27">27</a>        case-string "misty rose"</span>
+<span class="ln" id="l28"><a class="ll" href="#l28">28</a>        case-mode-line-active "pink"</span>
+<span class="ln" id="l29"><a class="ll" href="#l29">29</a>        case-mode-line-inactive "bisque"</span>
+<span class="ln" id="l30"><a class="ll" href="#l30">30</a>        case-region "lavender"</span>
+<span class="ln" id="l31"><a class="ll" href="#l31">31</a>        case-shadow "peru")</span>
+<span class="ln" id="l32"><a class="ll" href="#l32">32</a>(load-theme 'case :no-confirm) ; see ~/.emacs.d/case-theme.el</span>
+<span class="ln" id="l33"><a class="ll" href="#l33">33</a></span>
+<span class="ln" id="l34"><a class="ll" href="#l34">34</a>(after init setup-faces)</span>
+<span class="ln" id="l35"><a class="ll" href="#l35">35</a></span>
+<span class="ln" id="l36"><a class="ll" href="#l36">36</a>;;; Basic settings</span>
+<span class="ln" id="l37"><a class="ll" href="#l37">37</a></span>
+<span class="ln" id="l38"><a class="ll" href="#l38">38</a>;; Auth</span>
+<span class="ln" id="l39"><a class="ll" href="#l39">39</a>(with-package ((keepassxc-shim</span>
+<span class="ln" id="l40"><a class="ll" href="#l40">40</a>                :url "https://codeberg.org/acdw/keepassxc-shim.el"))</span>
+<span class="ln" id="l41"><a class="ll" href="#l41">41</a>  (keepassxc-shim-activate)</span>
+<span class="ln" id="l42"><a class="ll" href="#l42">42</a>  (setopt auth-sources '("secrets:default"))</span>
+<span class="ln" id="l43"><a class="ll" href="#l43">43</a>  (add-hook 'auth-info-hook #'truncate-lines-local-mode))</span>
+<span class="ln" id="l44"><a class="ll" href="#l44">44</a></span>
+<span class="ln" id="l45"><a class="ll" href="#l45">45</a>;; ENVIRONMENT</span>
+<span class="ln" id="l46"><a class="ll" href="#l46">46</a>(setenv "PAGER" "cat")  ; emacs is a pager</span>
+<span class="ln" id="l47"><a class="ll" href="#l47">47</a>(setenv "TERM" "dumb")  ; no fancy graphics!</span>
+<span class="ln" id="l48"><a class="ll" href="#l48">48</a>(setenv "NO_COLOR" "1") ; no color!</span>
+<span class="ln" id="l49"><a class="ll" href="#l49">49</a></span>
+<span class="ln" id="l50"><a class="ll" href="#l50">50</a>;; Startup</span>
+<span class="ln" id="l51"><a class="ll" href="#l51">51</a>(setopt inhibit-startup-screen t)</span>
+<span class="ln" id="l52"><a class="ll" href="#l52">52</a>(setopt initial-buffer-choice #'eshell)</span>
+<span class="ln" id="l53"><a class="ll" href="#l53">53</a>(setopt initial-scratch-message nil)</span>
+<span class="ln" id="l54"><a class="ll" href="#l54">54</a></span>
+<span class="ln" id="l55"><a class="ll" href="#l55">55</a>;; Dialogs</span>
+<span class="ln" id="l56"><a class="ll" href="#l56">56</a>(setopt use-dialog-box nil)</span>
+<span class="ln" id="l57"><a class="ll" href="#l57">57</a>(setopt use-file-dialog nil)</span>
+<span class="ln" id="l58"><a class="ll" href="#l58">58</a>(setopt read-answer-short t)</span>
+<span class="ln" id="l59"><a class="ll" href="#l59">59</a>(setopt use-short-answers t)</span>
+<span class="ln" id="l60"><a class="ll" href="#l60">60</a>(setopt echo-keystrokes 0.01)</span>
+<span class="ln" id="l61"><a class="ll" href="#l61">61</a></span>
+<span class="ln" id="l62"><a class="ll" href="#l62">62</a>;; Cursor</span>
+<span class="ln" id="l63"><a class="ll" href="#l63">63</a>(blink-cursor-mode -1)</span>
+<span class="ln" id="l64"><a class="ll" href="#l64">64</a></span>
+<span class="ln" id="l65"><a class="ll" href="#l65">65</a>;; Whitespace</span>
+<span class="ln" id="l66"><a class="ll" href="#l66">66</a>(add-hook 'before-save-hook #'delete-trailing-whitespace-except-current-line)</span>
+<span class="ln" id="l67"><a class="ll" href="#l67">67</a></span>
+<span class="ln" id="l68"><a class="ll" href="#l68">68</a>(setopt whitespace-style '(face trailing tabs tab-mark))</span>
+<span class="ln" id="l69"><a class="ll" href="#l69">69</a>(setopt whitespace-global-modes '(not rcirc-mode jabber-chat-mode))</span>
+<span class="ln" id="l70"><a class="ll" href="#l70">70</a>(global-whitespace-mode)</span>
+<span class="ln" id="l71"><a class="ll" href="#l71">71</a>(hide-minor-mode 'global-whitespace-mode)</span>
+<span class="ln" id="l72"><a class="ll" href="#l72">72</a>(with-eval-after-load 'whitespace</span>
+<span class="ln" id="l73"><a class="ll" href="#l73">73</a>  (setf/alist whitespace-display-mappings 'tab-mark</span>
+<span class="ln" id="l74"><a class="ll" href="#l74">74</a>    '(9 [?· 9] [?» 9] [?\\ 9])))</span>
+<span class="ln" id="l75"><a class="ll" href="#l75">75</a></span>
+<span class="ln" id="l76"><a class="ll" href="#l76">76</a>;; Automatically indent buffer when saving</span>
+<span class="ln" id="l77"><a class="ll" href="#l77">77</a>(define-minor-mode indent-on-save-mode</span>
+<span class="ln" id="l78"><a class="ll" href="#l78">78</a>  "Automatically re-indent the buffer on save."</span>
+<span class="ln" id="l79"><a class="ll" href="#l79">79</a>  :lighter " &gt;"</span>
+<span class="ln" id="l80"><a class="ll" href="#l80">80</a>  (if indent-on-save-mode</span>
+<span class="ln" id="l81"><a class="ll" href="#l81">81</a>      (add-hook 'before-save-hook #'fixup-whitespace nil t)</span>
+<span class="ln" id="l82"><a class="ll" href="#l82">82</a>    (remove-hook 'before-save-hook #'fixup-whitespace t)))</span>
+<span class="ln" id="l83"><a class="ll" href="#l83">83</a></span>
+<span class="ln" id="l84"><a class="ll" href="#l84">84</a>(add-hook 'prog-mode-hook #'indent-on-save-mode)</span>
+<span class="ln" id="l85"><a class="ll" href="#l85">85</a>(remove-hook 'makefile-mode-hook #'indent-on-save-mode) ; makefiles is dumb</span>
+<span class="ln" id="l86"><a class="ll" href="#l86">86</a>(add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)</span>
+<span class="ln" id="l87"><a class="ll" href="#l87">87</a></span>
+<span class="ln" id="l88"><a class="ll" href="#l88">88</a>;; Comments</span>
+<span class="ln" id="l89"><a class="ll" href="#l89">89</a>(setopt comment-column 0)</span>
+<span class="ln" id="l90"><a class="ll" href="#l90">90</a>(setopt comment-indent-offset 1)</span>
+<span class="ln" id="l91"><a class="ll" href="#l91">91</a></span>
+<span class="ln" id="l92"><a class="ll" href="#l92">92</a>;;; Efficiency ... ?</span>
+<span class="ln" id="l93"><a class="ll" href="#l93">93</a></span>
+<span class="ln" id="l94"><a class="ll" href="#l94">94</a>(setopt load-prefer-newer t)</span>
+<span class="ln" id="l95"><a class="ll" href="#l95">95</a>(setopt read-process-output-max (* 512 1024))</span>
+<span class="ln" id="l96"><a class="ll" href="#l96">96</a></span>
+<span class="ln" id="l97"><a class="ll" href="#l97">97</a>(when (and (featurep 'native-compile)</span>
+<span class="ln" id="l98"><a class="ll" href="#l98">98</a>           (fboundp 'native-comp-available-p)</span>
+<span class="ln" id="l99"><a class="ll" href="#l99">99</a>           (native-comp-available-p))</span>
+<span class="ln" id="l100"><a class="ll" href="#l100">100</a>  (setopt native-comp-jit-compilation t)</span>
+<span class="ln" id="l101"><a class="ll" href="#l101">101</a>  (setopt package-native-compile t)</span>
+<span class="ln" id="l102"><a class="ll" href="#l102">102</a>  (setopt native-comp-async-report-warnings-errors 'silent)</span>
+<span class="ln" id="l103"><a class="ll" href="#l103">103</a>  (setopt native-comp-warning-on-missing-source nil))</span>
+<span class="ln" id="l104"><a class="ll" href="#l104">104</a></span>
+<span class="ln" id="l105"><a class="ll" href="#l105">105</a>(setopt byte-compile-warnings nil)</span>
+<span class="ln" id="l106"><a class="ll" href="#l106">106</a>(setopt byte-compile-verbose nil)</span>
+<span class="ln" id="l107"><a class="ll" href="#l107">107</a></span>
+<span class="ln" id="l108"><a class="ll" href="#l108">108</a>(setf/alist display-buffer-alist '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'")</span>
+<span class="ln" id="l109"><a class="ll" href="#l109">109</a>  '((display-buffer-no-window)</span>
+<span class="ln" id="l110"><a class="ll" href="#l110">110</a>    (allow-no-window . t)))</span>
+<span class="ln" id="l111"><a class="ll" href="#l111">111</a></span>
+<span class="ln" id="l112"><a class="ll" href="#l112">112</a>;;; UI stuff</span>
+<span class="ln" id="l113"><a class="ll" href="#l113">113</a></span>
+<span class="ln" id="l114"><a class="ll" href="#l114">114</a>(setopt cursor-type 'bar)</span>
+<span class="ln" id="l115"><a class="ll" href="#l115">115</a>(setopt cursor-in-non-selected-windows nil)</span>
+<span class="ln" id="l116"><a class="ll" href="#l116">116</a>(setopt highlight-nonselected-windows nil)</span>
+<span class="ln" id="l117"><a class="ll" href="#l117">117</a>(hide-minor-mode 'buffer-face-mode)</span>
+<span class="ln" id="l118"><a class="ll" href="#l118">118</a>(setopt tab-bar-show 1)</span>
+<span class="ln" id="l119"><a class="ll" href="#l119">119</a></span>
+<span class="ln" id="l120"><a class="ll" href="#l120">120</a>(with-package (mixed-pitch)</span>
+<span class="ln" id="l121"><a class="ll" href="#l121">121</a>  (add-hook 'text-mode-hook #'mixed-pitch-mode))</span>
+<span class="ln" id="l122"><a class="ll" href="#l122">122</a></span>
+<span class="ln" id="l123"><a class="ll" href="#l123">123</a>(with-package (valign)                   ; needed for variable-pitch org-mode</span>
+<span class="ln" id="l124"><a class="ll" href="#l124">124</a>  (add-hook 'org-mode-hook #'valign-mode)</span>
+<span class="ln" id="l125"><a class="ll" href="#l125">125</a>  (setopt valign-fancy-bar t))</span>
+<span class="ln" id="l126"><a class="ll" href="#l126">126</a></span>
+<span class="ln" id="l127"><a class="ll" href="#l127">127</a>(with-package (form-feed)</span>
+<span class="ln" id="l128"><a class="ll" href="#l128">128</a>  (global-form-feed-mode))</span>
+<span class="ln" id="l129"><a class="ll" href="#l129">129</a></span>
+<span class="ln" id="l130"><a class="ll" href="#l130">130</a>;;; Mode line</span>
+<span class="ln" id="l131"><a class="ll" href="#l131">131</a></span>
+<span class="ln" id="l132"><a class="ll" href="#l132">132</a>(setopt mode-line-position-line-format '("%l"))</span>
+<span class="ln" id="l133"><a class="ll" href="#l133">133</a>(setopt mode-line-position-column-line-format '("%l:%c"))</span>
+<span class="ln" id="l134"><a class="ll" href="#l134">134</a></span>
+<span class="ln" id="l135"><a class="ll" href="#l135">135</a>(package-ensure 'minions)</span>
+<span class="ln" id="l136"><a class="ll" href="#l136">136</a></span>
+<span class="ln" id="l137"><a class="ll" href="#l137">137</a>(defvar mode-line-major-mode-keymap*</span>
+<span class="ln" id="l138"><a class="ll" href="#l138">138</a>  (let ((map (make-sparse-keymap)))</span>
+<span class="ln" id="l139"><a class="ll" href="#l139">139</a>    (bindings--define-key map [mode-line down-mouse-1]</span>
+<span class="ln" id="l140"><a class="ll" href="#l140">140</a>      `(menu-item "Menu Bar" ignore</span>
+<span class="ln" id="l141"><a class="ll" href="#l141">141</a>                  :filter ,(lambda (_) (mouse-menu-major-mode-map))))</span>
+<span class="ln" id="l142"><a class="ll" href="#l142">142</a>    (define-key map [mode-line mouse-2] #'describe-mode)</span>
+<span class="ln" id="l143"><a class="ll" href="#l143">143</a>    (define-key map [mode-line mouse-3] #'minions-minor-modes-menu)</span>
+<span class="ln" id="l144"><a class="ll" href="#l144">144</a>    map)</span>
+<span class="ln" id="l145"><a class="ll" href="#l145">145</a>  "Keymap to display on major mode.")</span>
+<span class="ln" id="l146"><a class="ll" href="#l146">146</a></span>
+<span class="ln" id="l147"><a class="ll" href="#l147">147</a>(defun make-mode-line-mode-disabler (lighter help mode)</span>
+<span class="ln" id="l148"><a class="ll" href="#l148">148</a>  (propertize lighter</span>
+<span class="ln" id="l149"><a class="ll" href="#l149">149</a>              'help-echo (concat help "\n1:cancel")</span>
+<span class="ln" id="l150"><a class="ll" href="#l150">150</a>              'face 'italic</span>
+<span class="ln" id="l151"><a class="ll" href="#l151">151</a>              'mouse-face 'mode-line-highlight</span>
+<span class="ln" id="l152"><a class="ll" href="#l152">152</a>              'local-map</span>
+<span class="ln" id="l153"><a class="ll" href="#l153">153</a>              (make-mode-line-mouse-map</span>
+<span class="ln" id="l154"><a class="ll" href="#l154">154</a>               'mouse-1 (lambda (ev) (interactive "e")</span>
+<span class="ln" id="l155"><a class="ll" href="#l155">155</a>                          (with-selected-window</span>
+<span class="ln" id="l156"><a class="ll" href="#l156">156</a>                              (posn-window (event-start ev))</span>
+<span class="ln" id="l157"><a class="ll" href="#l157">157</a>                            (funcall mode -1)</span>
+<span class="ln" id="l158"><a class="ll" href="#l158">158</a>                            (force-mode-line-update))))))</span>
+<span class="ln" id="l159"><a class="ll" href="#l159">159</a></span>
+<span class="ln" id="l160"><a class="ll" href="#l160">160</a>(setopt mode-line-format</span>
+<span class="ln" id="l161"><a class="ll" href="#l161">161</a>        `("%e"</span>
+<span class="ln" id="l162"><a class="ll" href="#l162">162</a>          mode-line-front-space</span>
+<span class="ln" id="l163"><a class="ll" href="#l163">163</a>          (:propertize ("" mode-line-modified mode-line-remote)</span>
+<span class="ln" id="l164"><a class="ll" href="#l164">164</a>                       display (min-width (5.0)))</span>
+<span class="ln" id="l165"><a class="ll" href="#l165">165</a>          " %[" mode-line-buffer-identification " %]"</span>
+<span class="ln" id="l166"><a class="ll" href="#l166">166</a>          (vc-mode (" [" vc-mode "]"))</span>
+<span class="ln" id="l167"><a class="ll" href="#l167">167</a>          " ( "</span>
+<span class="ln" id="l168"><a class="ll" href="#l168">168</a>          (:propertize ("" mode-name)</span>
+<span class="ln" id="l169"><a class="ll" href="#l169">169</a>                       help-echo "Major mode\n1:menu\n2:help\n3:minor"</span>
+<span class="ln" id="l170"><a class="ll" href="#l170">170</a>                       mouse-face mode-line-highlight</span>
+<span class="ln" id="l171"><a class="ll" href="#l171">171</a>                       local-map ,mode-line-major-mode-keymap*)</span>
+<span class="ln" id="l172"><a class="ll" href="#l172">172</a>          (auto-fill-function</span>
+<span class="ln" id="l173"><a class="ll" href="#l173">173</a>           ,(make-mode-line-mode-disabler "-f" "Auto-filling"</span>
+<span class="ln" id="l174"><a class="ll" href="#l174">174</a>                                          #'auto-fill-mode))</span>
+<span class="ln" id="l175"><a class="ll" href="#l175">175</a>          (visual-line-mode</span>
+<span class="ln" id="l176"><a class="ll" href="#l176">176</a>           ,(make-mode-line-mode-disabler "-v" "Visual lines"</span>
+<span class="ln" id="l177"><a class="ll" href="#l177">177</a>                                          #'visual-line-mode))</span>
+<span class="ln" id="l178"><a class="ll" href="#l178">178</a>          (truncate-lines-local-mode</span>
+<span class="ln" id="l179"><a class="ll" href="#l179">179</a>           ,(make-mode-line-mode-disabler "-t" "Truncating lines"</span>
+<span class="ln" id="l180"><a class="ll" href="#l180">180</a>                                          #'truncate-lines-local-mode))</span>
+<span class="ln" id="l181"><a class="ll" href="#l181">181</a>          " "</span>
+<span class="ln" id="l182"><a class="ll" href="#l182">182</a>          (defining-kbd-macro (:propertize "🔴" help-echo "Defining kbd macro"))</span>
+<span class="ln" id="l183"><a class="ll" href="#l183">183</a>          (isearch-mode (:propertize "🔍" help-echo "Searching"))</span>
+<span class="ln" id="l184"><a class="ll" href="#l184">184</a>          (overwrite-mode</span>
+<span class="ln" id="l185"><a class="ll" href="#l185">185</a>           ,(make-mode-line-mode-disabler "✒️" "Overwriting"</span>
+<span class="ln" id="l186"><a class="ll" href="#l186">186</a>                                          #'overwrite-mode))</span>
+<span class="ln" id="l187"><a class="ll" href="#l187">187</a>          (debug-on-error</span>
+<span class="ln" id="l188"><a class="ll" href="#l188">188</a>           ,(make-mode-line-mode-disabler "‼️" "Debug on error"</span>
+<span class="ln" id="l189"><a class="ll" href="#l189">189</a>                                          (lambda (_)</span>
+<span class="ln" id="l190"><a class="ll" href="#l190">190</a>                                            (setq debug-on-error nil))))</span>
+<span class="ln" id="l191"><a class="ll" href="#l191">191</a>          (debug-on-quit</span>
+<span class="ln" id="l192"><a class="ll" href="#l192">192</a>           ,(make-mode-line-mode-disabler "🚫" "Debug on quit"</span>
+<span class="ln" id="l193"><a class="ll" href="#l193">193</a>                                          (lambda (_)</span>
+<span class="ln" id="l194"><a class="ll" href="#l194">194</a>                                            (setq debug-on-quit nil))))</span>
+<span class="ln" id="l195"><a class="ll" href="#l195">195</a>          ") "</span>
+<span class="ln" id="l196"><a class="ll" href="#l196">196</a>          (text-scale-mode text-scale-mode-lighter)</span>
+<span class="ln" id="l197"><a class="ll" href="#l197">197</a>          (mode-line-process (" " mode-line-process " "))</span>
+<span class="ln" id="l198"><a class="ll" href="#l198">198</a>          "  "</span>
+<span class="ln" id="l199"><a class="ll" href="#l199">199</a>          ,(let ((lc/width 5.0))</span>
+<span class="ln" id="l200"><a class="ll" href="#l200">200</a>             `(line-number-mode</span>
+<span class="ln" id="l201"><a class="ll" href="#l201">201</a>               (column-number-mode</span>
+<span class="ln" id="l202"><a class="ll" href="#l202">202</a>                (:propertize "%l/%c"</span>
+<span class="ln" id="l203"><a class="ll" href="#l203">203</a>                             help-echo "Line/column"</span>
+<span class="ln" id="l204"><a class="ll" href="#l204">204</a>                             display (min-width (,lc/width)))</span>
+<span class="ln" id="l205"><a class="ll" href="#l205">205</a>                (:propertize "%l"</span>
+<span class="ln" id="l206"><a class="ll" href="#l206">206</a>                             help-echo "Line"</span>
+<span class="ln" id="l207"><a class="ll" href="#l207">207</a>                             display (min-width (,lc/width))))</span>
+<span class="ln" id="l208"><a class="ll" href="#l208">208</a>               (column-number-mode</span>
+<span class="ln" id="l209"><a class="ll" href="#l209">209</a>                (:propertize "/%c"</span>
+<span class="ln" id="l210"><a class="ll" href="#l210">210</a>                             help-echo "Column"</span>
+<span class="ln" id="l211"><a class="ll" href="#l211">211</a>                             display (min-width (,lc/width)))</span>
+<span class="ln" id="l212"><a class="ll" href="#l212">212</a>                "")))</span>
+<span class="ln" id="l213"><a class="ll" href="#l213">213</a>          (:propertize ("" (-3 "%o")c)</span>
+<span class="ln" id="l214"><a class="ll" href="#l214">214</a>                       help-echo "Position in buffer"</span>
+<span class="ln" id="l215"><a class="ll" href="#l215">215</a>                       display (min-width (6.0)))</span>
+<span class="ln" id="l216"><a class="ll" href="#l216">216</a>          ,(propertize "%n"</span>
+<span class="ln" id="l217"><a class="ll" href="#l217">217</a>                       'help-echo "Narrowed\n1:widen"</span>
+<span class="ln" id="l218"><a class="ll" href="#l218">218</a>                       'mouse-face 'mode-line-highlight</span>
+<span class="ln" id="l219"><a class="ll" href="#l219">219</a>                       'local-map (make-mode-line-mouse-map</span>
+<span class="ln" id="l220"><a class="ll" href="#l220">220</a>                                   'mouse-1 #'mode-line-widen))</span>
+<span class="ln" id="l221"><a class="ll" href="#l221">221</a>          ("" global-mode-string)</span>
+<span class="ln" id="l222"><a class="ll" href="#l222">222</a>          mode-line-end-spaces))</span>
+<span class="ln" id="l223"><a class="ll" href="#l223">223</a></span>
+<span class="ln" id="l224"><a class="ll" href="#l224">224</a>;;; Completions</span>
+<span class="ln" id="l225"><a class="ll" href="#l225">225</a></span>
+<span class="ln" id="l226"><a class="ll" href="#l226">226</a>(setopt tab-always-indent 'complete)</span>
+<span class="ln" id="l227"><a class="ll" href="#l227">227</a>(setopt completion-styles '(basic partial-completion substring flex))</span>
+<span class="ln" id="l228"><a class="ll" href="#l228">228</a></span>
+<span class="ln" id="l229"><a class="ll" href="#l229">229</a>(setopt completion-ignore-case t)</span>
+<span class="ln" id="l230"><a class="ll" href="#l230">230</a>(setopt read-buffer-completion-ignore-case t)</span>
+<span class="ln" id="l231"><a class="ll" href="#l231">231</a>(setopt read-file-name-completion-ignore-case t)</span>
+<span class="ln" id="l232"><a class="ll" href="#l232">232</a>(setopt completion-flex-nospace t)</span>
+<span class="ln" id="l233"><a class="ll" href="#l233">233</a></span>
+<span class="ln" id="l234"><a class="ll" href="#l234">234</a>(setopt completion-show-help nil)</span>
+<span class="ln" id="l235"><a class="ll" href="#l235">235</a>(setopt completions-detailed t)</span>
+<span class="ln" id="l236"><a class="ll" href="#l236">236</a>(setopt completions-group t)</span>
+<span class="ln" id="l237"><a class="ll" href="#l237">237</a>(setopt completion-auto-help 'visible)</span>
+<span class="ln" id="l238"><a class="ll" href="#l238">238</a>(setopt completion-auto-select 'second-tab)</span>
+<span class="ln" id="l239"><a class="ll" href="#l239">239</a>(setopt completions-header-format nil)</span>
+<span class="ln" id="l240"><a class="ll" href="#l240">240</a>(setopt completions-format 'one-column)</span>
+<span class="ln" id="l241"><a class="ll" href="#l241">241</a>(setopt completions-max-height 10)</span>
+<span class="ln" id="l242"><a class="ll" href="#l242">242</a></span>
+<span class="ln" id="l243"><a class="ll" href="#l243">243</a>(setf/alist display-buffer-alist "\\`\\*Completions\\*\\'"</span>
+<span class="ln" id="l244"><a class="ll" href="#l244">244</a>  '(nil (window-parameters (mode-line-format . " --- %b"))))</span>
+<span class="ln" id="l245"><a class="ll" href="#l245">245</a></span>
+<span class="ln" id="l246"><a class="ll" href="#l246">246</a>(keymap-set minibuffer-local-map "C-p" #'minibuffer-previous-completion)</span>
+<span class="ln" id="l247"><a class="ll" href="#l247">247</a>(keymap-set minibuffer-local-map "C-n" #'minibuffer-next-completion)</span>
+<span class="ln" id="l248"><a class="ll" href="#l248">248</a>(keymap-set minibuffer-local-map "M-DEL" #'minibuffer-delete-directory)</span>
+<span class="ln" id="l249"><a class="ll" href="#l249">249</a>(keymap-set completion-list-mode-map "C-g" #'quit-window) ; is this a good idea?</span>
+<span class="ln" id="l250"><a class="ll" href="#l250">250</a></span>
+<span class="ln" id="l251"><a class="ll" href="#l251">251</a>;;; Minibuffer</span>
+<span class="ln" id="l252"><a class="ll" href="#l252">252</a></span>
+<span class="ln" id="l253"><a class="ll" href="#l253">253</a>(setopt enable-recursive-minibuffers t)</span>
+<span class="ln" id="l254"><a class="ll" href="#l254">254</a>(setopt minibuffer-default-prompt-format " [%s]")</span>
+<span class="ln" id="l255"><a class="ll" href="#l255">255</a>(minibuffer-depth-indicate-mode)</span>
+<span class="ln" id="l256"><a class="ll" href="#l256">256</a>(minibuffer-electric-default-mode)</span>
+<span class="ln" id="l257"><a class="ll" href="#l257">257</a></span>
+<span class="ln" id="l258"><a class="ll" href="#l258">258</a>(setopt minibuffer-prompt-properties '( read-only t</span>
+<span class="ln" id="l259"><a class="ll" href="#l259">259</a>                                        cursor-intangible t</span>
+<span class="ln" id="l260"><a class="ll" href="#l260">260</a>                                        face minibuffer-prompt))</span>
+<span class="ln" id="l261"><a class="ll" href="#l261">261</a>(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)</span>
+<span class="ln" id="l262"><a class="ll" href="#l262">262</a></span>
+<span class="ln" id="l263"><a class="ll" href="#l263">263</a>(setopt file-name-shadow-properties '(invisible t intangible t))</span>
+<span class="ln" id="l264"><a class="ll" href="#l264">264</a>(file-name-shadow-mode)</span>
+<span class="ln" id="l265"><a class="ll" href="#l265">265</a></span>
+<span class="ln" id="l266"><a class="ll" href="#l266">266</a>(setopt history-length t)</span>
+<span class="ln" id="l267"><a class="ll" href="#l267">267</a>(setopt history-delete-duplicates t)</span>
+<span class="ln" id="l268"><a class="ll" href="#l268">268</a>(setopt savehist-save-minibuffer-history t)</span>
+<span class="ln" id="l269"><a class="ll" href="#l269">269</a>(setopt savehist-autosave-interval 5)</span>
+<span class="ln" id="l270"><a class="ll" href="#l270">270</a>(setopt savehist-additional-variables</span>
+<span class="ln" id="l271"><a class="ll" href="#l271">271</a>        '(kill-ring</span>
+<span class="ln" id="l272"><a class="ll" href="#l272">272</a>          command-history</span>
+<span class="ln" id="l273"><a class="ll" href="#l273">273</a>          set-variable-value-history</span>
+<span class="ln" id="l274"><a class="ll" href="#l274">274</a>          custom-variable-history</span>
+<span class="ln" id="l275"><a class="ll" href="#l275">275</a>          query-replace-history</span>
+<span class="ln" id="l276"><a class="ll" href="#l276">276</a>          read-expression-history</span>
+<span class="ln" id="l277"><a class="ll" href="#l277">277</a>          minibuffer-history</span>
+<span class="ln" id="l278"><a class="ll" href="#l278">278</a>          read-char-history</span>
+<span class="ln" id="l279"><a class="ll" href="#l279">279</a>          face-name-history</span>
+<span class="ln" id="l280"><a class="ll" href="#l280">280</a>          bookmark-history</span>
+<span class="ln" id="l281"><a class="ll" href="#l281">281</a>          file-name-history))</span>
+<span class="ln" id="l282"><a class="ll" href="#l282">282</a>(savehist-mode)</span>
+<span class="ln" id="l283"><a class="ll" href="#l283">283</a></span>
+<span class="ln" id="l284"><a class="ll" href="#l284">284</a>(define-minor-mode truncate-lines-local-mode</span>
+<span class="ln" id="l285"><a class="ll" href="#l285">285</a>  "Toggle `truncate-lines' in the current buffer."</span>
+<span class="ln" id="l286"><a class="ll" href="#l286">286</a>  :lighter ""</span>
+<span class="ln" id="l287"><a class="ll" href="#l287">287</a>  (setq-local truncate-lines truncate-lines-local-mode))</span>
+<span class="ln" id="l288"><a class="ll" href="#l288">288</a></span>
+<span class="ln" id="l289"><a class="ll" href="#l289">289</a>(add-hook 'completion-list-mode-hook #'truncate-lines-local-mode)</span>
+<span class="ln" id="l290"><a class="ll" href="#l290">290</a>(add-hook 'minibuffer-setup-hook #'truncate-lines-local-mode)</span>
+<span class="ln" id="l291"><a class="ll" href="#l291">291</a></span>
+<span class="ln" id="l292"><a class="ll" href="#l292">292</a>(with-package (visual-fill-column)</span>
+<span class="ln" id="l293"><a class="ll" href="#l293">293</a>  (setopt visual-fill-column-enable-sensible-window-split t)</span>
+<span class="ln" id="l294"><a class="ll" href="#l294">294</a>  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)</span>
+<span class="ln" id="l295"><a class="ll" href="#l295">295</a>  (advice-add 'text-scale-adjust :after #'visual-fill-column-adjust))</span>
+<span class="ln" id="l296"><a class="ll" href="#l296">296</a></span>
+<span class="ln" id="l297"><a class="ll" href="#l297">297</a>(with-package (adaptive-wrap)</span>
+<span class="ln" id="l298"><a class="ll" href="#l298">298</a>  (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)</span>
+<span class="ln" id="l299"><a class="ll" href="#l299">299</a>  (add-hook 'gemtext-mode-hook #'adaptive-wrap-prefix-mode))</span>
+<span class="ln" id="l300"><a class="ll" href="#l300">300</a></span>
+<span class="ln" id="l301"><a class="ll" href="#l301">301</a>;;; Completing-read and friends</span>
+<span class="ln" id="l302"><a class="ll" href="#l302">302</a></span>
+<span class="ln" id="l303"><a class="ll" href="#l303">303</a>;; Consult</span>
+<span class="ln" id="l304"><a class="ll" href="#l304">304</a>(with-package (consult t)</span>
+<span class="ln" id="l305"><a class="ll" href="#l305">305</a>  (keymap-global-set "C-x b" #'consult-buffer)</span>
+<span class="ln" id="l306"><a class="ll" href="#l306">306</a>  (keymap-global-set "C-x 4 b" #'consult-buffer-other-window)</span>
+<span class="ln" id="l307"><a class="ll" href="#l307">307</a>  (keymap-global-set "C-x 5 b" #'consult-buffer-other-frame)</span>
+<span class="ln" id="l308"><a class="ll" href="#l308">308</a>  (keymap-global-set "C-x r b" #'consult-bookmark)</span>
+<span class="ln" id="l309"><a class="ll" href="#l309">309</a>  (keymap-global-set "M-y" #'consult-yank-pop)</span>
+<span class="ln" id="l310"><a class="ll" href="#l310">310</a>  (keymap-global-set "M-g g" #'consult-goto-line)</span>
+<span class="ln" id="l311"><a class="ll" href="#l311">311</a>  (keymap-global-set "M-g M-g" #'consult-goto-line)</span>
+<span class="ln" id="l312"><a class="ll" href="#l312">312</a>  (keymap-global-set "M-g o" #'consult-outline)</span>
+<span class="ln" id="l313"><a class="ll" href="#l313">313</a>  (keymap-global-set "M-g m" #'consult-mark)</span>
+<span class="ln" id="l314"><a class="ll" href="#l314">314</a>  (keymap-global-set "M-g i" #'consult-imenu)</span>
+<span class="ln" id="l315"><a class="ll" href="#l315">315</a>  (keymap-global-set "M-s d" #'consult-find)</span>
+<span class="ln" id="l316"><a class="ll" href="#l316">316</a>  (keymap-global-set "M-s D" #'consult-locate)</span>
+<span class="ln" id="l317"><a class="ll" href="#l317">317</a>  (keymap-global-set "M-s l" #'consult-line)</span>
+<span class="ln" id="l318"><a class="ll" href="#l318">318</a>  (keymap-global-set "M-s k" #'consult-keep-lines)</span>
+<span class="ln" id="l319"><a class="ll" href="#l319">319</a>  (keymap-global-set "M-s u" #'consult-focus-lines)</span>
+<span class="ln" id="l320"><a class="ll" href="#l320">320</a>  (keymap-global-set "M-s e" #'consult-isearch-history)</span>
+<span class="ln" id="l321"><a class="ll" href="#l321">321</a>  (keymap-set isearch-mode-map "M-e" #'consult-isearch-history)</span>
+<span class="ln" id="l322"><a class="ll" href="#l322">322</a>  (keymap-set isearch-mode-map "M-s e" #'consult-isearch-history)</span>
+<span class="ln" id="l323"><a class="ll" href="#l323">323</a>  (keymap-set isearch-mode-map "M-s l" #'consult-line)</span>
+<span class="ln" id="l324"><a class="ll" href="#l324">324</a>  (setopt xref-show-xrefs-function #'consult-xref)</span>
+<span class="ln" id="l325"><a class="ll" href="#l325">325</a>  (setopt xref-show-definitions-function #'xref-show-definitions-completing-read)</span>
+<span class="ln" id="l326"><a class="ll" href="#l326">326</a>  (setopt consult-preview-key "M-."))</span>
+<span class="ln" id="l327"><a class="ll" href="#l327">327</a></span>
+<span class="ln" id="l328"><a class="ll" href="#l328">328</a>(define-advice completing-read-multiple (:filter-args (args) indicator)</span>
+<span class="ln" id="l329"><a class="ll" href="#l329">329</a>  (cons (format "[CRM%s] %s"</span>
+<span class="ln" id="l330"><a class="ll" href="#l330">330</a>                (replace-regexp-in-string</span>
+<span class="ln" id="l331"><a class="ll" href="#l331">331</a>                 "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""</span>
+<span class="ln" id="l332"><a class="ll" href="#l332">332</a>                 crm-separator)</span>
+<span class="ln" id="l333"><a class="ll" href="#l333">333</a>                (car args))</span>
+<span class="ln" id="l334"><a class="ll" href="#l334">334</a>        (cdr args)))</span>
+<span class="ln" id="l335"><a class="ll" href="#l335">335</a></span>
+<span class="ln" id="l336"><a class="ll" href="#l336">336</a>;; Marginalia</span>
+<span class="ln" id="l337"><a class="ll" href="#l337">337</a>(with-package (marginalia)</span>
+<span class="ln" id="l338"><a class="ll" href="#l338">338</a>  (marginalia-mode))</span>
+<span class="ln" id="l339"><a class="ll" href="#l339">339</a></span>
+<span class="ln" id="l340"><a class="ll" href="#l340">340</a>;; Embark</span>
+<span class="ln" id="l341"><a class="ll" href="#l341">341</a>(with-package (embark)</span>
+<span class="ln" id="l342"><a class="ll" href="#l342">342</a>  (package-ensure 'embark-consult)</span>
+<span class="ln" id="l343"><a class="ll" href="#l343">343</a>  (keymap-global-set "M-." #'embark-dwim)</span>
+<span class="ln" id="l344"><a class="ll" href="#l344">344</a>  (keymap-global-set "C-." #'embark-act)</span>
+<span class="ln" id="l345"><a class="ll" href="#l345">345</a>  (keymap-global-set "C-h B" #'embark-bindings)</span>
+<span class="ln" id="l346"><a class="ll" href="#l346">346</a>  (add-to-list 'display-buffer-alist</span>
+<span class="ln" id="l347"><a class="ll" href="#l347">347</a>               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*" nil</span>
+<span class="ln" id="l348"><a class="ll" href="#l348">348</a>                 (window-parameters (mode-line-format . none))))</span>
+<span class="ln" id="l349"><a class="ll" href="#l349">349</a>  (add-hook 'embark-collect-mode #'consult-preview-at-point-mode)</span>
+<span class="ln" id="l350"><a class="ll" href="#l350">350</a>  (setopt embark-indicators '(embark-mixed-indicator</span>
+<span class="ln" id="l351"><a class="ll" href="#l351">351</a>                              embark-highlight-indicator</span>
+<span class="ln" id="l352"><a class="ll" href="#l352">352</a>                              embark-isearch-highlight-indicator)))</span>
+<span class="ln" id="l353"><a class="ll" href="#l353">353</a></span>
+<span class="ln" id="l354"><a class="ll" href="#l354">354</a>;;; Frames / Windows</span>
+<span class="ln" id="l355"><a class="ll" href="#l355">355</a></span>
+<span class="ln" id="l356"><a class="ll" href="#l356">356</a>(winner-mode)</span>
+<span class="ln" id="l357"><a class="ll" href="#l357">357</a></span>
+<span class="ln" id="l358"><a class="ll" href="#l358">358</a>;;; Files</span>
+<span class="ln" id="l359"><a class="ll" href="#l359">359</a></span>
+<span class="ln" id="l360"><a class="ll" href="#l360">360</a>(setopt auto-revert-verbose nil)</span>
+<span class="ln" id="l361"><a class="ll" href="#l361">361</a>(setopt global-auto-revert-non-file-buffers t)</span>
+<span class="ln" id="l362"><a class="ll" href="#l362">362</a>(global-auto-revert-mode)</span>
+<span class="ln" id="l363"><a class="ll" href="#l363">363</a></span>
+<span class="ln" id="l364"><a class="ll" href="#l364">364</a>(setopt create-lockfiles nil)</span>
+<span class="ln" id="l365"><a class="ll" href="#l365">365</a>(setopt require-final-newline t)</span>
+<span class="ln" id="l366"><a class="ll" href="#l366">366</a>(setopt view-read-only t)</span>
+<span class="ln" id="l367"><a class="ll" href="#l367">367</a>(setopt save-silently t)</span>
+<span class="ln" id="l368"><a class="ll" href="#l368">368</a>(setopt delete-by-moving-to-trash t)</span>
+<span class="ln" id="l369"><a class="ll" href="#l369">369</a>(setopt auto-save-default t)</span>
+<span class="ln" id="l370"><a class="ll" href="#l370">370</a>(setopt auto-save-no-message t)</span>
+<span class="ln" id="l371"><a class="ll" href="#l371">371</a>(setopt auto-save-interval 30)</span>
+<span class="ln" id="l372"><a class="ll" href="#l372">372</a>(setopt auto-save-timeout 5)</span>
+<span class="ln" id="l373"><a class="ll" href="#l373">373</a>(setopt auto-save-visited-interval 5)</span>
+<span class="ln" id="l374"><a class="ll" href="#l374">374</a>(setopt remote-file-name-inhibit-auto-save t)</span>
+<span class="ln" id="l375"><a class="ll" href="#l375">375</a>(setopt remote-file-name-inhibit-auto-save-visited t)</span>
+<span class="ln" id="l376"><a class="ll" href="#l376">376</a>(let ((auto-save-dir (locate-user-emacs-file "auto-save/")))</span>
+<span class="ln" id="l377"><a class="ll" href="#l377">377</a>  (unless (file-exists-p auto-save-dir)</span>
+<span class="ln" id="l378"><a class="ll" href="#l378">378</a>    (make-directory auto-save-dir t))</span>
+<span class="ln" id="l379"><a class="ll" href="#l379">379</a>  (add-to-list 'auto-save-file-name-transforms</span>
+<span class="ln" id="l380"><a class="ll" href="#l380">380</a>               `(".*" ,auto-save-dir t)))</span>
+<span class="ln" id="l381"><a class="ll" href="#l381">381</a>(auto-save-visited-mode)</span>
+<span class="ln" id="l382"><a class="ll" href="#l382">382</a></span>
+<span class="ln" id="l383"><a class="ll" href="#l383">383</a>(add-hook 'window-selection-change-functions</span>
+<span class="ln" id="l384"><a class="ll" href="#l384">384</a>          (defun save-old-selected-window-buffer (frame)</span>
+<span class="ln" id="l385"><a class="ll" href="#l385">385</a>            (with-current-buffer</span>
+<span class="ln" id="l386"><a class="ll" href="#l386">386</a>                (window-buffer (frame-old-selected-window))</span>
+<span class="ln" id="l387"><a class="ll" href="#l387">387</a>              (when (and (buffer-file-name) (buffer-modified-p))</span>
+<span class="ln" id="l388"><a class="ll" href="#l388">388</a>                (save-buffer)))))</span>
+<span class="ln" id="l389"><a class="ll" href="#l389">389</a></span>
+<span class="ln" id="l390"><a class="ll" href="#l390">390</a>(add-hook 'buffer-list-update-hook</span>
+<span class="ln" id="l391"><a class="ll" href="#l391">391</a>          (defun save-other-buffer ()</span>
+<span class="ln" id="l392"><a class="ll" href="#l392">392</a>            (with-current-buffer (other-buffer)</span>
+<span class="ln" id="l393"><a class="ll" href="#l393">393</a>              (when (and (buffer-file-name) (buffer-modified-p))</span>
+<span class="ln" id="l394"><a class="ll" href="#l394">394</a>                (save-buffer)))))</span>
+<span class="ln" id="l395"><a class="ll" href="#l395">395</a></span>
+<span class="ln" id="l396"><a class="ll" href="#l396">396</a>(add-function :after after-focus-change-function</span>
+<span class="ln" id="l397"><a class="ll" href="#l397">397</a>              (defun focus-out-save ()</span>
+<span class="ln" id="l398"><a class="ll" href="#l398">398</a>                (save-some-buffers t)))</span>
+<span class="ln" id="l399"><a class="ll" href="#l399">399</a></span>
+<span class="ln" id="l400"><a class="ll" href="#l400">400</a>(setopt backup-by-copying t)</span>
+<span class="ln" id="l401"><a class="ll" href="#l401">401</a>(setopt version-control t)</span>
+<span class="ln" id="l402"><a class="ll" href="#l402">402</a>(setopt kept-new-versions 3)</span>
+<span class="ln" id="l403"><a class="ll" href="#l403">403</a>(setopt kept-old-versions 3)</span>
+<span class="ln" id="l404"><a class="ll" href="#l404">404</a>(setopt delete-old-versions t)</span>
+<span class="ln" id="l405"><a class="ll" href="#l405">405</a>(add-to-list 'backup-directory-alist '("^/dev/shm/" . nil))</span>
+<span class="ln" id="l406"><a class="ll" href="#l406">406</a>(add-to-list 'backup-directory-alist '("^/tmp/" . nil))</span>
+<span class="ln" id="l407"><a class="ll" href="#l407">407</a>(when-let ((xrd (getenv "XDG_RUNTIME_DIR")))</span>
+<span class="ln" id="l408"><a class="ll" href="#l408">408</a>  (add-to-list 'backup-directory-alist (cons xrd nil)))</span>
+<span class="ln" id="l409"><a class="ll" href="#l409">409</a>(add-to-list 'backup-directory-alist</span>
+<span class="ln" id="l410"><a class="ll" href="#l410">410</a>             (cons "." (locate-user-emacs-file "backup/"))</span>
+<span class="ln" id="l411"><a class="ll" href="#l411">411</a>             :append)</span>
+<span class="ln" id="l412"><a class="ll" href="#l412">412</a></span>
+<span class="ln" id="l413"><a class="ll" href="#l413">413</a>(setopt recentf-max-menu-items 100)</span>
+<span class="ln" id="l414"><a class="ll" href="#l414">414</a>(setopt recentf-max-saved-items nil)</span>
+<span class="ln" id="l415"><a class="ll" href="#l415">415</a>(setopt recentf-case-fold-search t)</span>
+<span class="ln" id="l416"><a class="ll" href="#l416">416</a>(with-eval-after-load 'recentf</span>
+<span class="ln" id="l417"><a class="ll" href="#l417">417</a>  (add-to-list 'recentf-exclude "-autoloads.el\\'"))</span>
+<span class="ln" id="l418"><a class="ll" href="#l418">418</a>(add-hook 'buffer-list-update-hook #'recentf-track-opened-file)</span>
+<span class="ln" id="l419"><a class="ll" href="#l419">419</a>(add-hook 'after-save-hook #'recentf-save-list)</span>
+<span class="ln" id="l420"><a class="ll" href="#l420">420</a>(recentf-mode)</span>
+<span class="ln" id="l421"><a class="ll" href="#l421">421</a></span>
+<span class="ln" id="l422"><a class="ll" href="#l422">422</a>(setopt save-place-forget-unreadable-files (eq system-type 'gnu/linux))</span>
+<span class="ln" id="l423"><a class="ll" href="#l423">423</a>(save-place-mode)</span>
+<span class="ln" id="l424"><a class="ll" href="#l424">424</a></span>
+<span class="ln" id="l425"><a class="ll" href="#l425">425</a>(add-hook 'find-file-not-found-functions #'create-missing-directories)</span>
+<span class="ln" id="l426"><a class="ll" href="#l426">426</a></span>
+<span class="ln" id="l427"><a class="ll" href="#l427">427</a>;;; Buffers</span>
+<span class="ln" id="l428"><a class="ll" href="#l428">428</a></span>
+<span class="ln" id="l429"><a class="ll" href="#l429">429</a>;; Unique names</span>
+<span class="ln" id="l430"><a class="ll" href="#l430">430</a>(setopt uniquify-buffer-name-style 'forward)</span>
+<span class="ln" id="l431"><a class="ll" href="#l431">431</a>(setopt uniquify-after-kill-buffer-p t)</span>
+<span class="ln" id="l432"><a class="ll" href="#l432">432</a>(setopt uniquify-ignore-buffers-re "^\\*")</span>
+<span class="ln" id="l433"><a class="ll" href="#l433">433</a></span>
+<span class="ln" id="l434"><a class="ll" href="#l434">434</a>;; Persistent undo</span>
+<span class="ln" id="l435"><a class="ll" href="#l435">435</a>(with-package (undo-fu-session)</span>
+<span class="ln" id="l436"><a class="ll" href="#l436">436</a>  (setopt undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"</span>
+<span class="ln" id="l437"><a class="ll" href="#l437">437</a>                                               "/git-rebase-todo\\'"))</span>
+<span class="ln" id="l438"><a class="ll" href="#l438">438</a>  (undo-fu-session-global-mode))</span>
+<span class="ln" id="l439"><a class="ll" href="#l439">439</a></span>
+<span class="ln" id="l440"><a class="ll" href="#l440">440</a>;; Encodings</span>
+<span class="ln" id="l441"><a class="ll" href="#l441">441</a>(set-language-environment "UTF-8")</span>
+<span class="ln" id="l442"><a class="ll" href="#l442">442</a>(setopt buffer-file-coding-system 'utf-8-unix)</span>
+<span class="ln" id="l443"><a class="ll" href="#l443">443</a>(setopt coding-system-for-read 'utf-8-unix)</span>
+<span class="ln" id="l444"><a class="ll" href="#l444">444</a>(setopt coding-system-for-write 'utf-8-unix)</span>
+<span class="ln" id="l445"><a class="ll" href="#l445">445</a>(setopt default-process-coding-system '(utf-8-unix . utf-8-unix))</span>
+<span class="ln" id="l446"><a class="ll" href="#l446">446</a>(setopt locale-coding-system 'utf-8-unix)</span>
+<span class="ln" id="l447"><a class="ll" href="#l447">447</a>(set-charset-priority 'unicode)</span>
+<span class="ln" id="l448"><a class="ll" href="#l448">448</a>(prefer-coding-system 'utf-8-unix)</span>
+<span class="ln" id="l449"><a class="ll" href="#l449">449</a>(set-default-coding-systems 'utf-8-unix)</span>
+<span class="ln" id="l450"><a class="ll" href="#l450">450</a>(set-terminal-coding-system 'utf-8-unix)</span>
+<span class="ln" id="l451"><a class="ll" href="#l451">451</a>(set-keyboard-coding-system 'utf-8-unix)</span>
+<span class="ln" id="l452"><a class="ll" href="#l452">452</a>(pcase system-type</span>
+<span class="ln" id="l453"><a class="ll" href="#l453">453</a>  ((or 'ms-dos 'windows-nt)</span>
+<span class="ln" id="l454"><a class="ll" href="#l454">454</a>   (set-clipboard-coding-system 'utf-16-le)</span>
+<span class="ln" id="l455"><a class="ll" href="#l455">455</a>   (set-selection-coding-system 'utf-16-le))</span>
+<span class="ln" id="l456"><a class="ll" href="#l456">456</a>  (_</span>
+<span class="ln" id="l457"><a class="ll" href="#l457">457</a>   (set-selection-coding-system 'utf-8)</span>
+<span class="ln" id="l458"><a class="ll" href="#l458">458</a>   (set-clipboard-coding-system 'utf-8)))</span>
+<span class="ln" id="l459"><a class="ll" href="#l459">459</a></span>
+<span class="ln" id="l460"><a class="ll" href="#l460">460</a>;;; Search</span>
+<span class="ln" id="l461"><a class="ll" href="#l461">461</a></span>
+<span class="ln" id="l462"><a class="ll" href="#l462">462</a>(setopt isearch-lazy-count nil)</span>
+<span class="ln" id="l463"><a class="ll" href="#l463">463</a>(setopt isearch-regexp-lax-whitespace t)</span>
+<span class="ln" id="l464"><a class="ll" href="#l464">464</a>(setopt isearch-wrap-pause 'no)</span>
+<span class="ln" id="l465"><a class="ll" href="#l465">465</a>(setopt search-whitespace-regexp "[       ]+")</span>
+<span class="ln" id="l466"><a class="ll" href="#l466">466</a>(setopt search-ring-max 256)</span>
+<span class="ln" id="l467"><a class="ll" href="#l467">467</a>(setopt regexp-search-ring-max 256)</span>
+<span class="ln" id="l468"><a class="ll" href="#l468">468</a></span>
+<span class="ln" id="l469"><a class="ll" href="#l469">469</a>(define-advice isearch-cancel (:before () add-to-history)</span>
+<span class="ln" id="l470"><a class="ll" href="#l470">470</a>  "Add search string to history when canceling isearch."</span>
+<span class="ln" id="l471"><a class="ll" href="#l471">471</a>  (unless (string-equal "" isearch-string)</span>
+<span class="ln" id="l472"><a class="ll" href="#l472">472</a>    (isearch-update-ring isearch-string isearch-regexp)))</span>
+<span class="ln" id="l473"><a class="ll" href="#l473">473</a></span>
+<span class="ln" id="l474"><a class="ll" href="#l474">474</a>(with-package (isearch-mb t)</span>
+<span class="ln" id="l475"><a class="ll" href="#l475">475</a>  (add-to-list 'isearch-mb--with-buffer #'consult-isearch-history)</span>
+<span class="ln" id="l476"><a class="ll" href="#l476">476</a>  (keymap-set isearch-mb-minibuffer-map "M-r" #'consult-isearch-history)</span>
+<span class="ln" id="l477"><a class="ll" href="#l477">477</a>  (add-to-list 'isearch-mb--after-exit #'consult-line)</span>
+<span class="ln" id="l478"><a class="ll" href="#l478">478</a>  (keymap-set isearch-mb-minibuffer-map "M-s l" #'consult-line)</span>
+<span class="ln" id="l479"><a class="ll" href="#l479">479</a>  (isearch-mb-mode))</span>
+<span class="ln" id="l480"><a class="ll" href="#l480">480</a></span>
+<span class="ln" id="l481"><a class="ll" href="#l481">481</a>;; Default to regexen</span>
+<span class="ln" id="l482"><a class="ll" href="#l482">482</a>(setopt search-default-mode t) ; Isearch</span>
+<span class="ln" id="l483"><a class="ll" href="#l483">483</a>(keymap-global-set "M-%" #'query-replace-regexp)</span>
+<span class="ln" id="l484"><a class="ll" href="#l484">484</a>(keymap-global-set "C-M-%" #'query-replace)</span>
+<span class="ln" id="l485"><a class="ll" href="#l485">485</a></span>
+<span class="ln" id="l486"><a class="ll" href="#l486">486</a>;;; Keybindings</span>
+<span class="ln" id="l487"><a class="ll" href="#l487">487</a></span>
+<span class="ln" id="l488"><a class="ll" href="#l488">488</a>(repeat-mode)</span>
+<span class="ln" id="l489"><a class="ll" href="#l489">489</a></span>
+<span class="ln" id="l490"><a class="ll" href="#l490">490</a>;; Separate C-&lt;key&gt; and control keys from halcyon ascii days</span>
+<span class="ln" id="l491"><a class="ll" href="#l491">491</a>;; (define-key input-decode-map [?\C-i] [C-i])</span>
+<span class="ln" id="l492"><a class="ll" href="#l492">492</a>;; (define-key input-decode-map [?\C-m] [C-m])</span>
+<span class="ln" id="l493"><a class="ll" href="#l493">493</a></span>
+<span class="ln" id="l494"><a class="ll" href="#l494">494</a>;; Modified default keybindings</span>
+<span class="ln" id="l495"><a class="ll" href="#l495">495</a>(keymap-global-set "C-x C-k" #'kill-buffer-dwim)</span>
+<span class="ln" id="l496"><a class="ll" href="#l496">496</a>(keymap-global-set "M-o" #'other-window-dwim)</span>
+<span class="ln" id="l497"><a class="ll" href="#l497">497</a>(keymap-global-set "C-x o" #'other-window-dwim)</span>
+<span class="ln" id="l498"><a class="ll" href="#l498">498</a>(keymap-global-set "C-x 0" #'delete-window-dwim)</span>
+<span class="ln" id="l499"><a class="ll" href="#l499">499</a>(keymap-global-set "M-SPC" #'cycle-spacing*)</span>
+<span class="ln" id="l500"><a class="ll" href="#l500">500</a>(keymap-global-set "C-x C-c" #'save-buffers-kill*)</span>
+<span class="ln" id="l501"><a class="ll" href="#l501">501</a>(keymap-global-set "C-g" #'keyboard-quit*)</span>
+<span class="ln" id="l502"><a class="ll" href="#l502">502</a>(keymap-global-set "C-M-\\" #'fixup-whitespace)</span>
+<span class="ln" id="l503"><a class="ll" href="#l503">503</a>(keymap-global-set "C-g" #'keyboard-quit-dwim)</span>
+<span class="ln" id="l504"><a class="ll" href="#l504">504</a></span>
+<span class="ln" id="l505"><a class="ll" href="#l505">505</a>;; New bindings for existing stuff</span>
+<span class="ln" id="l506"><a class="ll" href="#l506">506</a>(keymap-global-set "C-x C-b" #'ibuffer)</span>
+<span class="ln" id="l507"><a class="ll" href="#l507">507</a>(keymap-global-set "M-/" #'hippie-expand)</span>
+<span class="ln" id="l508"><a class="ll" href="#l508">508</a>(keymap-global-set "M-u" #'universal-argument)</span>
+<span class="ln" id="l509"><a class="ll" href="#l509">509</a>(keymap-set universal-argument-map "M-u" #'universal-argument-more)</span>
+<span class="ln" id="l510"><a class="ll" href="#l510">510</a></span>
+<span class="ln" id="l511"><a class="ll" href="#l511">511</a>;; Prefix maps</span>
+<span class="ln" id="l512"><a class="ll" href="#l512">512</a>(keymap-global-set "C-c d"</span>
+<span class="ln" id="l513"><a class="ll" href="#l513">513</a>                   (defun insert-current-iso8601 ()</span>
+<span class="ln" id="l514"><a class="ll" href="#l514">514</a>                     (interactive)</span>
+<span class="ln" id="l515"><a class="ll" href="#l515">515</a>                     (insert (format-time-string "%FT%TZ" (current-time) t))))</span>
+<span class="ln" id="l516"><a class="ll" href="#l516">516</a></span>
+<span class="ln" id="l517"><a class="ll" href="#l517">517</a>(keymap-global-set "C-c i"</span>
+<span class="ln" id="l518"><a class="ll" href="#l518">518</a>                   (define-keymap</span>
+<span class="ln" id="l519"><a class="ll" href="#l519">519</a>                     :prefix 'find-init-map</span>
+<span class="ln" id="l520"><a class="ll" href="#l520">520</a>                     "i" (find-user-file init)</span>
+<span class="ln" id="l521"><a class="ll" href="#l521">521</a>                     "e" (find-user-file early-init</span>
+<span class="ln" id="l522"><a class="ll" href="#l522">522</a>                           (locate-user-emacs-file "early-init.el"))</span>
+<span class="ln" id="l523"><a class="ll" href="#l523">523</a>                     "c" (find-user-file custom custom-file)</span>
+<span class="ln" id="l524"><a class="ll" href="#l524">524</a>                     "p" (find-user-file private)</span>
+<span class="ln" id="l525"><a class="ll" href="#l525">525</a>                     "t" (find-user-file theme</span>
+<span class="ln" id="l526"><a class="ll" href="#l526">526</a>                           (locate-user-emacs-file "case-theme.el"))</span>
+<span class="ln" id="l527"><a class="ll" href="#l527">527</a>                     "x" (find-user-file exwm</span>
+<span class="ln" id="l528"><a class="ll" href="#l528">528</a>                           (expand-file-name "~/.exwm"))</span>
+<span class="ln" id="l529"><a class="ll" href="#l529">529</a>                     "s" #'scratch-buffer</span>
+<span class="ln" id="l530"><a class="ll" href="#l530">530</a>                     "a" (find-user-file authinfo</span>
+<span class="ln" id="l531"><a class="ll" href="#l531">531</a>                           (expand-file-name "~/.authinfo"))))</span>
+<span class="ln" id="l532"><a class="ll" href="#l532">532</a></span>
+<span class="ln" id="l533"><a class="ll" href="#l533">533</a>(keymap-global-set "C-c t"</span>
+<span class="ln" id="l534"><a class="ll" href="#l534">534</a>                   (define-keymap</span>
+<span class="ln" id="l535"><a class="ll" href="#l535">535</a>                     :prefix 'toggle-map</span>
+<span class="ln" id="l536"><a class="ll" href="#l536">536</a>                     "e" #'toggle-debug-on-error</span>
+<span class="ln" id="l537"><a class="ll" href="#l537">537</a>                     "q" #'toggle-debug-on-quit</span>
+<span class="ln" id="l538"><a class="ll" href="#l538">538</a>                     "c" #'column-number-mode</span>
+<span class="ln" id="l539"><a class="ll" href="#l539">539</a>                     "l" #'line-number-mode</span>
+<span class="ln" id="l540"><a class="ll" href="#l540">540</a>                     "L" #'display-line-numbers-mode</span>
+<span class="ln" id="l541"><a class="ll" href="#l541">541</a>                     "t" #'truncate-lines-local-mode</span>
+<span class="ln" id="l542"><a class="ll" href="#l542">542</a>                     "o" #'overwrite-mode</span>
+<span class="ln" id="l543"><a class="ll" href="#l543">543</a>                     "f" #'auto-fill-mode))</span>
+<span class="ln" id="l544"><a class="ll" href="#l544">544</a></span>
+<span class="ln" id="l545"><a class="ll" href="#l545">545</a>(keymap-global-set "M-c"</span>
+<span class="ln" id="l546"><a class="ll" href="#l546">546</a>                   (define-keymap</span>
+<span class="ln" id="l547"><a class="ll" href="#l547">547</a>                     :prefix 'case-map</span>
+<span class="ln" id="l548"><a class="ll" href="#l548">548</a>                     "M-u" #'upcase-dwim "u"    #'upcase-dwim</span>
+<span class="ln" id="l549"><a class="ll" href="#l549">549</a>                     "M-c" #'capitalize-dwim "c" #'capitalize-dwim</span>
+<span class="ln" id="l550"><a class="ll" href="#l550">550</a>                     "M-l" #'downcase-dwim "l" #'downcase-dwim))</span>
+<span class="ln" id="l551"><a class="ll" href="#l551">551</a>(put 'upcase-dwim 'repeat-map 'case-map)</span>
+<span class="ln" id="l552"><a class="ll" href="#l552">552</a>(put 'capitalize-dwim 'repeat-map 'case-map)</span>
+<span class="ln" id="l553"><a class="ll" href="#l553">553</a>(put 'downcase-dwim 'repeat-map 'case-map)</span>
+<span class="ln" id="l554"><a class="ll" href="#l554">554</a></span>
+<span class="ln" id="l555"><a class="ll" href="#l555">555</a>;;; Un-keybinds</span>
+<span class="ln" id="l556"><a class="ll" href="#l556">556</a>;; Why do I want to zoom with the mouse?</span>
+<span class="ln" id="l557"><a class="ll" href="#l557">557</a>(keymap-global-unset "C-&lt;wheel-down&gt;" t)</span>
+<span class="ln" id="l558"><a class="ll" href="#l558">558</a>(keymap-global-unset "C-&lt;wheel-up&gt;" t)</span>
+<span class="ln" id="l559"><a class="ll" href="#l559">559</a>;; These are ripe for re-binding</span>
+<span class="ln" id="l560"><a class="ll" href="#l560">560</a>(keymap-global-unset "C-\\" t)</span>
+<span class="ln" id="l561"><a class="ll" href="#l561">561</a>(keymap-global-unset "M-l" t)</span>
+<span class="ln" id="l562"><a class="ll" href="#l562">562</a>(keymap-global-unset "&lt;f2&gt;" t)</span>
+<span class="ln" id="l563"><a class="ll" href="#l563">563</a></span>
+<span class="ln" id="l564"><a class="ll" href="#l564">564</a>;; Key settings</span>
+<span class="ln" id="l565"><a class="ll" href="#l565">565</a>(setopt set-mark-command-repeat-pop t)</span>
+<span class="ln" id="l566"><a class="ll" href="#l566">566</a></span>
+<span class="ln" id="l567"><a class="ll" href="#l567">567</a>;;; Text-editing packages</span>
+<span class="ln" id="l568"><a class="ll" href="#l568">568</a></span>
+<span class="ln" id="l569"><a class="ll" href="#l569">569</a>;; Hungry delete</span>
+<span class="ln" id="l570"><a class="ll" href="#l570">570</a>(with-package (hungry-delete)</span>
+<span class="ln" id="l571"><a class="ll" href="#l571">571</a>  (setopt hungry-delete-chars-to-skip " \t")</span>
+<span class="ln" id="l572"><a class="ll" href="#l572">572</a>  (with-eval-after-load 'hungry-delete</span>
+<span class="ln" id="l573"><a class="ll" href="#l573">573</a>    (dolist (m '( eshell-mode</span>
+<span class="ln" id="l574"><a class="ll" href="#l574">574</a>                  eww-mode</span>
+<span class="ln" id="l575"><a class="ll" href="#l575">575</a>                  special-mode</span>
+<span class="ln" id="l576"><a class="ll" href="#l576">576</a>                  jabber-chat-mode))</span>
+<span class="ln" id="l577"><a class="ll" href="#l577">577</a>      (add-to-list 'hungry-delete-except-modes m)))</span>
+<span class="ln" id="l578"><a class="ll" href="#l578">578</a>  (global-hungry-delete-mode))</span>
+<span class="ln" id="l579"><a class="ll" href="#l579">579</a></span>
+<span class="ln" id="l580"><a class="ll" href="#l580">580</a>;; ;;; Writing</span>
+<span class="ln" id="l581"><a class="ll" href="#l581">581</a></span>
+<span class="ln" id="l582"><a class="ll" href="#l582">582</a>(add-hook 'text-mode-hook #'visual-line-mode)</span>
+<span class="ln" id="l583"><a class="ll" href="#l583">583</a></span>
+<span class="ln" id="l584"><a class="ll" href="#l584">584</a>(setopt dictionary-server "dict.org")</span>
+<span class="ln" id="l585"><a class="ll" href="#l585">585</a>(setopt dictionary-use-single-buffer t)</span>
+<span class="ln" id="l586"><a class="ll" href="#l586">586</a></span>
+<span class="ln" id="l587"><a class="ll" href="#l587">587</a>;;; Programming</span>
+<span class="ln" id="l588"><a class="ll" href="#l588">588</a></span>
+<span class="ln" id="l589"><a class="ll" href="#l589">589</a>(add-hook 'prog-mode-hook #'electric-pair-local-mode)</span>
+<span class="ln" id="l590"><a class="ll" href="#l590">590</a>(setopt tab-width 8)</span>
+<span class="ln" id="l591"><a class="ll" href="#l591">591</a>(setopt sh-basic-offset tab-width)</span>
+<span class="ln" id="l592"><a class="ll" href="#l592">592</a>(setopt perl-indent-level tab-width)</span>
+<span class="ln" id="l593"><a class="ll" href="#l593">593</a>(setopt c-basic-offset tab-width)</span>
+<span class="ln" id="l594"><a class="ll" href="#l594">594</a></span>
+<span class="ln" id="l595"><a class="ll" href="#l595">595</a>(defvar space-indent-modes '(emacs-lisp-mode</span>
+<span class="ln" id="l596"><a class="ll" href="#l596">596</a>                             lisp-interaction-mode</span>
+<span class="ln" id="l597"><a class="ll" href="#l597">597</a>                             lisp-mode</span>
+<span class="ln" id="l598"><a class="ll" href="#l598">598</a>                             scheme-mode</span>
+<span class="ln" id="l599"><a class="ll" href="#l599">599</a>                             python-mode</span>
+<span class="ln" id="l600"><a class="ll" href="#l600">600</a>                             haskell-mode</span>
+<span class="ln" id="l601"><a class="ll" href="#l601">601</a>                             text-mode</span>
+<span class="ln" id="l602"><a class="ll" href="#l602">602</a>                             web-mode</span>
+<span class="ln" id="l603"><a class="ll" href="#l603">603</a>                             css-mode)</span>
+<span class="ln" id="l604"><a class="ll" href="#l604">604</a>  "Modes to indent with spaces, not tabs.")</span>
+<span class="ln" id="l605"><a class="ll" href="#l605">605</a></span>
+<span class="ln" id="l606"><a class="ll" href="#l606">606</a>(add-hook 'prog-mode-hook</span>
+<span class="ln" id="l607"><a class="ll" href="#l607">607</a>          (defun indent-tabs-mode-maybe ()</span>
+<span class="ln" id="l608"><a class="ll" href="#l608">608</a>            (setq indent-tabs-mode</span>
+<span class="ln" id="l609"><a class="ll" href="#l609">609</a>                  (if (apply #'derived-mode-p space-indent-modes) nil t))))</span>
+<span class="ln" id="l610"><a class="ll" href="#l610">610</a></span>
+<span class="ln" id="l611"><a class="ll" href="#l611">611</a>(setf/alist auto-mode-alist "\\`ok\\'" #'sh-mode)</span>
+<span class="ln" id="l612"><a class="ll" href="#l612">612</a></span>
+<span class="ln" id="l613"><a class="ll" href="#l613">613</a>;; Eldoc</span>
+<span class="ln" id="l614"><a class="ll" href="#l614">614</a>(setopt eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)</span>
+<span class="ln" id="l615"><a class="ll" href="#l615">615</a></span>
+<span class="ln" id="l616"><a class="ll" href="#l616">616</a>;; Elisp</span>
+<span class="ln" id="l617"><a class="ll" href="#l617">617</a>(keymap-set emacs-lisp-mode-map "C-c C-c" #'eval-defun)</span>
+<span class="ln" id="l618"><a class="ll" href="#l618">618</a>(keymap-set emacs-lisp-mode-map "C-c C-m"</span>
+<span class="ln" id="l619"><a class="ll" href="#l619">619</a>            (defun pp-macroexpand-defun ()</span>
+<span class="ln" id="l620"><a class="ll" href="#l620">620</a>              (interactive)</span>
+<span class="ln" id="l621"><a class="ll" href="#l621">621</a>              (beginning-of-defun)</span>
+<span class="ln" id="l622"><a class="ll" href="#l622">622</a>              (forward-sexp)</span>
+<span class="ln" id="l623"><a class="ll" href="#l623">623</a>              (pp-macroexpand-last-sexp nil)))</span>
+<span class="ln" id="l624"><a class="ll" href="#l624">624</a>(keymap-set emacs-lisp-mode-map "C-c C-b"</span>
+<span class="ln" id="l625"><a class="ll" href="#l625">625</a>            (defun eval-buffer@pulse () (interactive)</span>
+<span class="ln" id="l626"><a class="ll" href="#l626">626</a>                   (eval-buffer)</span>
+<span class="ln" id="l627"><a class="ll" href="#l627">627</a>                   (pulse-momentary-highlight-region (point-min) (point-max))))</span>
+<span class="ln" id="l628"><a class="ll" href="#l628">628</a>(advice-add 'eval-region :after #'pulse@eval)</span>
+<span class="ln" id="l629"><a class="ll" href="#l629">629</a>(add-hook 'emacs-lisp-mode-hook #'elisp-enable-lexical-binding)</span>
+<span class="ln" id="l630"><a class="ll" href="#l630">630</a></span>
+<span class="ln" id="l631"><a class="ll" href="#l631">631</a>;; Makefile</span>
+<span class="ln" id="l632"><a class="ll" href="#l632">632</a>(setopt makefile-backslash-align nil)</span>
+<span class="ln" id="l633"><a class="ll" href="#l633">633</a>(setopt makefile-cleanup-continuations t)</span>
+<span class="ln" id="l634"><a class="ll" href="#l634">634</a></span>
+<span class="ln" id="l635"><a class="ll" href="#l635">635</a>(add-hook 'makefile-mode-hook</span>
+<span class="ln" id="l636"><a class="ll" href="#l636">636</a>          (^local-unhook 'write-file-functions 'makefile-warn-suspicious-lines))</span>
+<span class="ln" id="l637"><a class="ll" href="#l637">637</a>(add-hook 'makefile-mode-hook</span>
+<span class="ln" id="l638"><a class="ll" href="#l638">638</a>          (^local-unhook 'write-file-functions 'makefile-warn-continuations))</span>
+<span class="ln" id="l639"><a class="ll" href="#l639">639</a></span>
+<span class="ln" id="l640"><a class="ll" href="#l640">640</a>;; Scheme -- CHICKEN</span>
+<span class="ln" id="l641"><a class="ll" href="#l641">641</a>(setopt scheme-program-name (or (executable-find "csi")))</span>
+<span class="ln" id="l642"><a class="ll" href="#l642">642</a>(add-to-list 'auto-mode-alist '("\\.egg\\'" . scheme-mode))</span>
+<span class="ln" id="l643"><a class="ll" href="#l643">643</a></span>
+<span class="ln" id="l644"><a class="ll" href="#l644">644</a>;; Scheme Indentation</span>
+<span class="ln" id="l645"><a class="ll" href="#l645">645</a>(defun scheme-module-indent (state indent-point normal-indent) 0)</span>
+<span class="ln" id="l646"><a class="ll" href="#l646">646</a>(put 'module 'scheme-indent-function 'scheme-module-indent)</span>
+<span class="ln" id="l647"><a class="ll" href="#l647">647</a>(put 'and-let* 'scheme-indent-function 1)</span>
+<span class="ln" id="l648"><a class="ll" href="#l648">648</a>(put 'parameterize 'scheme-indent-function 1)</span>
+<span class="ln" id="l649"><a class="ll" href="#l649">649</a>(put 'handle-exceptions 'scheme-indent-function 1)</span>
+<span class="ln" id="l650"><a class="ll" href="#l650">650</a>(put 'when 'scheme-indent-function 1)</span>
+<span class="ln" id="l651"><a class="ll" href="#l651">651</a>(put 'unless 'scheme-indent-function 1)</span>
+<span class="ln" id="l652"><a class="ll" href="#l652">652</a>(put 'match 'scheme-indent-function 1)</span>
+<span class="ln" id="l653"><a class="ll" href="#l653">653</a></span>
+<span class="ln" id="l654"><a class="ll" href="#l654">654</a>;; Geiser</span>
+<span class="ln" id="l655"><a class="ll" href="#l655">655</a>(with-package (geiser)</span>
+<span class="ln" id="l656"><a class="ll" href="#l656">656</a>  (package-ensure 'geiser-chicken)</span>
+<span class="ln" id="l657"><a class="ll" href="#l657">657</a>  (setopt geiser-mode-auto-p nil)</span>
+<span class="ln" id="l658"><a class="ll" href="#l658">658</a>  (setopt geiser-repl-history-filename "~/.emacs.d/geiser-history")</span>
+<span class="ln" id="l659"><a class="ll" href="#l659">659</a>  (setopt geiser-chicken-init-file "~/.csirc")</span>
+<span class="ln" id="l660"><a class="ll" href="#l660">660</a>  (add-hook 'scheme-mode-hook #'geiser-mode)</span>
+<span class="ln" id="l661"><a class="ll" href="#l661">661</a>  (add-hook 'geiser-repl-mode-hook #'electric-pair-local-mode)</span>
+<span class="ln" id="l662"><a class="ll" href="#l662">662</a>  (advice-add 'geiser-eval-region :after #'pulse@eval))</span>
+<span class="ln" id="l663"><a class="ll" href="#l663">663</a></span>
+<span class="ln" id="l664"><a class="ll" href="#l664">664</a>;; Lisp</span>
+<span class="ln" id="l665"><a class="ll" href="#l665">665</a>(with-package (sly)</span>
+<span class="ln" id="l666"><a class="ll" href="#l666">666</a>  (setopt inferior-lisp-program (executable-find "sbcl"))</span>
+<span class="ln" id="l667"><a class="ll" href="#l667">667</a>  (setopt sly-command-switch-to-existing-lisp 'ask) ; oof</span>
+<span class="ln" id="l668"><a class="ll" href="#l668">668</a>  (setopt sly-lisp-implementations</span>
+<span class="ln" id="l669"><a class="ll" href="#l669">669</a>          `((sbcl ("sbcl" "--dynamic-space-size" "2000")</span>
+<span class="ln" id="l670"><a class="ll" href="#l670">670</a>                  :coding-system utf-8-unix)))</span>
+<span class="ln" id="l671"><a class="ll" href="#l671">671</a>  (add-hook 'lisp-mode-hook #'sly-mode)</span>
+<span class="ln" id="l672"><a class="ll" href="#l672">672</a>  (add-hook 'sly-mrepl-mode-hook #'electric-pair-mode)</span>
+<span class="ln" id="l673"><a class="ll" href="#l673">673</a></span>
+<span class="ln" id="l674"><a class="ll" href="#l674">674</a>  ;; Completion</span>
+<span class="ln" id="l675"><a class="ll" href="#l675">675</a>  (after sly-completion ; Follow my other completion setup</span>
+<span class="ln" id="l676"><a class="ll" href="#l676">676</a>    (sly-symbol-completion-mode -1)</span>
+<span class="ln" id="l677"><a class="ll" href="#l677">677</a>    (setf sly-complete-symbol-function #'sly-flex-completions)</span>
+<span class="ln" id="l678"><a class="ll" href="#l678">678</a>    (keymap-set sly--completion-transient-mode-map</span>
+<span class="ln" id="l679"><a class="ll" href="#l679">679</a>                "TAB" #'sly-next-completion)</span>
+<span class="ln" id="l680"><a class="ll" href="#l680">680</a>    (keymap-set sly--completion-transient-mode-map</span>
+<span class="ln" id="l681"><a class="ll" href="#l681">681</a>                "&lt;backtab&gt;" #'sly-prev-completion)</span>
+<span class="ln" id="l682"><a class="ll" href="#l682">682</a></span>
+<span class="ln" id="l683"><a class="ll" href="#l683">683</a>    (define-advice sly-completion-annotation</span>
+<span class="ln" id="l684"><a class="ll" href="#l684">684</a>        (:filter-return (annotation) fix-spacing)</span>
+<span class="ln" id="l685"><a class="ll" href="#l685">685</a>      (concat (propertize " " 'display '(space :align-to center))</span>
+<span class="ln" id="l686"><a class="ll" href="#l686">686</a>              annotation)))</span>
+<span class="ln" id="l687"><a class="ll" href="#l687">687</a></span>
+<span class="ln" id="l688"><a class="ll" href="#l688">688</a>  ;; Misc. integration</span>
+<span class="ln" id="l689"><a class="ll" href="#l689">689</a>  (load "/home/acdw/.quicklisp/clhs-use-local.el" t)</span>
+<span class="ln" id="l690"><a class="ll" href="#l690">690</a>  (put 'define-package 'sly-common-lisp-indent-function 1)</span>
+<span class="ln" id="l691"><a class="ll" href="#l691">691</a>  (put 'define-glossary-term 'sly-common-lisp-indent-function 2)</span>
+<span class="ln" id="l692"><a class="ll" href="#l692">692</a></span>
+<span class="ln" id="l693"><a class="ll" href="#l693">693</a>  ;; Sly contribs</span>
+<span class="ln" id="l694"><a class="ll" href="#l694">694</a>  (add-to-list 'sly-contribs 'sly-mrepl)</span>
+<span class="ln" id="l695"><a class="ll" href="#l695">695</a>  (package-ensure 'sly-repl-ansi-color)</span>
+<span class="ln" id="l696"><a class="ll" href="#l696">696</a>  (add-to-list 'sly-contribs 'sly-repl-ansi-color t)</span>
+<span class="ln" id="l697"><a class="ll" href="#l697">697</a>  (package-ensure 'sly-asdf)</span>
+<span class="ln" id="l698"><a class="ll" href="#l698">698</a>  (add-to-list 'sly-contribs 'sly-asdf t)</span>
+<span class="ln" id="l699"><a class="ll" href="#l699">699</a>  (package-ensure 'sly-macrostep)</span>
+<span class="ln" id="l700"><a class="ll" href="#l700">700</a>  (add-to-list 'sly-contribs 'sly-macrostep t)</span>
+<span class="ln" id="l701"><a class="ll" href="#l701">701</a>  (package-ensure 'sly-quicklisp)</span>
+<span class="ln" id="l702"><a class="ll" href="#l702">702</a>  (add-to-list 'sly-contribs 'sly-quicklisp t)</span>
+<span class="ln" id="l703"><a class="ll" href="#l703">703</a></span>
+<span class="ln" id="l704"><a class="ll" href="#l704">704</a>  (require 'sly-autoloads)</span>
+<span class="ln" id="l705"><a class="ll" href="#l705">705</a></span>
+<span class="ln" id="l706"><a class="ll" href="#l706">706</a>  (defvar sly-mrepl-previous-buffer nil</span>
+<span class="ln" id="l707"><a class="ll" href="#l707">707</a>    "The buffer visited before sly-mrepl.")</span>
+<span class="ln" id="l708"><a class="ll" href="#l708">708</a></span>
+<span class="ln" id="l709"><a class="ll" href="#l709">709</a>  (defun sly-mrepl* ()</span>
+<span class="ln" id="l710"><a class="ll" href="#l710">710</a>    (interactive)</span>
+<span class="ln" id="l711"><a class="ll" href="#l711">711</a>    (if (bound-and-true-p sly-buffer-connection)</span>
+<span class="ln" id="l712"><a class="ll" href="#l712">712</a>        (if sly-mrepl-previous-buffer</span>
+<span class="ln" id="l713"><a class="ll" href="#l713">713</a>            (switch-to-buffer-other-window sly-mrepl-previous-buffer)</span>
+<span class="ln" id="l714"><a class="ll" href="#l714">714</a>          (other-window))</span>
+<span class="ln" id="l715"><a class="ll" href="#l715">715</a>      (progn</span>
+<span class="ln" id="l716"><a class="ll" href="#l716">716</a>        (setq sly-mrepl-previous-buffer (current-buffer))</span>
+<span class="ln" id="l717"><a class="ll" href="#l717">717</a>        (if (bound-and-true-p sly-net-processes)</span>
+<span class="ln" id="l718"><a class="ll" href="#l718">718</a>            (sly-mrepl #'switch-to-buffer-other-window)</span>
+<span class="ln" id="l719"><a class="ll" href="#l719">719</a>          (sly)))))</span>
+<span class="ln" id="l720"><a class="ll" href="#l720">720</a></span>
+<span class="ln" id="l721"><a class="ll" href="#l721">721</a>  (keymap-set lisp-mode-map "C-c C-z" #'sly-mrepl*)</span>
+<span class="ln" id="l722"><a class="ll" href="#l722">722</a>  (after sly-mode-hook</span>
+<span class="ln" id="l723"><a class="ll" href="#l723">723</a>    (keymap-set sly-mode-map "C-c C-z" #'sly-mrepl*)</span>
+<span class="ln" id="l724"><a class="ll" href="#l724">724</a>    (keymap-unset sly-mode-map "C-c i" t)</span>
+<span class="ln" id="l725"><a class="ll" href="#l725">725</a>    (keymap-set sly-mode-map "C-c C-i" #'sly-import-symbol-at-point)))</span>
+<span class="ln" id="l726"><a class="ll" href="#l726">726</a></span>
+<span class="ln" id="l727"><a class="ll" href="#l727">727</a>(require 'autoinsert)</span>
+<span class="ln" id="l728"><a class="ll" href="#l728">728</a>(setf/alist auto-insert-alist '("\\.asd\\'" . "ASDF System Definition")</span>
+<span class="ln" id="l729"><a class="ll" href="#l729">729</a>  '("System name? "</span>
+<span class="ln" id="l730"><a class="ll" href="#l730">730</a>    "(defsystem \"" str "\"" \n</span>
+<span class="ln" id="l731"><a class="ll" href="#l731">731</a>    '(setq v1 (or user-full-name</span>
+<span class="ln" id="l732"><a class="ll" href="#l732">732</a>                  (skeleton-read "System author? ")))</span>
+<span class="ln" id="l733"><a class="ll" href="#l733">733</a>    ":author \"" v1 "\"" \n</span>
+<span class="ln" id="l734"><a class="ll" href="#l734">734</a>    ":maintainer \"" v1 "\"" \n</span>
+<span class="ln" id="l735"><a class="ll" href="#l735">735</a>    '(setq v2 (skeleton-read "License? " "BSD 3-Clause"))</span>
+<span class="ln" id="l736"><a class="ll" href="#l736">736</a>    ":license \"" v2 "\"" \n</span>
+<span class="ln" id="l737"><a class="ll" href="#l737">737</a>    ":homepage \"\"" \n</span>
+<span class="ln" id="l738"><a class="ll" href="#l738">738</a>    ":version \"0.1\"" \n</span>
+<span class="ln" id="l739"><a class="ll" href="#l739">739</a>    ":depends-on (\"mgl-pax\")" \n</span>
+<span class="ln" id="l740"><a class="ll" href="#l740">740</a>    ":components "</span>
+<span class="ln" id="l741"><a class="ll" href="#l741">741</a>    "((:module \"src\"" \n ":serial t" \n</span>
+<span class="ln" id="l742"><a class="ll" href="#l742">742</a>    ":components ((:file \"" str "\"))))" \n</span>
+<span class="ln" id="l743"><a class="ll" href="#l743">743</a>    ":description \"\"" \n</span>
+<span class="ln" id="l744"><a class="ll" href="#l744">744</a>    '(setq v3 (format "\"%s/tests\"" str))</span>
+<span class="ln" id="l745"><a class="ll" href="#l745">745</a>    ":in-order-to ((test-op (test-op " v3 "))))"</span>
+<span class="ln" id="l746"><a class="ll" href="#l746">746</a>    \n \n</span>
+<span class="ln" id="l747"><a class="ll" href="#l747">747</a>    "(defsystem " v3 \n</span>
+<span class="ln" id="l748"><a class="ll" href="#l748">748</a>    ":author \"" v1 "\"" \n</span>
+<span class="ln" id="l749"><a class="ll" href="#l749">749</a>    ":license \"BSD-3\"" \n</span>
+<span class="ln" id="l750"><a class="ll" href="#l750">750</a>    ":depends-on (\"" str "\"" \n "\"try\")" \n</span>
+<span class="ln" id="l751"><a class="ll" href="#l751">751</a>    ":components "</span>
+<span class="ln" id="l752"><a class="ll" href="#l752">752</a>    "((:module \"t\"" \n ":serial t" \n</span>
+<span class="ln" id="l753"><a class="ll" href="#l753">753</a>    ":components ((:file \"" str "\")))))"))</span>
+<span class="ln" id="l754"><a class="ll" href="#l754">754</a>(setf/alist auto-insert-alist '("\\.lisp\\'" . "Lisp package file")</span>
+<span class="ln" id="l755"><a class="ll" href="#l755">755</a>  '(nil</span>
+<span class="ln" id="l756"><a class="ll" href="#l756">756</a>    '(setq v1 (skeleton-read "Package name? "))</span>
+<span class="ln" id="l757"><a class="ll" href="#l757">757</a>    '(setq v2 (format ":net.acdw.%s" v1))</span>
+<span class="ln" id="l758"><a class="ll" href="#l758">758</a>    "(mgl-pax:define-package " v2 \n</span>
+<span class="ln" id="l759"><a class="ll" href="#l759">759</a>    "(:nicknames :" v1 ")" \n</span>
+<span class="ln" id="l760"><a class="ll" href="#l760">760</a>    "(:use #:common-lisp)" \n</span>
+<span class="ln" id="l761"><a class="ll" href="#l761">761</a>    "(:import-from #:mgl-pax #:defsection))" \n</span>
+<span class="ln" id="l762"><a class="ll" href="#l762">762</a>    "(in-package " v2 ")"))</span>
+<span class="ln" id="l763"><a class="ll" href="#l763">763</a></span>
+<span class="ln" id="l764"><a class="ll" href="#l764">764</a>;;; Forth</span>
+<span class="ln" id="l765"><a class="ll" href="#l765">765</a>(with-package (forth-mode)</span>
+<span class="ln" id="l766"><a class="ll" href="#l766">766</a>  (defun forth-switch* ()</span>
+<span class="ln" id="l767"><a class="ll" href="#l767">767</a>    (interactive)</span>
+<span class="ln" id="l768"><a class="ll" href="#l768">768</a>    (if forth-interaction-buffer</span>
+<span class="ln" id="l769"><a class="ll" href="#l769">769</a>        (forth-switch-to-output-buffer)</span>
+<span class="ln" id="l770"><a class="ll" href="#l770">770</a>      (run-forth)))</span>
+<span class="ln" id="l771"><a class="ll" href="#l771">771</a>  (after forth-mode</span>
+<span class="ln" id="l772"><a class="ll" href="#l772">772</a>    (keymap-set forth-mode-map "C-c C-c" #'forth-eval-defun)</span>
+<span class="ln" id="l773"><a class="ll" href="#l773">773</a>    (advice-add #'forth-eval-region :after #'pulse@eval)))</span>
+<span class="ln" id="l774"><a class="ll" href="#l774">774</a></span>
+<span class="ln" id="l775"><a class="ll" href="#l775">775</a>;;; VC</span>
+<span class="ln" id="l776"><a class="ll" href="#l776">776</a></span>
+<span class="ln" id="l777"><a class="ll" href="#l777">777</a>;; Fossil</span>
+<span class="ln" id="l778"><a class="ll" href="#l778">778</a>(package-ensure 'vc-fossil)</span>
+<span class="ln" id="l779"><a class="ll" href="#l779">779</a></span>
+<span class="ln" id="l780"><a class="ll" href="#l780">780</a>;;; Compilation</span>
+<span class="ln" id="l781"><a class="ll" href="#l781">781</a></span>
+<span class="ln" id="l782"><a class="ll" href="#l782">782</a>(setopt compilation-always-kill t)</span>
+<span class="ln" id="l783"><a class="ll" href="#l783">783</a>(setopt compilation-ask-about-save nil)</span>
+<span class="ln" id="l784"><a class="ll" href="#l784">784</a>(setopt compilation-scroll-output t)</span>
+<span class="ln" id="l785"><a class="ll" href="#l785">785</a>(setopt compilation-auto-jump-to-first-error t)</span>
+<span class="ln" id="l786"><a class="ll" href="#l786">786</a>(setopt compilation-max-output-line-length nil)</span>
+<span class="ln" id="l787"><a class="ll" href="#l787">787</a></span>
+<span class="ln" id="l788"><a class="ll" href="#l788">788</a>;;; Languages</span>
+<span class="ln" id="l789"><a class="ll" href="#l789">789</a></span>
+<span class="ln" id="l790"><a class="ll" href="#l790">790</a>(package-ensure 'gemtext-mode)</span>
+<span class="ln" id="l791"><a class="ll" href="#l791">791</a>(package-ensure 'markdown-mode)</span>
+<span class="ln" id="l792"><a class="ll" href="#l792">792</a></span>
+<span class="ln" id="l793"><a class="ll" href="#l793">793</a>;;; Miscellaneous</span>
+<span class="ln" id="l794"><a class="ll" href="#l794">794</a></span>
+<span class="ln" id="l795"><a class="ll" href="#l795">795</a>;; Settings</span>
+<span class="ln" id="l796"><a class="ll" href="#l796">796</a>(add-hook 'after-save-hook #'executable-make-buffer-file-executable-if-script-p)</span>
+<span class="ln" id="l797"><a class="ll" href="#l797">797</a>(add-hook 'messages-buffer-mode-hook</span>
+<span class="ln" id="l798"><a class="ll" href="#l798">798</a>          (^turn-off 'display-fill-column-indicator-mode))</span>
+<span class="ln" id="l799"><a class="ll" href="#l799">799</a>(after prog-mode-hook</span>
+<span class="ln" id="l800"><a class="ll" href="#l800">800</a>  auto-fill-mode</span>
+<span class="ln" id="l801"><a class="ll" href="#l801">801</a>  electric-pair-local-mode)</span>
+<span class="ln" id="l802"><a class="ll" href="#l802">802</a>(context-menu-mode)</span>
+<span class="ln" id="l803"><a class="ll" href="#l803">803</a>(delete-selection-mode)</span>
+<span class="ln" id="l804"><a class="ll" href="#l804">804</a>(global-goto-address-mode)</span>
+<span class="ln" id="l805"><a class="ll" href="#l805">805</a>(global-so-long-mode)</span>
+<span class="ln" id="l806"><a class="ll" href="#l806">806</a>(pixel-scroll-precision-mode)</span>
+<span class="ln" id="l807"><a class="ll" href="#l807">807</a>(setopt bookmark-save-flag 1)</span>
+<span class="ln" id="l808"><a class="ll" href="#l808">808</a>(setopt disabled-command-function nil)</span>
+<span class="ln" id="l809"><a class="ll" href="#l809">809</a>(setopt display-fill-column-indicator-character ?·)</span>
+<span class="ln" id="l810"><a class="ll" href="#l810">810</a>(setopt electric-pair-skip-whitespace 'chomp)</span>
+<span class="ln" id="l811"><a class="ll" href="#l811">811</a>(setopt eval-expression-print-length nil)</span>
+<span class="ln" id="l812"><a class="ll" href="#l812">812</a>(setopt eval-expression-print-level nil)</span>
+<span class="ln" id="l813"><a class="ll" href="#l813">813</a>(setopt fill-column 80)</span>
+<span class="ln" id="l814"><a class="ll" href="#l814">814</a>(setopt finger-X.500-host-regexps '(".*tilde.*"))</span>
+<span class="ln" id="l815"><a class="ll" href="#l815">815</a>(setopt help-window-keep-selected t)</span>
+<span class="ln" id="l816"><a class="ll" href="#l816">816</a>(setopt help-window-select t)</span>
+<span class="ln" id="l817"><a class="ll" href="#l817">817</a>(setopt read-extended-command-predicate #'command-completion-default-include-p)</span>
+<span class="ln" id="l818"><a class="ll" href="#l818">818</a>(setopt recenter-positions '(top middle bottom))</span>
+<span class="ln" id="l819"><a class="ll" href="#l819">819</a>(setopt save-interprogram-paste-before-kill t)</span>
+<span class="ln" id="l820"><a class="ll" href="#l820">820</a>(setopt scroll-conservatively 20)</span>
+<span class="ln" id="l821"><a class="ll" href="#l821">821</a>(setopt show-paren-delay 0.01)</span>
+<span class="ln" id="l822"><a class="ll" href="#l822">822</a>(setopt show-paren-style 'parenthesis)</span>
+<span class="ln" id="l823"><a class="ll" href="#l823">823</a>(setopt show-paren-when-point-in-periphery t)</span>
+<span class="ln" id="l824"><a class="ll" href="#l824">824</a>(setopt show-paren-when-point-inside-paren t)</span>
+<span class="ln" id="l825"><a class="ll" href="#l825">825</a>(setopt switch-to-buffer-obey-display-actions t)</span>
+<span class="ln" id="l826"><a class="ll" href="#l826">826</a>(setopt tmm-completion-prompt nil)</span>
+<span class="ln" id="l827"><a class="ll" href="#l827">827</a>(setopt tmm-mid-prompt " -- ")</span>
+<span class="ln" id="l828"><a class="ll" href="#l828">828</a>(setopt x-underline-at-descent-line t)</span>
+<span class="ln" id="l829"><a class="ll" href="#l829">829</a>(show-paren-mode)</span>
+<span class="ln" id="l830"><a class="ll" href="#l830">830</a>(tooltip-mode -1)</span>
+<span class="ln" id="l831"><a class="ll" href="#l831">831</a></span>
+<span class="ln" id="l832"><a class="ll" href="#l832">832</a>;; Advice &amp; Hooks</span>
+<span class="ln" id="l833"><a class="ll" href="#l833">833</a></span>
+<span class="ln" id="l834"><a class="ll" href="#l834">834</a>(define-advice canonically-space-region</span>
+<span class="ln" id="l835"><a class="ll" href="#l835">835</a>    (:around (orig &amp;rest args) double-space-sentences)</span>
+<span class="ln" id="l836"><a class="ll" href="#l836">836</a>  "Always double-space sentences canonically."</span>
+<span class="ln" id="l837"><a class="ll" href="#l837">837</a>  (let ((sentence-end-double-space t))</span>
+<span class="ln" id="l838"><a class="ll" href="#l838">838</a>    (apply orig args)))</span>
+<span class="ln" id="l839"><a class="ll" href="#l839">839</a></span>
+<span class="ln" id="l840"><a class="ll" href="#l840">840</a>(define-advice switch-to-buffer (:after (&amp;rest _) normal-mode)</span>
+<span class="ln" id="l841"><a class="ll" href="#l841">841</a>  "Automatically determine the mode for non-file buffers."</span>
+<span class="ln" id="l842"><a class="ll" href="#l842">842</a>  (when-let ((_ (and (eq major-mode 'fundamental-mode)</span>
+<span class="ln" id="l843"><a class="ll" href="#l843">843</a>                     (not buffer-file-name)))</span>
+<span class="ln" id="l844"><a class="ll" href="#l844">844</a>             (buffer-file-name (buffer-name)))</span>
+<span class="ln" id="l845"><a class="ll" href="#l845">845</a>    (normal-mode)))</span>
+<span class="ln" id="l846"><a class="ll" href="#l846">846</a></span>
+<span class="ln" id="l847"><a class="ll" href="#l847">847</a>(add-hook 'special-mode-hook</span>
+<span class="ln" id="l848"><a class="ll" href="#l848">848</a>          (defun hl-line@special-mode ()</span>
+<span class="ln" id="l849"><a class="ll" href="#l849">849</a>            (unless (derived-mode-p 'help-mode ; add other modes here</span>
+<span class="ln" id="l850"><a class="ll" href="#l850">850</a>                                    'Info-mode</span>
+<span class="ln" id="l851"><a class="ll" href="#l851">851</a>                                    'Man-mode</span>
+<span class="ln" id="l852"><a class="ll" href="#l852">852</a>                                    'eww-mode</span>
+<span class="ln" id="l853"><a class="ll" href="#l853">853</a>                                    'elpher-mode)</span>
+<span class="ln" id="l854"><a class="ll" href="#l854">854</a>              (hl-line-mode))))</span>
+<span class="ln" id="l855"><a class="ll" href="#l855">855</a>(add-hook 'dired-mode-hook #'hl-line-mode)</span>
+<span class="ln" id="l856"><a class="ll" href="#l856">856</a></span>
+<span class="ln" id="l857"><a class="ll" href="#l857">857</a>;;; Eshell</span>
+<span class="ln" id="l858"><a class="ll" href="#l858">858</a></span>
+<span class="ln" id="l859"><a class="ll" href="#l859">859</a>(setopt cookie-file</span>
+<span class="ln" id="l860"><a class="ll" href="#l860">860</a>        (expand-file-name "oblique.txt" (car (process-lines "xdg-user-dir"</span>
+<span class="ln" id="l861"><a class="ll" href="#l861">861</a>                                                            "DOCUMENTS"))))</span>
+<span class="ln" id="l862"><a class="ll" href="#l862">862</a>(setopt eshell-banner-message (format "%s\n" (cookie cookie-file)))</span>
+<span class="ln" id="l863"><a class="ll" href="#l863">863</a>(setopt eshell-prompt-function</span>
+<span class="ln" id="l864"><a class="ll" href="#l864">864</a>        (defun @eshell-prompt ()</span>
+<span class="ln" id="l865"><a class="ll" href="#l865">865</a>          (let ((rootp (zerop (user-uid))))</span>
+<span class="ln" id="l866"><a class="ll" href="#l866">866</a>            (concat "( "</span>
+<span class="ln" id="l867"><a class="ll" href="#l867">867</a>                    (unless (= 0 eshell-last-command-status)</span>
+<span class="ln" id="l868"><a class="ll" href="#l868">868</a>                      (format "*%d " eshell-last-command-status))</span>
+<span class="ln" id="l869"><a class="ll" href="#l869">869</a>                    (abbreviate-file-name (eshell/pwd))</span>
+<span class="ln" id="l870"><a class="ll" href="#l870">870</a>                    (if rootp ":root" "")</span>
+<span class="ln" id="l871"><a class="ll" href="#l871">871</a>                    " ) "))))</span>
+<span class="ln" id="l872"><a class="ll" href="#l872">872</a>(setopt eshell-prompt-regexp "^(.*) ")</span>
+<span class="ln" id="l873"><a class="ll" href="#l873">873</a>(setopt eshell-destroy-buffer-when-process-dies t)</span>
+<span class="ln" id="l874"><a class="ll" href="#l874">874</a>(setopt eshell-error-if-no-glob t)</span>
+<span class="ln" id="l875"><a class="ll" href="#l875">875</a>(setopt eshell-hist-ignoredups 'erase)</span>
+<span class="ln" id="l876"><a class="ll" href="#l876">876</a>(setopt eshell-kill-on-exit t)</span>
+<span class="ln" id="l877"><a class="ll" href="#l877">877</a>(setopt eshell-prefer-lisp-functions t)</span>
+<span class="ln" id="l878"><a class="ll" href="#l878">878</a>(setopt eshell-prefer-lisp-variables t)</span>
+<span class="ln" id="l879"><a class="ll" href="#l879">879</a>(setopt eshell-scroll-to-bottom-on-input 'this)</span>
+<span class="ln" id="l880"><a class="ll" href="#l880">880</a>(setopt eshell-history-size 1024)</span>
+<span class="ln" id="l881"><a class="ll" href="#l881">881</a></span>
+<span class="ln" id="l882"><a class="ll" href="#l882">882</a>(keymap-global-set "C-z" #'popup-eshell)</span>
+<span class="ln" id="l883"><a class="ll" href="#l883">883</a>(keymap-global-set "C-c C-z" #'popup-eshell)</span>
+<span class="ln" id="l884"><a class="ll" href="#l884">884</a>(add-hook 'eshell-first-time-mode-hook</span>
+<span class="ln" id="l885"><a class="ll" href="#l885">885</a>          (defun @eshell-once ()</span>
+<span class="ln" id="l886"><a class="ll" href="#l886">886</a>            (keymap-set eshell-mode-map "C-z" #'quit-window)))</span>
+<span class="ln" id="l887"><a class="ll" href="#l887">887</a>(add-hook 'eshell-mode-hook</span>
+<span class="ln" id="l888"><a class="ll" href="#l888">888</a>          (defun @eshell-fix-completion () ; No idea why this is necessary</span>
+<span class="ln" id="l889"><a class="ll" href="#l889">889</a>            (kill-local-variable 'completion-ignore-case)))</span>
+<span class="ln" id="l890"><a class="ll" href="#l890">890</a></span>
+<span class="ln" id="l891"><a class="ll" href="#l891">891</a>(keymap-global-set "M-!" #'eshell-command)</span>
+<span class="ln" id="l892"><a class="ll" href="#l892">892</a></span>
+<span class="ln" id="l893"><a class="ll" href="#l893">893</a>;; Eat</span>
+<span class="ln" id="l894"><a class="ll" href="#l894">894</a>(with-package (eat)</span>
+<span class="ln" id="l895"><a class="ll" href="#l895">895</a>  (add-hook 'eshell-mode-hook #'eat-eshell-mode))</span>
+<span class="ln" id="l896"><a class="ll" href="#l896">896</a></span>
+<span class="ln" id="l897"><a class="ll" href="#l897">897</a>;;; Browsing</span>
+<span class="ln" id="l898"><a class="ll" href="#l898">898</a></span>
+<span class="ln" id="l899"><a class="ll" href="#l899">899</a>;; Dired (files)</span>
+<span class="ln" id="l900"><a class="ll" href="#l900">900</a>(add-hook 'dired-mode-hook #'dired-hide-details-mode)</span>
+<span class="ln" id="l901"><a class="ll" href="#l901">901</a>(add-hook 'dired-mode-hook #'truncate-lines-local-mode)</span>
+<span class="ln" id="l902"><a class="ll" href="#l902">902</a>(setopt dired-auto-revert-buffer t)</span>
+<span class="ln" id="l903"><a class="ll" href="#l903">903</a>(setopt dired-clean-confirm-killing-deleted-buffers nil)</span>
+<span class="ln" id="l904"><a class="ll" href="#l904">904</a>(setopt dired-create-destination-dirs 'always)</span>
+<span class="ln" id="l905"><a class="ll" href="#l905">905</a>(setopt dired-do-revert-buffer t)</span>
+<span class="ln" id="l906"><a class="ll" href="#l906">906</a>(setopt dired-dwim-target t)</span>
+<span class="ln" id="l907"><a class="ll" href="#l907">907</a>(setopt dired-hide-details-hide-symlink-targets nil)</span>
+<span class="ln" id="l908"><a class="ll" href="#l908">908</a>(setopt dired-listing-switches "-AlFhv --group-directories-first")</span>
+<span class="ln" id="l909"><a class="ll" href="#l909">909</a>(setopt dired-ls-F-marks-symlinks t)</span>
+<span class="ln" id="l910"><a class="ll" href="#l910">910</a>(setopt dired-no-confirm '(byte-compile load chgrp chmod chown copy move</span>
+<span class="ln" id="l911"><a class="ll" href="#l911">911</a>                                        hardlink symlink shell touch))</span>
+<span class="ln" id="l912"><a class="ll" href="#l912">912</a>(setopt dired-recursive-copies 'always)</span>
+<span class="ln" id="l913"><a class="ll" href="#l913">913</a>(setopt dired-recursive-deletes 'always)</span>
+<span class="ln" id="l914"><a class="ll" href="#l914">914</a>(after dired</span>
+<span class="ln" id="l915"><a class="ll" href="#l915">915</a>  (require 'dired-x)</span>
+<span class="ln" id="l916"><a class="ll" href="#l916">916</a>  (setopt dired-omit-files (regexp-concat dired-omit-files</span>
+<span class="ln" id="l917"><a class="ll" href="#l917">917</a>                                          ;; "^\\..+$" ; hidden files</span>
+<span class="ln" id="l918"><a class="ll" href="#l918">918</a>                                          ;; CHICKEN ... this may be overkill</span>
+<span class="ln" id="l919"><a class="ll" href="#l919">919</a>                                          "\\.s?o$"</span>
+<span class="ln" id="l920"><a class="ll" href="#l920">920</a>                                          "\\.import\\.scm$"</span>
+<span class="ln" id="l921"><a class="ll" href="#l921">921</a>                                          "\\.\\(build\\|install\\)\\.sh$"</span>
+<span class="ln" id="l922"><a class="ll" href="#l922">922</a>                                          "\\.link$"))</span>
+<span class="ln" id="l923"><a class="ll" href="#l923">923</a>  (keymap-set dired-mode-map ")" #'dired-omit-mode)</span>
+<span class="ln" id="l924"><a class="ll" href="#l924">924</a></span>
+<span class="ln" id="l925"><a class="ll" href="#l925">925</a>  (define-advice dired-jump (:around (fn &amp;rest r))</span>
+<span class="ln" id="l926"><a class="ll" href="#l926">926</a>    (let ((dired-kill-when-opening-new-dired-buffer t))</span>
+<span class="ln" id="l927"><a class="ll" href="#l927">927</a>      (apply fn r)))</span>
+<span class="ln" id="l928"><a class="ll" href="#l928">928</a>  (keymap-set dired-mode-map "C-j" #'dired-jump))</span>
+<span class="ln" id="l929"><a class="ll" href="#l929">929</a></span>
+<span class="ln" id="l930"><a class="ll" href="#l930">930</a>(with-package (dired-subtree)</span>
+<span class="ln" id="l931"><a class="ll" href="#l931">931</a>  (after dired</span>
+<span class="ln" id="l932"><a class="ll" href="#l932">932</a>    (keymap-set dired-mode-map "i" #'dired-subtree-toggle)))</span>
+<span class="ln" id="l933"><a class="ll" href="#l933">933</a></span>
+<span class="ln" id="l934"><a class="ll" href="#l934">934</a>(with-package (dired-hide-dotfiles)</span>
+<span class="ln" id="l935"><a class="ll" href="#l935">935</a>  (after dired</span>
+<span class="ln" id="l936"><a class="ll" href="#l936">936</a>    (keymap-set dired-mode-map "." #'dired-hide-dotfiles-mode)))</span>
+<span class="ln" id="l937"><a class="ll" href="#l937">937</a></span>
+<span class="ln" id="l938"><a class="ll" href="#l938">938</a>(with-package (trashed)</span>
+<span class="ln" id="l939"><a class="ll" href="#l939">939</a>  (setopt trashed-action-confirmer 'y-or-n-p)</span>
+<span class="ln" id="l940"><a class="ll" href="#l940">940</a>  (setopt trashed-use-header-line t)</span>
+<span class="ln" id="l941"><a class="ll" href="#l941">941</a>  (setopt trash-sort-key '("Date deleted" . t))</span>
+<span class="ln" id="l942"><a class="ll" href="#l942">942</a>  (setopt trashed-date-format "%Y-%m-%d %H:%M:%s")</span>
+<span class="ln" id="l943"><a class="ll" href="#l943">943</a>  (after trashed-mode-hook</span>
+<span class="ln" id="l944"><a class="ll" href="#l944">944</a>    fixed-pitch-mode))</span>
+<span class="ln" id="l945"><a class="ll" href="#l945">945</a></span>
+<span class="ln" id="l946"><a class="ll" href="#l946">946</a>;; Elpher (gemini/gopher)</span>
+<span class="ln" id="l947"><a class="ll" href="#l947">947</a>(with-package (elpher)</span>
+<span class="ln" id="l948"><a class="ll" href="#l948">948</a>  (after elpher</span>
+<span class="ln" id="l949"><a class="ll" href="#l949">949</a>    ;; Try to emulate eww bindings if possible</span>
+<span class="ln" id="l950"><a class="ll" href="#l950">950</a>    (keymap-set elpher-mode-map "l" #'elpher-back)</span>
+<span class="ln" id="l951"><a class="ll" href="#l951">951</a>    (keymap-set elpher-mode-map "g" #'elpher-reload)</span>
+<span class="ln" id="l952"><a class="ll" href="#l952">952</a>    (keymap-set elpher-mode-map "G" #'elpher-go)</span>
+<span class="ln" id="l953"><a class="ll" href="#l953">953</a>    (keymap-set elpher-mode-map "v" #'elpher-view-raw)</span>
+<span class="ln" id="l954"><a class="ll" href="#l954">954</a>    (keymap-set elpher-mode-map "E" #'elpher-set-gopher-coding-system)))</span>
+<span class="ln" id="l955"><a class="ll" href="#l955">955</a></span>
+<span class="ln" id="l956"><a class="ll" href="#l956">956</a>;;; HTTP browsing</span>
+<span class="ln" id="l957"><a class="ll" href="#l957">957</a></span>
+<span class="ln" id="l958"><a class="ll" href="#l958">958</a>;; Eww / Shr</span>
+<span class="ln" id="l959"><a class="ll" href="#l959">959</a>(setopt shr-max-width nil)                ; covered in hook below</span>
+<span class="ln" id="l960"><a class="ll" href="#l960">960</a>(setopt shr-max-image-proportion 0.9)</span>
+<span class="ln" id="l961"><a class="ll" href="#l961">961</a>(setopt shr-discard-aria-hidden t)</span>
+<span class="ln" id="l962"><a class="ll" href="#l962">962</a>(setopt eww-auto-rename-buffer</span>
+<span class="ln" id="l963"><a class="ll" href="#l963">963</a>        (defun title+url ()</span>
+<span class="ln" id="l964"><a class="ll" href="#l964">964</a>          (when (eq major-mode 'eww-mode)</span>
+<span class="ln" id="l965"><a class="ll" href="#l965">965</a>            (let ((title (plist-get eww-data :title))</span>
+<span class="ln" id="l966"><a class="ll" href="#l966">966</a>                  (url (plist-get eww-data :url)))</span>
+<span class="ln" id="l967"><a class="ll" href="#l967">967</a>              (cond</span>
+<span class="ln" id="l968"><a class="ll" href="#l968">968</a>               ((and title url) (format "*eww: %s :: %s" title url))</span>
+<span class="ln" id="l969"><a class="ll" href="#l969">969</a>               ((or title url) (format "*eww: %s") (or title url)))))))</span>
+<span class="ln" id="l970"><a class="ll" href="#l970">970</a>(after eww-after-render-hook</span>
+<span class="ln" id="l971"><a class="ll" href="#l971">971</a>  (fixed-pitch-mode)</span>
+<span class="ln" id="l972"><a class="ll" href="#l972">972</a>  (visual-fill-column-mode)</span>
+<span class="ln" id="l973"><a class="ll" href="#l973">973</a>  (eww-reload t))</span>
+<span class="ln" id="l974"><a class="ll" href="#l974">974</a>(with-eval-after-load 'eww</span>
+<span class="ln" id="l975"><a class="ll" href="#l975">975</a>  (setopt eww-use-browse-url ".")</span>
+<span class="ln" id="l976"><a class="ll" href="#l976">976</a>  (keymap-set eww-mode-map "B" #'bookmark-jump)</span>
+<span class="ln" id="l977"><a class="ll" href="#l977">977</a>  (keymap-set eww-mode-map "b" #'bookmark-set)</span>
+<span class="ln" id="l978"><a class="ll" href="#l978">978</a>  (keymap-unset eww-mode-map "M-n" t)</span>
+<span class="ln" id="l979"><a class="ll" href="#l979">979</a>  (keymap-unset eww-mode-map "M-p" t))</span>
+<span class="ln" id="l980"><a class="ll" href="#l980">980</a></span>
+<span class="ln" id="l981"><a class="ll" href="#l981">981</a>;; Browse-url</span>
+<span class="ln" id="l982"><a class="ll" href="#l982">982</a>(setopt browse-url-browser-function #'eww-browse-url)</span>
+<span class="ln" id="l983"><a class="ll" href="#l983">983</a>(setopt browse-url-firefox-program (executable-find "librewolf"))</span>
+<span class="ln" id="l984"><a class="ll" href="#l984">984</a>(setopt browse-url-firefox-arguments '("--new-tab"))</span>
+<span class="ln" id="l985"><a class="ll" href="#l985">985</a>(setopt browse-url-firefox-new-window-is-tab t)</span>
+<span class="ln" id="l986"><a class="ll" href="#l986">986</a></span>
+<span class="ln" id="l987"><a class="ll" href="#l987">987</a>(setopt browse-url-generic-program (executable-find "dillo"))</span>
+<span class="ln" id="l988"><a class="ll" href="#l988">988</a>(setopt browse-url-generic-args nil)</span>
+<span class="ln" id="l989"><a class="ll" href="#l989">989</a></span>
+<span class="ln" id="l990"><a class="ll" href="#l990">990</a>(setopt browse-url-secondary-browser-function #'browse-url-firefox)</span>
+<span class="ln" id="l991"><a class="ll" href="#l991">991</a></span>
+<span class="ln" id="l992"><a class="ll" href="#l992">992</a>(with-package (link-hint)</span>
+<span class="ln" id="l993"><a class="ll" href="#l993">993</a>  (keymap-global-set "M-l"</span>
+<span class="ln" id="l994"><a class="ll" href="#l994">994</a>                     (define-keymap</span>
+<span class="ln" id="l995"><a class="ll" href="#l995">995</a>                       :prefix 'link-map</span>
+<span class="ln" id="l996"><a class="ll" href="#l996">996</a>                       "M-l" #'link-hint-open-link "l" #'link-hint-open-link</span>
+<span class="ln" id="l997"><a class="ll" href="#l997">997</a>                       "M-w" #'link-hint-copy-link "w" #'link-hint-copy-link))</span>
+<span class="ln" id="l998"><a class="ll" href="#l998">998</a>  ;; With link-hint we get avy "for free"</span>
+<span class="ln" id="l999"><a class="ll" href="#l999">999</a>  (keymap-global-set "M-j" #'avy-goto-char-timer)</span>
+<span class="ln" id="l1000"><a class="ll" href="#l1000">1000</a>  (setopt avy-keys '(?1 ?2 ?3 ?4 ?5 ?6 ?7 ?8 ?9)))</span>
+<span class="ln" id="l1001"><a class="ll" href="#l1001">1001</a></span>
+<span class="ln" id="l1002"><a class="ll" href="#l1002">1002</a>;; PDFs</span>
+<span class="ln" id="l1003"><a class="ll" href="#l1003">1003</a>(with-package (pdf-tools)</span>
+<span class="ln" id="l1004"><a class="ll" href="#l1004">1004</a>  (pdf-loader-install))</span>
+<span class="ln" id="l1005"><a class="ll" href="#l1005">1005</a></span>
+<span class="ln" id="l1006"><a class="ll" href="#l1006">1006</a>;; EPUBs</span>
+<span class="ln" id="l1007"><a class="ll" href="#l1007">1007</a>(when (libxml-available-p)</span>
+<span class="ln" id="l1008"><a class="ll" href="#l1008">1008</a>  (with-package (nov)</span>
+<span class="ln" id="l1009"><a class="ll" href="#l1009">1009</a>    (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))</span>
+<span class="ln" id="l1010"><a class="ll" href="#l1010">1010</a>    (setopt nov-text-width t)</span>
+<span class="ln" id="l1011"><a class="ll" href="#l1011">1011</a>    (add-hooks 'nov-mode-hook</span>
+<span class="ln" id="l1012"><a class="ll" href="#l1012">1012</a>      (^turn-off #'whitespace-mode)</span>
+<span class="ln" id="l1013"><a class="ll" href="#l1013">1013</a>      (^turn-off #'hl-line-mode)</span>
+<span class="ln" id="l1014"><a class="ll" href="#l1014">1014</a>      #'visual-line-mode</span>
+<span class="ln" id="l1015"><a class="ll" href="#l1015">1015</a>      #'visual-fill-column-mode</span>
+<span class="ln" id="l1016"><a class="ll" href="#l1016">1016</a>      #'variable-pitch-mode)))</span>
+<span class="ln" id="l1017"><a class="ll" href="#l1017">1017</a></span>
+<span class="ln" id="l1018"><a class="ll" href="#l1018">1018</a>;;; EXWM</span>
+<span class="ln" id="l1019"><a class="ll" href="#l1019">1019</a></span>
+<span class="ln" id="l1020"><a class="ll" href="#l1020">1020</a>(setf/alist display-buffer-alist shell-command-buffer-name-async</span>
+<span class="ln" id="l1021"><a class="ll" href="#l1021">1021</a>  '(display-buffer-no-window))</span>
+<span class="ln" id="l1022"><a class="ll" href="#l1022">1022</a></span>
+<span class="ln" id="l1023"><a class="ll" href="#l1023">1023</a>(when (and (getenv "DISPLAY") (getenv "IN_EXWM"))</span>
+<span class="ln" id="l1024"><a class="ll" href="#l1024">1024</a>  (package-ensure 'exwm t)</span>
+<span class="ln" id="l1025"><a class="ll" href="#l1025">1025</a>  (load (expand-file-name "~/.exwm")))</span>
+<span class="ln" id="l1026"><a class="ll" href="#l1026">1026</a></span>
+<span class="ln" id="l1027"><a class="ll" href="#l1027">1027</a>;;; Emacs everywhere</span>
+<span class="ln" id="l1028"><a class="ll" href="#l1028">1028</a></span>
+<span class="ln" id="l1029"><a class="ll" href="#l1029">1029</a>(if (cl-every #'executable-find '("xclip" "xdotool" "xprop" "xwininfo"))</span>
+<span class="ln" id="l1030"><a class="ll" href="#l1030">1030</a>    (with-package (emacs-everywhere)</span>
+<span class="ln" id="l1031"><a class="ll" href="#l1031">1031</a>      (setopt emacs-everywhere-frame-parameter</span>
+<span class="ln" id="l1032"><a class="ll" href="#l1032">1032</a>              '((name . "emacs-everywhere")</span>
+<span class="ln" id="l1033"><a class="ll" href="#l1033">1033</a>                (fullscreen . nil)</span>
+<span class="ln" id="l1034"><a class="ll" href="#l1034">1034</a>                (width . 80)</span>
+<span class="ln" id="l1035"><a class="ll" href="#l1035">1035</a>                (height . 24)))</span>
+<span class="ln" id="l1036"><a class="ll" href="#l1036">1036</a>      (setopt emacs-everywhere-top-padding nil))</span>
+<span class="ln" id="l1037"><a class="ll" href="#l1037">1037</a>  (defalias #'emacs-everywhere #'ignore))</span>
+<span class="ln" id="l1038"><a class="ll" href="#l1038">1038</a></span>
+<span class="ln" id="l1039"><a class="ll" href="#l1039">1039</a>;;; Lua</span>
+<span class="ln" id="l1040"><a class="ll" href="#l1040">1040</a></span>
+<span class="ln" id="l1041"><a class="ll" href="#l1041">1041</a>(with-package (lua-mode)</span>
+<span class="ln" id="l1042"><a class="ll" href="#l1042">1042</a>  (setopt lua-indent-level 4)</span>
+<span class="ln" id="l1043"><a class="ll" href="#l1043">1043</a>  (add-hook 'lua-mode-hook (^turn-off #'indent-tabs-mode)))</span>
+<span class="ln" id="l1044"><a class="ll" href="#l1044">1044</a></span>
+<span class="ln" id="l1045"><a class="ll" href="#l1045">1045</a>;;; Fish</span>
+<span class="ln" id="l1046"><a class="ll" href="#l1046">1046</a></span>
+<span class="ln" id="l1047"><a class="ll" href="#l1047">1047</a>(when (executable-find "fish")</span>
+<span class="ln" id="l1048"><a class="ll" href="#l1048">1048</a>  (package-ensure 'fish-mode)</span>
+<span class="ln" id="l1049"><a class="ll" href="#l1049">1049</a>  (with-package (fish-completion t)</span>
+<span class="ln" id="l1050"><a class="ll" href="#l1050">1050</a>    (global-fish-completion-mode)))</span>
+<span class="ln" id="l1051"><a class="ll" href="#l1051">1051</a></span>
+<span class="ln" id="l1052"><a class="ll" href="#l1052">1052</a>(when (executable-find "bash")</span>
+<span class="ln" id="l1053"><a class="ll" href="#l1053">1053</a>  (with-package (bash-completion)</span>
+<span class="ln" id="l1054"><a class="ll" href="#l1054">1054</a>    (bash-completion-setup)</span>
+<span class="ln" id="l1055"><a class="ll" href="#l1055">1055</a>    (add-hooks 'eshell-mode-hook</span>
+<span class="ln" id="l1056"><a class="ll" href="#l1056">1056</a>      (^local-hook 'completion-at-point-functions</span>
+<span class="ln" id="l1057"><a class="ll" href="#l1057">1057</a>                   #'bash-completion-capf-nonexclusive))))</span>
+<span class="ln" id="l1058"><a class="ll" href="#l1058">1058</a></span>
+<span class="ln" id="l1059"><a class="ll" href="#l1059">1059</a>;;; Go</span>
+<span class="ln" id="l1060"><a class="ll" href="#l1060">1060</a></span>
+<span class="ln" id="l1061"><a class="ll" href="#l1061">1061</a>(package-ensure 'go-mode)</span>
+<span class="ln" id="l1062"><a class="ll" href="#l1062">1062</a></span>
+<span class="ln" id="l1063"><a class="ll" href="#l1063">1063</a>;;; Web</span>
+<span class="ln" id="l1064"><a class="ll" href="#l1064">1064</a></span>
+<span class="ln" id="l1065"><a class="ll" href="#l1065">1065</a>(with-package (web-mode)</span>
+<span class="ln" id="l1066"><a class="ll" href="#l1066">1066</a>  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))</span>
+<span class="ln" id="l1067"><a class="ll" href="#l1067">1067</a>  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))</span>
+<span class="ln" id="l1068"><a class="ll" href="#l1068">1068</a>  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))</span>
+<span class="ln" id="l1069"><a class="ll" href="#l1069">1069</a>  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))</span>
+<span class="ln" id="l1070"><a class="ll" href="#l1070">1070</a>  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))</span>
+<span class="ln" id="l1071"><a class="ll" href="#l1071">1071</a>  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))</span>
+<span class="ln" id="l1072"><a class="ll" href="#l1072">1072</a>  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))</span>
+<span class="ln" id="l1073"><a class="ll" href="#l1073">1073</a>  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))</span>
+<span class="ln" id="l1074"><a class="ll" href="#l1074">1074</a></span>
+<span class="ln" id="l1075"><a class="ll" href="#l1075">1075</a>(with-package ((elastic-indent</span>
+<span class="ln" id="l1076"><a class="ll" href="#l1076">1076</a>                :url "https://github.com/jyp/elastic-modes")</span>
+<span class="ln" id="l1077"><a class="ll" href="#l1077">1077</a>               t)</span>
+<span class="ln" id="l1078"><a class="ll" href="#l1078">1078</a>  (require 'elastic-table)</span>
+<span class="ln" id="l1079"><a class="ll" href="#l1079">1079</a>  (after variable-pitch-mode</span>
+<span class="ln" id="l1080"><a class="ll" href="#l1080">1080</a>    elastic-indent-mode</span>
+<span class="ln" id="l1081"><a class="ll" href="#l1081">1081</a>    elastic-table-mode)</span>
+<span class="ln" id="l1082"><a class="ll" href="#l1082">1082</a>  (after (completion-list-mode-hook</span>
+<span class="ln" id="l1083"><a class="ll" href="#l1083">1083</a>          dired-mode-hook</span>
+<span class="ln" id="l1084"><a class="ll" href="#l1084">1084</a>          ibuffer-mode-hook)</span>
+<span class="ln" id="l1085"><a class="ll" href="#l1085">1085</a>    fixed-pitch-mode))</span>
+<span class="ln" id="l1086"><a class="ll" href="#l1086">1086</a></span>
+<span class="ln" id="l1087"><a class="ll" href="#l1087">1087</a>;;; Gnus</span>
+<span class="ln" id="l1088"><a class="ll" href="#l1088">1088</a></span>
+<span class="ln" id="l1089"><a class="ll" href="#l1089">1089</a>(setopt gnus-select-method</span>
+<span class="ln" id="l1090"><a class="ll" href="#l1090">1090</a>        '(nnimap "Fastmail"</span>
+<span class="ln" id="l1091"><a class="ll" href="#l1091">1091</a>                 (nnimap-address "imap.fastmail.com")</span>
+<span class="ln" id="l1092"><a class="ll" href="#l1092">1092</a>                 (nnimap-user "acdw@fastmail.com")</span>
+<span class="ln" id="l1093"><a class="ll" href="#l1093">1093</a>                 (nnimap-authenticator login)</span>
+<span class="ln" id="l1094"><a class="ll" href="#l1094">1094</a>                 (nnimap-server-port 993)</span>
+<span class="ln" id="l1095"><a class="ll" href="#l1095">1095</a>                 (nnimap-stream ssl)))</span></pre></code>
+    </main>
+    <footer>
+      <p><span>(C) <a href="/">Case Duckworth</a>.</span>
+      <!--<a href="">clone [fossil]</a>-->
+      <a href="/code/dots/dots%2Etar%2Egz">download [tar.gz]</a>
+      </p>
+    </footer>
+  </body>
+</html>
