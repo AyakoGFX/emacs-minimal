@@ -24,3 +24,14 @@
 
 ;; Now bind the prefix key globally
 (global-set-key (kbd "C-l") eglot-prefix-map)
+
+;; TODO
+;;  :bind (:map
+;;         eglot-mode-map
+;;         ("C-c e r" . eglot-rename)
+;;         ("C-c e a" . eglot-code-actions)
+;;         ("C-c e o" . eglot-code-action-organize-imports)
+;;         ("C-c e d" . eldoc)
+;;         ("C-c e f" . eglot-format)
+;;         ("C-c e =" . eglot-format))
+

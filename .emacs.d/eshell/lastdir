@@ -1,6 +1,5 @@
 /home/ayako/.dotfiles/hyprland/.config/wlogout
 /home/ayako/.dotfiles/hyprland/.config/wlogout/icons
-/home/ayako
 ~
 /home/ayako/.emacs.d
 /home/ayako/nixos/modules/desktops
@@ -9,3 +8,5 @@
 ~/nixos
 ~/emacs-minimal/.emacs.d
 ~/test
+/home/ayako
+/home/ayako/nixos
