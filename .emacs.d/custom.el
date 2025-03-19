@@ -4,9 +4,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-1337))
+ '(custom-enabled-themes '(wombat))
  '(custom-safe-themes
-   '("dd4582661a1c6b865a33b89312c97a13a3885dc95992e2e5fc57456b4c545176"
+   '("4e2e42e9306813763e2e62f115da71b485458a36e8b4c24e17a2168c45c9cf9d"
+     "dd4582661a1c6b865a33b89312c97a13a3885dc95992e2e5fc57456b4c545176"
      "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69"
      "5aedf993c7220cbbe66a410334239521d8ba91e1815f6ebde59cecc2355d7757"
      "75b371fce3c9e6b1482ba10c883e2fb813f2cc1c88be0b8a1099773eb78a7176"
@@ -44,15 +45,16 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu diredfl doom-themes eldoc-box
+         consult-denote denote-menu diredfl doom-themes
+         dwim-shell-command dwim-shell-commands eldoc-box
          elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
          ewal expand-region flymake-proselint flyspell-correct go-mode
          gruvbox-theme helpful jinx keycast lsp-latex lua-mode magit
          marginalia move-text multiple-cursors nix-mode nix-ts-mode
-         notink-theme orderless proselint-flymake python-black pywal
-         sudo-edit tabspaces theme-magic vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-         yasnippet zenburn-theme)))
+         notink-theme orderless proselint-flymake python-black pyvenv
+         pywal sudo-edit tabspaces theme-magic vertico
+         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
+         vundo xah-fly-keys yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

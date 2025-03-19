@@ -1,9 +1,13 @@
-
-(use-package virtualenvwrapper
+(use-package pyvenv
   :ensure t
-  :init
-  (venv-initialize-interactive-shells)
-  (venv-initialize-eshell))
+  :config
+  (pyvenv-mode 1))
+
+;; (use-package virtualenvwrapper
+;;   :ensure t
+;;   :init
+;;   (venv-initialize-interactive-shells)
+;;   (venv-initialize-eshell))
 
 (use-package python-black
   :ensure t

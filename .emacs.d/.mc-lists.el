@@ -3,13 +3,20 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	beginning-of-visual-line
-	end-of-visual-line
-	keycast-mode-line-mode
-	my/backward-kill-spaces-or-char-or-word
-	rectangle-number-lines
-	))
+        beginning-of-visual-line
+        dired-toggle-read-only
+        end-of-visual-line
+        help-customize
+        help-goto-info
+        keycast-mode-line-mode
+        my/backward-kill-spaces-or-char-or-word
+        rectangle-number-lines
+        undefined
+        wdired--self-insert
+        wdired-finish-edit
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	))
+        text-scale-adjust
+        ))

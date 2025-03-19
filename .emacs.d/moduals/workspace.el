@@ -1,6 +1,6 @@
 (use-package beframe
   :ensure t)
-(setq beframe-global-buffers '("*scratch*" "*Messages*" "*Backtrace*"))
+;; (setq beframe-global-buffers '("*scratch*" "*Messages*" "*Backtrace*"))
 (beframe-mode 1)
 
 

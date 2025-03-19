@@ -1,0 +1,4 @@
+;;; -*- lisp-data -*-
+(("/home/ayako/Apologist Central/") ("/home/ayako/.dotfiles/")
+ ("/home/ayako/emacs-minimal/") ("/home/ayako/nixos/")
+ ("/home/ayako/manim/"))
