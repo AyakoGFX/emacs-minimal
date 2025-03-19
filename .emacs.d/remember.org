@@ -117,7 +117,7 @@ fix beframe by removeing */scratch*/
 **** emacs mark mode not showing
 
 * [2025-03-14 Fri 11:02:25 PM]
-**** TODO look in to emacs-eat
+**** TODO [#C] look in to emacs-eat
 
 * [2025-03-14 Fri 11:14:18 PM]
 **** trool emacs users with this. (macro lock)
@@ -126,6 +126,7 @@ fix beframe by removeing */scratch*/
 [[https://www.reddit.com/r/emacs/comments/skd03i/how_to_find_a_file_recursively_fuzzily_with/][How to find a file recursively, fuzzily, with vertico]] 
 * [2025-03-15 Sat 04:25:42 PM]
 [[https://github.com/astoff/isearch-mb][GitHub - astoff/isearch-mb]]
-* [2025-03-19 Wed 10:54:18 PM]
+
+* [#A] [2025-03-19 Wed 10:54:18 PM]
 Adolf Hitler reads Mein Kampf
 *** TODO https://www.youtube.com/@AIdiobook-u3m
