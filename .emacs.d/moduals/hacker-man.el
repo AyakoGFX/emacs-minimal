@@ -1,6 +1,8 @@
 (use-package dwim-shell-command
   :ensure t)
 
+
+
 (defun dwim-shell-commands-image-exif-metadata ()
   "View EXIF metadata in image(s)."
   (interactive)
@@ -8,6 +10,28 @@
    "View EXIF"
    "exiftool '<<f>>'"
    :utils "exiftool"))
+
+
+(defun my/region-to-binary (start end)
+  "Convert the selected region to binary ASCII encoding."
+  (interactive "r")
+  (let ((text (buffer-substring-no-properties start end)))
+    (delete-region start end)
+    (insert (mapconcat (lambda (char)
+                         (let ((bin ""))
+                           (dotimes (i 8 bin)
+                             (setq bin (concat (if (= 1 (logand char 1)) "1" "0") bin))
+                             (setq char (ash char -1)))))
+                       text " "))))
+
+(defun my/binary-to-region (start end)
+  "Convert binary ASCII encoding in the selected region back to text."
+  (interactive "r")
+  (let ((binary-text (split-string (buffer-substring-no-properties start end) " ")))
+    (delete-region start end)
+    (insert (mapconcat (lambda (bin)
+                         (string (string-to-number bin 2)))
+                       binary-text ""))))
 
 
 (defun dwim-shell-commands-image-browse-location ()
