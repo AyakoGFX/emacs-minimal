@@ -71,7 +71,6 @@
 (load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/os.el")
 (load "~/.emacs.d/moduals/eww.el")
-(load "~/.emacs.d/moduals/emms.el")
 ;; (load "~/.emacs.d/moduals/trans.el")
 
 (require 'org-link-desc)
