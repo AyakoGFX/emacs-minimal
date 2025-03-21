@@ -1,4 +1,4 @@
 ;;; -*- lisp-data -*-
-(("/home/ayako/emacs-minimal/") ("/home/ayako/nixos/")
+(("/home/ayako/nixos/") ("/home/ayako/emacs-minimal/")
  ("/home/ayako/Apologist Central/") ("/home/ayako/.dotfiles/")
  ("/home/ayako/manim/"))
