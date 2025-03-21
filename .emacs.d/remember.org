@@ -130,3 +130,7 @@ fix beframe by removeing */scratch*/
 * [#A] [2025-03-19 Wed 10:54:18 PM]
 Adolf Hitler reads Mein Kampf
 *** TODO https://www.youtube.com/@AIdiobook-u3m
+
+* [#B] [2025-03-20 Thu 12:58:46 PM]
+https://www.reddit.com/r/emacs/comments/8x4xtt/tip_how_i_use_ledger_to_track_my_money/
+

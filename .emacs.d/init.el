@@ -28,9 +28,11 @@
       inhibit-startup-message t
       global-auto-revert-non-file-buffers t
       ibuffer-expert t
-      initial-scratch-message ";; M-x org-remember-view `C-c_r_c'\n")
+      initial-scratch-message ";; M-x `org-remember-view'")
 
+;; Short answers only please
 (defalias 'yes-or-no-p 'y-or-n-p)
+(setq-default use-short-answers t)
 
 ;; Disable tabs globally and set tab width
 (setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
@@ -83,6 +85,12 @@
 (require 'espeak)
 (global-set-key (kbd "C-c e") #'espeak-region)
 (global-set-key (kbd "C-c q") #'espeak-cancel)
+
+(require 'simple-finance)
+(global-set-key (kbd "C-c t m") 'simple-finance-add-som)  ;; Bind C-c f m to add source of money
+(global-set-key (kbd "C-c t e") 'simple-finance-add-soe)  ;; Bind C-c f e to add source of expense
+(global-set-key (kbd "C-c t s") 'simple-finance-show-summary)  ;; Bind C-c f s to show summary
+(global-set-key (kbd "C-c t t") 'simple-finance-transient)  ;; Bind C-c f t to open transient menu
 
 (use-package evil
   :ensure t)

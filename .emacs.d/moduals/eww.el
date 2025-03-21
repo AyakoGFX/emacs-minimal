@@ -40,17 +40,6 @@
 
 (global-set-key (kbd "C-c w") 'my/open-recommended-links) ;; Bind to `C-c w`
 
-(defun my/eww-toggle-images ()
-  "Toggle whether images are loaded and reload the current page fro cache."
-  (interactive)
-  (setq-local shr-inhibit-images (not shr-inhibit-images))
-  (eww-reload t)
-  (message "Images are now %s"
-           (if shr-inhibit-images "off" "on")))
-
-(define-key eww-mode-map (kbd "I") #'my/eww-toggle-images)
-(define-key eww-link-keymap (kbd "I") #'my/eww-toggle-images)
-
 ;; minimal rendering by default
 ;; (setq-default shr-inhibit-images nil)   ; toggle with `I`
 ;; (setq-default shr-use-fonts nil)      ; toggle with `F`

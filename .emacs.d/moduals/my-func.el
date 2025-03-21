@@ -1,4 +1,9 @@
-
+(defun my/font-list-all ()
+  "List all unique and sorted system fonts in a temporary buffer."
+  (interactive)
+  (with-output-to-temp-buffer "*Font-List*"
+    (dolist (font (sort (delete-dups (font-family-list)) #'string<))
+      (princ (format "%s\n" font)))))
 
 (defun my/dired-create-random-files (num-files)
   "Create NUM-FILES random files in the current dired directory."
