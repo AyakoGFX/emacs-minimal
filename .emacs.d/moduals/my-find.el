@@ -19,44 +19,47 @@
     (dired (completing-read "Find directory: " dirs nil t))))
 
 
-(defun my/find-project-root ()
-  "Find the project root directory by searching for a `.mp` file or checking for a Git repository."
-  (let ((current-dir (expand-file-name default-directory)))
-    (while (and (not (file-exists-p (expand-file-name ".mp" current-dir)))
-                (not (vc-git-root current-dir))  ;; Check if current-dir is part of a Git repo
-                (not (string= current-dir "/")))
-      (setq current-dir (file-name-directory (directory-file-name current-dir))))
-    (if (or (file-exists-p (expand-file-name ".mp" current-dir))
-            (vc-git-root current-dir))  ;; Check if we found a Git root
-        current-dir
-      nil)))
-
-(defun my/find-file-in-project ()
-  "Find a file in the project based on the `.mp` marker."
-  (interactive)
-  (let ((project-root (my/find-project-root)))
-    (if project-root
-        (let* ((default-directory project-root)
-               (files (directory-files-recursively project-root ".*" t)))
-          (find-file (completing-read "Find file in project: " files nil t)))
-      (error "No project found"))))
-
-(defun my/find-dir-in-project ()
-  "Find a directory in the project based on the `.mp` marker."
-  (interactive)
-  (let ((project-root (my/find-project-root)))
-    (if project-root
-        (let* ((default-directory project-root)
-               (dirs (directory-files-recursively project-root ".*" t)))
-          (dired (completing-read "Find directory in project: " dirs nil t)))
-      (error "No project found"))))
+(define-key emacs-lisp-mode-map (kbd "C-c C-f") nil) ;; unbind in emacs-lisp-mode
+(define-key global-map (kbd "C-c C-f") 'my/find-file-recursively) ;; bind globally
+(define-key global-map (kbd "C-c C-d") 'my/find-dir-recursively) ;; bind globally
 
 
-(define-key emacs-lisp-mode-map (kbd "C-c C-f") nil) ;; unbind
-(global-set-key (kbd "C-c C-f") 'my/find-file-recursively)
-(global-set-key (kbd "C-c C-d") 'my/find-dir-recursively)
-(global-set-key (kbd "C-c C-F") 'my/find-file-in-project)
-(global-set-key (kbd "C-c C-D") 'my/find-dir-in-project)
+;; (define-key global-map (kbd "C-c C-F") 'my/find-file-in-project) ;; bind globally
+;; (define-key global-map (kbd "C-c C-D") 'my/find-dir-in-project) ;; bind global
+
+;; (defun my/find-project-root ()
+;;   "Find the project root directory by searching for a `.mp` file or checking for a Git repository."
+;;   (let ((current-dir (expand-file-name default-directory)))
+;;     (while (and (not (file-exists-p (expand-file-name ".mp" current-dir)))
+;;                 (not (vc-git-root current-dir))  ;; Check if current-dir is part of a Git repo
+;;                 (not (string= current-dir "/")))
+;;       (setq current-dir (file-name-directory (directory-file-name current-dir))))
+;;     (if (or (file-exists-p (expand-file-name ".mp" current-dir))
+;;             (vc-git-root current-dir))  ;; Check if we found a Git root
+;;         current-dir
+;;       nil)))
+
+;; (defun my/find-file-in-project ()
+;;   "Find a file in the project based on the `.mp` marker."
+;;   (interactive)
+;;   (let ((project-root (my/find-project-root)))
+;;     (if project-root
+;;         (let* ((default-directory project-root)
+;;                (files (directory-files-recursively project-root ".*" t)))
+;;           (find-file (completing-read "Find file in project: " files nil t)))
+;;       (error "No project found"))))
+
+;; (defun my/find-dir-in-project ()
+;;   "Find a directory in the project based on the `.mp` marker."
+;;   (interactive)
+;;   (let ((project-root (my/find-project-root)))
+;;     (if project-root
+;;         (let* ((default-directory project-root)
+;;                (dirs (directory-files-recursively project-root ".*" t)))
+;;           (dired (completing-read "Find directory in project: " dirs nil t)))
+;;       (error "No project found"))))
+
+
 
 
 

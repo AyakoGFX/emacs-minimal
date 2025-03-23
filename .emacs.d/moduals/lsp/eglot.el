@@ -21,9 +21,10 @@
   "Keymap for Eglot commands.")
 
 ;; Bind eglot commands to your desired prefix
-(define-key eglot-prefix-map (kbd "d") 'eglot-find-definition)      ;; C-l d for definition
-(define-key eglot-prefix-map (kbd "r") 'eglot-find-reference)       ;; C-l r for references
-(define-key eglot-prefix-map (kbd "t") 'eglot-find-type-definition) ;; C-l t for type definition
+(define-key eglot-prefix-map (kbd "d") 'eglot-find-definition)           ;; C-l d for definition
+(define-key eglot-prefix-map (kbd "r") 'eglot-find-reference)            ;; C-l r for references
+(define-key eglot-prefix-map (kbd "t") 'eglot-find-type-definition)      ;; C-l t for type definition
+(define-key eglot-prefix-map (kbd "R") 'eglot-rename)                    ;; C-l r for rename
 (define-key eglot-prefix-map (kbd "d") 'flymake-show-buffer-diagnostics) ;; C-l t for type definition
 
 ;; Now bind the prefix key globally
