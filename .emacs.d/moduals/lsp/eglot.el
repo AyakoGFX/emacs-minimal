@@ -11,7 +11,11 @@
 (use-package eldoc-box
   :ensure t)
 (global-set-key (kbd "C-c h") 'eldoc-box-help-at-point)
+(global-set-key (kbd "C-c C-h") 'eldoc-doc-buffer)
 (add-hook 'eglot-managed-mode-hook #'eldoc-mode)
+;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode)
+
+
 
 (defvar eglot-prefix-map (make-sparse-keymap)
   "Keymap for Eglot commands.")
@@ -24,6 +28,7 @@
 
 ;; Now bind the prefix key globally
 (global-set-key (kbd "C-l") eglot-prefix-map)
+(global-set-key (kbd "<f5>") 'eglot-format-buffer)
 
 ;; TODO
 ;;  :bind (:map

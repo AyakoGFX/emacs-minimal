@@ -134,3 +134,16 @@ Adolf Hitler reads Mein Kampf
 * [#B] [2025-03-20 Thu 12:58:46 PM]
 https://www.reddit.com/r/emacs/comments/8x4xtt/tip_how_i_use_ledger_to_track_my_money/
 
+* [2025-03-23 Sun 02:59:50 AM]
+https://www.reddit.com/r/emacs/comments/siuvpu/isnt_there_a_better_way_to_set_utf8/
+
+* [2025-03-23 Sun 03:53:23 AM]
+*** TODO [#A] http://xahlee.info/golang/golang_string.html = left in string
+
+* [2025-03-23 Sun 02:35:58 PM]
+*** TODO ia save link in internatarekive ?
+
+
+* [2025-03-23 Sun 09:31:43 PM]
+The modern documentation website Emacs deserves
+https://emacsdocs.org/

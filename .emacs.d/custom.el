@@ -4,9 +4,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-one))
+ '(custom-enabled-themes '(doom-gruvbox))
  '(custom-safe-themes
-   '("4e2e42e9306813763e2e62f115da71b485458a36e8b4c24e17a2168c45c9cf9d"
+   '("32f22d075269daabc5e661299ca9a08716aa8cda7e85310b9625c434041916af"
+     "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0"
+     "4e2e42e9306813763e2e62f115da71b485458a36e8b4c24e17a2168c45c9cf9d"
      "dd4582661a1c6b865a33b89312c97a13a3885dc95992e2e5fc57456b4c545176"
      "014cb63097fc7dbda3edf53eb09802237961cbb4c9e9abd705f23b86511b0a69"
      "5aedf993c7220cbbe66a410334239521d8ba91e1815f6ebde59cecc2355d7757"
@@ -49,11 +51,11 @@
          dwim-shell-command dwim-shell-commands eldoc-box
          elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
          ewal expand-region flycheck-ledger flymake-proselint
-         flyspell-correct go-mode gruvbox-theme helpful jinx keycast
-         ledger-mode lsp-latex lua-mode magit marginalia move-text
-         multiple-cursors nix-mode nix-ts-mode notink-theme orderless
-         proselint-flymake python-black pyvenv pywal sudo-edit
-         tabspaces theme-magic vertico virtualenvwrapper
+         flyspell-correct go-mode god-mode gruvbox-theme helpful jinx
+         keycast ledger-mode lsp-latex lua-mode magit marginalia
+         move-text multiple-cursors nix-mode nix-ts-mode notink-theme
+         orderless proselint-flymake python-black pyvenv pywal
+         sudo-edit tabspaces theme-magic vertico virtualenvwrapper
          volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
          yasnippet zenburn-theme)))
 (custom-set-faces

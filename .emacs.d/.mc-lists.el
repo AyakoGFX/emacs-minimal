@@ -10,6 +10,7 @@
         help-goto-info
         keycast-mode-line-mode
         my/backward-kill-spaces-or-char-or-word
+        org-self-insert-command
         rectangle-number-lines
         undefined
         wdired--self-insert

@@ -5,6 +5,7 @@
 (global-set-key (kbd "C-;") 'comment-line)
 (global-set-key (kbd "C-c f") #'find-file-at-point)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "M-o") 'other-window)
 
 
 (defun my/backward-kill-spaces-or-char-or-word ()

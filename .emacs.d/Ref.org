@@ -12,7 +12,7 @@ https://github.com/daviwil
   https://github.com/SystemCrafters/crafted-emacs
   https://github.com/jamescherti/minimal-emacs.d
   https://codeberg.org/ashton314/emacs-bedrock
-  https://github.com/LionyxML/emacs-solo/ 
+  https://github.com/LionyxML/emacs-solo/
 
 _Emacs_
 +Emacs+
