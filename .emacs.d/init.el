@@ -88,12 +88,6 @@
 (global-set-key (kbd "C-c e") #'espeak-region)
 (global-set-key (kbd "C-c q") #'espeak-cancel)
 
-(require 'simple-finance)
-(global-set-key (kbd "C-c t m") 'simple-finance-add-som)  ;; Bind C-c f m to add source of money
-(global-set-key (kbd "C-c t e") 'simple-finance-add-soe)  ;; Bind C-c f e to add source of expense
-(global-set-key (kbd "C-c t s") 'simple-finance-show-summary)  ;; Bind C-c f s to show summary
-(global-set-key (kbd "C-c t t") 'simple-finance-transient)  ;; Bind C-c f t to open transient menu
-
 (use-package evil
   :ensure t)
 (global-set-key (kbd "C-x /") #'evil-ex)

@@ -47,7 +47,7 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu diredfl doom-themes
+         consult-denote denote-menu dired-dragon diredfl doom-themes
          dwim-shell-command dwim-shell-commands eldoc-box
          elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
          ewal expand-region flycheck-ledger flymake-proselint
