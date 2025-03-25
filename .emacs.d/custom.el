@@ -47,15 +47,15 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu dired-dragon diredfl doom-themes
+         consult-denote denote-menu diredfl doom-themes
          dwim-shell-command dwim-shell-commands eldoc-box
          elfeed-autotag emmet-mode emojify erc-hl-nicks erc-image evil
          ewal expand-region flycheck-ledger flymake-proselint
          flyspell-correct go-mode god-mode gruvbox-theme helpful jinx
          keycast ledger-mode lsp-latex lua-mode magit marginalia
          move-text multiple-cursors nix-mode nix-ts-mode notink-theme
-         orderless proselint-flymake python-black pyvenv pywal
-         sudo-edit tabspaces theme-magic treesit-auto vertico
+         orderless pdf-tools proselint-flymake python-black pyvenv
+         pywal sudo-edit tabspaces theme-magic treesit-auto vertico
          virtualenvwrapper volatile-highlights vscode-dark-plus-theme
          vundo xah-fly-keys yasnippet zenburn-theme)))
 (custom-set-faces

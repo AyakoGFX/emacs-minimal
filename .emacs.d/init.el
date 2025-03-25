@@ -51,29 +51,28 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; moduals completion
+(load "~/.emacs.d/moduals/case-conversion.el")
 (load "~/.emacs.d/moduals/completion.el")
 (load "~/.emacs.d/moduals/consult.el")
 (load "~/.emacs.d/moduals/dired.el")
+(load "~/.emacs.d/moduals/display-buffer.el")
 (load "~/.emacs.d/moduals/elfeed.el")
 (load "~/.emacs.d/moduals/erc.el")
+(load "~/.emacs.d/moduals/eww.el")
 (load "~/.emacs.d/moduals/functionality.el")
 (load "~/.emacs.d/moduals/key.el")
 (load "~/.emacs.d/moduals/latex.el")
 (load "~/.emacs.d/moduals/lsp.el")
+(load "~/.emacs.d/moduals/my-find.el")
+(load "~/.emacs.d/moduals/my-func.el")
 (load "~/.emacs.d/moduals/note.el")
 (load "~/.emacs.d/moduals/org.el")
-(load "~/.emacs.d/moduals/spell.el")
-(load "~/.emacs.d/moduals/shell.el")
-(load "~/.emacs.d/moduals/my-func.el")
-(load "~/.emacs.d/moduals/themes.el")
-(load "~/.emacs.d/moduals/themes.el")
-(load "~/.emacs.d/moduals/display-buffer.el")
-(load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/os.el")
-(load "~/.emacs.d/moduals/eww.el")
-(load "~/.emacs.d/moduals/my-find.el")
-(load "~/.emacs.d/moduals/my-find.el")
-(load "~/.emacs.d/moduals/case-conversion.el")
+(load "~/.emacs.d/moduals/shell.el")
+(load "~/.emacs.d/moduals/spell.el")
+(load "~/.emacs.d/moduals/themes.el")
+(load "~/.emacs.d/moduals/themes.el")
+(load "~/.emacs.d/moduals/workspace.el")
 
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
@@ -88,6 +87,13 @@
 (global-set-key (kbd "C-c e") #'espeak-region)
 (global-set-key (kbd "C-c q") #'espeak-cancel)
 
+
+(require 'dired-dragon)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "C-d d") 'dired-dragon)
+  (define-key dired-mode-map (kbd "C-d s") 'dired-dragon-stay)
+  (define-key dired-mode-map (kbd "C-d i") 'dired-dragon-individual))
+
 (use-package evil
   :ensure t)
 (global-set-key (kbd "C-x /") #'evil-ex)
@@ -101,4 +107,26 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-(put 'upcase-initials-region 'disabled nil)
+
+(use-package pdf-tools
+  :ensure t
+  :mode
+  (("\\.pdf$" . pdf-view-mode))
+  :custom
+  pdf-annot-activate-created-annotations t 
+  pdf-view-resize-factor 1.1
+  :bind
+  (:map pdf-view-mode-map
+        ;; normal isearch
+	("C-s" . isearch-forward)
+        ;; custom keys 
+	("h" . pdf-annot-activate-created-annotations)
+	("t" . pdf-annot-add-text-annotation)
+	("D" . pdf-annot-delete))
+  :hook
+  ((pdf-view-mode) . (lambda () (cua-mode 0)))
+  :config
+  (pdf-tools-install)
+  (setq-default pdf-view-display-size 'fit-page))
+
+
