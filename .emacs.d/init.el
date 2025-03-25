@@ -72,7 +72,8 @@
 (load "~/.emacs.d/moduals/os.el")
 (load "~/.emacs.d/moduals/eww.el")
 (load "~/.emacs.d/moduals/my-find.el")
-;; (load "~/.emacs.d/moduals/trans.el")
+(load "~/.emacs.d/moduals/my-find.el")
+(load "~/.emacs.d/moduals/case-conversion.el")
 
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
@@ -104,4 +105,6 @@
   ;; :ensure t)
 ;; (theme-magic-export-theme-mode 1)
 
-
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'upcase-initials-region 'disabled nil)

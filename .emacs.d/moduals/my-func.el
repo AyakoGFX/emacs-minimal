@@ -1,3 +1,44 @@
+(defun my/cycle-hyphen-lowline-space (&optional Begin End)
+  "Cycle {hyphen lowline space} chars.
+
+The region to work on is by this order:
+1. if there is a selection, use that.
+2. If cursor is in a string quote or any type of bracket, and is within current line, work on that region.
+3. else, work on current line."
+  (interactive)
+  (let (xp1 xp2 xlen
+            (xcharArray ["-" "_" " "])
+            (xregionWasActive-p (region-active-p))
+            (xnowState (if (eq last-command this-command) (get 'my/cycle-hyphen-lowline-space 'state) 0))
+            xchangeTo)
+    (setq
+     xlen (length xcharArray)
+     xchangeTo (elt xcharArray xnowState))
+    (if (and Begin End)
+        (setq xp1 Begin xp2 End)
+      (if (region-active-p)
+          (setq xp1 (region-beginning) xp2 (region-end))
+        (let ((xskipChars "^\"<>(){}[]“”‘’‹›«»「」『』【】〖〗《》〈〉〔〕（）"))
+          (skip-chars-backward xskipChars (line-beginning-position))
+          (setq xp1 (point))
+          (skip-chars-forward xskipChars (line-end-position))
+          (setq xp2 (point))
+          (push-mark xp1))))
+    (save-excursion
+      (save-restriction
+        (narrow-to-region xp1 xp2)
+        (goto-char (point-min))
+        (while (re-search-forward (elt xcharArray (% (+ xnowState 2) xlen)) (point-max) 1)
+          (replace-match xchangeTo t t))))
+    (when (or (string-equal xchangeTo " ") xregionWasActive-p)
+      (goto-char xp2)
+      (push-mark xp1)
+      (setq deactivate-mark nil))
+    (put 'my/cycle-hyphen-lowline-space 'state (% (+ xnowState 1) xlen)))
+)
+;; Bind the function to a key, e.g., C-M-0
+(global-set-key (kbd "C-M-0") #'my/cycle-hyphen-lowline-space)
+
 (defun my/font-list-all ()
   "List all unique and sorted system fonts in a temporary buffer."
   (interactive)
