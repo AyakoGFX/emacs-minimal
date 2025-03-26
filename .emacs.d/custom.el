@@ -54,10 +54,11 @@
          flyspell-correct go-mode god-mode gruvbox-theme helpful jinx
          keycast ledger-mode lsp-latex lua-mode magit marginalia
          move-text multiple-cursors nix-mode nix-ts-mode notink-theme
-         orderless pdf-tools proselint-flymake python-black pyvenv
-         pywal sudo-edit tabspaces theme-magic treesit-auto vertico
-         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
-         vundo xah-fly-keys yasnippet zenburn-theme)))
+         orderless org-noter org-noter-pdftools org-pdftools pdf-tools
+         proselint-flymake python-black pyvenv pywal sudo-edit
+         tabspaces theme-magic treesit-auto vertico virtualenvwrapper
+         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
+         yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -23,7 +23,6 @@
 ;; Hide the details in dired
 (add-hook 'dired-mode-hook #'dired-hide-details-mode) ;; on in dired
 
-
 (use-package dired-x
    :demand t
    :config

@@ -7,12 +7,12 @@ https://gitlab.com/Clsmith1/dotfiles
 https://github.com/daviwil
 
 - Minimal
-  https://sr.ht/~ashton314/emacs-bedrock/
-  https://github.com/LionyxML/emacs-kick
   https://github.com/SystemCrafters/crafted-emacs
   https://github.com/jamescherti/minimal-emacs.d
   https://codeberg.org/ashton314/emacs-bedrock
-  https://github.com/LionyxML/emacs-solo/
+  https://sr.ht/~ashton314/emacs-bedrock/
+  https://github.com/LionyxML/emacs-solo
+  https://github.com/LionyxML/emacs-kick
 
 _Emacs_
 +Emacs+
