@@ -110,8 +110,13 @@
     :config
     (setq magit-push-always-verify nil)
     (setq git-commit-summary-max-length 50)
+    ;; search for all Git repositories under ~/:
+    (setq magit-repository-directories '(("~/" . 2)))
     :bind
-    ("C-c g g" . my/magit-status))
+    ("<f7>" . magit-list-repositories)
+    ;; ("C-x g" . my/magit-status)
+    ("<f6>" . my/magit-status))
+
 
   ;; opens magit in full window rather then popup
   (defun my/magit-status ()
@@ -161,3 +166,7 @@
 ;;;; Expand region. (Also from Magnar Sveen)
 ;;(global-set-key (kbd "C-M-l") 'er/expand-region) ; only type once, then l, -, 0  sc
 ;;
+
+;; (use-package swiper
+;;   :ensure t
+;;   :bind ("C-s" . 'swiper))

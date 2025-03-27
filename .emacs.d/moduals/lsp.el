@@ -5,5 +5,5 @@
 (load "~/.emacs.d/moduals/lsp/lua.el")
 (load "~/.emacs.d/moduals/lsp/nix.el")
 (load "~/.emacs.d/moduals/lsp/go.el")
-(load "~/.emacs.d/moduals/lsp/grammar.el")
+(load "~/.emacs.d/moduals/lsp/harper.el")
 (load "~/.emacs.d/moduals/lsp/treesit.el")

@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-visual-line
+        cycle-spacing
         dired-toggle-read-only
         end-of-visual-line
         help-customize

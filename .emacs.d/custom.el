@@ -4,9 +4,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-gruvbox))
+ '(custom-enabled-themes '(doom-monokai-spectrum))
  '(custom-safe-themes
-   '("32f22d075269daabc5e661299ca9a08716aa8cda7e85310b9625c434041916af"
+   '("c8c4baac2988652a760554e0e7ce11a0fe0f8468736be2b79355c9d9cc14b751"
+     "8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a"
+     "7c28419e963b04bf7ad14f3d8f6655c078de75e4944843ef9522dbecfcd8717d"
+     "10e5d4cc0f67ed5cafac0f4252093d2119ee8b8cb449e7053273453c1a1eb7cc"
+     "32f22d075269daabc5e661299ca9a08716aa8cda7e85310b9625c434041916af"
      "ff24d14f5f7d355f47d53fd016565ed128bf3af30eb7ce8cae307ee4fe7f3fd0"
      "4e2e42e9306813763e2e62f115da71b485458a36e8b4c24e17a2168c45c9cf9d"
      "dd4582661a1c6b865a33b89312c97a13a3885dc95992e2e5fc57456b4c545176"
@@ -55,7 +59,7 @@
          keycast ledger-mode lsp-latex lua-mode magit marginalia
          move-text multiple-cursors nix-mode nix-ts-mode notink-theme
          orderless org-noter org-noter-pdftools org-pdftools pdf-tools
-         proselint-flymake python-black pyvenv pywal sudo-edit
+         proselint-flymake python-black pyvenv pywal sudo-edit swiper
          tabspaces theme-magic treesit-auto vertico virtualenvwrapper
          volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
          yasnippet zenburn-theme)))

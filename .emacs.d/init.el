@@ -95,6 +95,12 @@
   (define-key dired-mode-map (kbd "C-d s") 'dired-dragon-stay)
   (define-key dired-mode-map (kbd "C-d i") 'dired-dragon-individual))
 
+(use-package recentf
+  :ensure nil)
+(recentf-mode 1)
+(setq recentf-auto-cleanup 'never)
+(global-set-key (kbd "<f3>") #'recentf-open-files)
+
 (use-package evil
   :ensure t)
 (global-set-key (kbd "C-x /") #'evil-ex)
