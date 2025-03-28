@@ -1,3 +1,36 @@
+(defvar my/search-engines
+  '(("google" . "https://www.google.com/search?q=")
+    ("yandex" . "https://yandex.com/search/?text=")
+    ("rumble" . "https://rumble.com/search/all?q=")
+    ("brave" . "https://search.brave.com/search?q=")
+    ("x" . "https://x.com/search?q=")
+    ("nixpkgs" . "https://search.nixos.org/packages?channel=24.11&from=0&size=50&sort=relevance&type=packages&query="))
+  "Alist of search engines with their base URLs.")
+
+(defun my/get-search-query ()
+  "Get text to search: selected region, current line, or nearest word."
+  (if (use-region-p)
+      (buffer-substring-no-properties (region-beginning) (region-end))
+    (let ((bounds (bounds-of-thing-at-point 'word)))
+      (if bounds
+          (buffer-substring-no-properties (car bounds) (cdr bounds))
+        (thing-at-point 'line t)))))
+
+
+(defun my/search (engine)
+  "Search selected text, current line, or nearest word using a search ENGINE."
+  (interactive
+   (list (completing-read "Search engine: " (mapcar #'car my/search-engines) nil t)))
+  (let* ((query (my/get-search-query))
+         (base-url (cdr (assoc engine my/search-engines))))
+    (if base-url
+        (browse-url (concat base-url (url-hexify-string query)))
+      (message "Unknown search engine: %s" engine))))
+
+(global-set-key (kbd "C-c s") 'my/search)  ;; Bind to C-c s
+;; ##############################################################
+
+
 (defun my/cycle-hyphen-lowline-space (&optional Begin End)
   "Cycle {hyphen lowline space} chars.
 
@@ -39,12 +72,16 @@ The region to work on is by this order:
 ;; Bind the function to a key, e.g., C-M-0
 (global-set-key (kbd "C-M-0") #'my/cycle-hyphen-lowline-space)
 
+;; ##############################################################
+
 (defun my/font-list-all ()
   "List all unique and sorted system fonts in a temporary buffer."
   (interactive)
   (with-output-to-temp-buffer "*Font-List*"
     (dolist (font (sort (delete-dups (font-family-list)) #'string<))
       (princ (format "%s\n" font)))))
+
+;; ##############################################################
 
 (defun my/dired-create-random-files (num-files)
   "Create NUM-FILES random files in the current dired directory."
@@ -65,6 +102,7 @@ The region to work on is by this order:
         (write-region "" nil filename))))
   (revert-buffer))  ;; Refresh dired to show new files
 
+;; ##############################################################
 
 (defun my/toggle-org-fundamental-mode ()
   "Toggle between `org-mode` and `fundamental-mode`.
@@ -80,6 +118,8 @@ This function only works when the current buffer is in `org-mode` or `fundamenta
 ;; Bind the function to F4
 (global-set-key (kbd "<f4>") 'my/toggle-org-fundamental-mode)
 
+;; ##############################################################
+
 (defun my/replace-with-numbers ()
   "Prompt the user for a string to replace with incrementing numbers across the entire buffer."
   (interactive)
@@ -91,3 +131,7 @@ This function only works when the current buffer is in `org-mode` or `fundamenta
         (replace-match (number-to-string counter))
         (setq counter (1+ counter))))
     (message "Replaced '%s' with numbers!" target)))
+
+;; ##############################################################
+
+
