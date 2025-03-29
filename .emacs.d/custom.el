@@ -59,10 +59,10 @@
          keycast ledger-mode lsp-latex lua-mode magit marginalia
          move-text multiple-cursors nix-mode nix-ts-mode notink-theme
          orderless org-noter org-noter-pdftools org-pdftools pdf-tools
-         proselint-flymake python-black pyvenv pywal sudo-edit swiper
-         tabspaces theme-magic treesit-auto vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-         yasnippet zenburn-theme)))
+         proselint-flymake python-black pyvenv pywal sudo-edit
+         surround swiper tabspaces theme-magic treesit-auto vertico
+         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
+         vundo xah-fly-keys yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

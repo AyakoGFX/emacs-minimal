@@ -3,6 +3,7 @@
     ("yandex" . "https://yandex.com/search/?text=")
     ("rumble" . "https://rumble.com/search/all?q=")
     ("brave" . "https://search.brave.com/search?q=")
+    ("flathub" . "https://flathub.org/apps/search?q=")
     ("x" . "https://x.com/search?q=")
     ("nixpkgs" . "https://search.nixos.org/packages?channel=24.11&from=0&size=50&sort=relevance&type=packages&query="))
   "Alist of search engines with their base URLs.")
@@ -27,7 +28,7 @@
         (browse-url (concat base-url (url-hexify-string query)))
       (message "Unknown search engine: %s" engine))))
 
-(global-set-key (kbd "C-c s") 'my/search)  ;; Bind to C-c s
+(global-set-key (kbd "C-c 1") 'my/search)  ;; Bind to C-c 1
 ;; ##############################################################
 
 
