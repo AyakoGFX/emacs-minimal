@@ -1,3 +1,24 @@
+(defun my-wayback-machine-save-webpage (url)
+  "Save a webpage to the Wayback Machine using the provided URL."
+  (interactive "sEnter URL to save: ")
+  (let ((output-buffer "*Wayback Save Output*"))
+    (with-current-buffer (get-buffer-create output-buffer)
+      (erase-buffer)
+      (let ((api-url (concat "https://web.archive.org/save/" (url-hexify-string url))))
+        (let ((response (with-temp-buffer
+                          (call-process "curl" nil (current-buffer) nil "-X" "GET" api-url)))
+              (exit-code (if (eq (call-process "curl" nil nil "-X" "GET" api-url) 0) 0 1)))
+          (if (zerop exit-code)
+              (progn
+                (display-buffer output-buffer)
+                (insert (format "Successfully saved: %s\n" url))
+                (insert (buffer-string)))  ;; Display the response from the Wayback Machine
+            (progn
+              (display-buffer output-buffer)
+              (insert (format "Failed to save: %s\n" url)))))))))
+
+;; ##############################################################
+
 (defvar my/search-engines
   '(("google" . "https://www.google.com/search?q=")
     ("yandex" . "https://yandex.com/search/?text=")
@@ -28,7 +49,7 @@
         (browse-url (concat base-url (url-hexify-string query)))
       (message "Unknown search engine: %s" engine))))
 
-(global-set-key (kbd "C-c 1") 'my/search)  ;; Bind to C-c 1
+(global-set-key (kbd "C-c s") 'my/search)  ;; Bind to C-c s
 ;; ##############################################################
 
 
