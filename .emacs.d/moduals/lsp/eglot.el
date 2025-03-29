@@ -8,14 +8,19 @@
   :commands (eglot))
 (add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1))) ;; off inlay hints 
 
+;; (use-package eglot-booster
+;;   :vc (:url "https://github.com/jdtsmith/eglot-booster"
+;;        :branch "main")
+;;   :after eglot
+;;   :config
+;;   (eglot-booster-mode))
+
 (use-package eldoc-box
   :ensure t)
 (global-set-key (kbd "C-c h") 'eldoc-box-help-at-point)
 (global-set-key (kbd "C-c C-h") 'eldoc-doc-buffer)
 (add-hook 'eglot-managed-mode-hook #'eldoc-mode)
 ;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode)
-
-
 
 (defvar eglot-prefix-map (make-sparse-keymap)
   "Keymap for Eglot commands.")
