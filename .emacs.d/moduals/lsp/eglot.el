@@ -8,6 +8,13 @@
   :commands (eglot))
 (add-hook 'eglot-managed-mode-hook (lambda () (eglot-inlay-hints-mode -1))) ;; off inlay hints 
 
+(use-package dumb-jump
+  :ensure t
+  :init
+  (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 ;; (use-package eglot-booster
 ;;   :vc (:url "https://github.com/jdtsmith/eglot-booster"
 ;;        :branch "main")

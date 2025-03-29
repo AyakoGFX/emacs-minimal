@@ -1,0 +1,1 @@
+/home/ayako/.emacs.d/straight/repos/lsp-bridge/lsp-bridge-call-hierarchy.el

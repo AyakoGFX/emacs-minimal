@@ -1,0 +1,1 @@
+/home/ayako/.emacs.d/straight/repos/lsp-bridge/core/handler/find_type_define.py

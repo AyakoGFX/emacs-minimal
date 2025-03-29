@@ -51,21 +51,22 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu diredfl doom-themes
+         consult-denote denote-menu diredfl doom-themes dumb-jump
          dwim-shell-command dwim-shell-commands eglot-booster
          eldoc-box elfeed-autotag emmet-mode emojify erc-hl-nicks
          erc-image evil ewal expand-region flycheck-ledger
          flymake-proselint flyspell-correct go-mode god-mode
-         gruvbox-theme helpful jinx keycast ledger-mode lsp-latex
-         lua-mode magit marginalia move-text multiple-cursors nix-mode
-         nix-ts-mode notink-theme orderless org-noter
-         org-noter-pdftools org-pdftools pdf-tools proselint-flymake
-         python-black pyvenv pywal sudo-edit surround swiper tabspaces
-         theme-magic treesit-auto vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-         yasnippet zenburn-theme))
+         gruvbox-theme helpful jinx keycast ledger-mode lsp-bridge
+         lsp-latex lua-mode magit marginalia move-text
+         multiple-cursors nix-mode nix-ts-mode notink-theme orderless
+         org-noter org-noter-pdftools org-pdftools pdf-tools
+         proselint-flymake python-black pyvenv pywal sudo-edit
+         surround swiper tabspaces theme-magic treesit-auto vertico
+         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
+         vundo xah-fly-keys yasnippet zenburn-theme))
  '(package-vc-selected-packages
-   '((eglot-booster :url "https://github.com/jdtsmith/eglot-booster"
+   '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
+     (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"
                     :branch "main"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
