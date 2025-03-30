@@ -1,5 +1,5 @@
 ;;; -*- lisp-data -*-
-(("/home/ayako/emacs-minimal/") ("/home/ayako/nixos/")
+(("/home/ayako/nixos/") ("/home/ayako/emacs-minimal/")
  ("/home/ayako/.emacs.d/elpa/lsp-bridge/")
  ("/home/ayako/.emacs.d/elpa/eglot-booster/")
  ("/home/ayako/.dotfiles/") ("/home/ayako/denote/")

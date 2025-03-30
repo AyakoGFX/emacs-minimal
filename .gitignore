@@ -4,6 +4,7 @@ places
 org-roam.db
 history
 org-persist/
+straight/
 emojis/
 elpy/
 auto-save-list/

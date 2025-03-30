@@ -148,9 +148,7 @@ The modern documentation website Emacs deserves
 https://emacsdocs.org/
 * [2025-03-28 Fri 11:56:57 PM]
 
-* TODO todo in waybar
-
-
+* DONE todo in waybar
 * [2025-03-29 Sat 05:49:12 PM]
 * TODO bind replace-string
 

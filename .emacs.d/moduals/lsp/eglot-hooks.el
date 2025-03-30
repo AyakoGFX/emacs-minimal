@@ -11,7 +11,6 @@
 (add-hook 'python-mode-hook 'eglot-ensure) ;; python
 
 
-
 ;; (add-to-list 'major-mode-remap-alist
 ;;              '(typescript-mode . typescript-ts-mode))
 ;; (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
