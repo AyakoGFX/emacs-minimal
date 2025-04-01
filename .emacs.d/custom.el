@@ -4,7 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-Iosvkem))
+ '(custom-enabled-themes '(almost-mono-black))
  '(custom-safe-themes
    '("0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
      "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d"
@@ -64,13 +64,13 @@
          flycheck-ledger flymake-proselint flyspell-correct
          git-gutter-fringe go-mode god-mode gruvbox-theme helpful jinx
          keycast ledger-mode lsp-bridge lsp-latex lua-mode magit
-         marginalia meow move-text multiple-cursors nix-mode
-         nix-ts-mode notink-theme orderless org-noter
+         magit-delta marginalia meow move-text multiple-cursors
+         nix-mode nix-ts-mode notink-theme orderless org-noter
          org-noter-pdftools org-pdftools pdf-tools proselint-flymake
          python-black pyvenv pywal sudo-edit surround swiper tabspaces
          theme-magic treesit-auto vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
-         yasnippet zenburn-theme))
+         volatile-highlights vscode-dark-plus-theme vundo
+         writeroom-mode xah-fly-keys yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"

@@ -11,7 +11,7 @@
                '(font . "JetBrainsMono Nerd Font-20")))
 
 ;; basic modes
-;; (global-hl-line-mode 1)
+(global-hl-line-mode 1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -19,6 +19,7 @@
 (global-display-line-numbers-mode 1)
 (save-place-mode 1)
 (global-auto-revert-mode 1)
+(horizontal-scroll-bar-mode -1)
 
 (setq ring-bell-function 'ignore
       make-backup-files nil
@@ -74,6 +75,7 @@
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/pdf.el")
+(load "~/.emacs.d/moduals/git.el")
 ;; (load "~/.emacs.d/moduals/god-mode.el")
 ;; (load "~/.emacs.d/moduals/meow.el")
 

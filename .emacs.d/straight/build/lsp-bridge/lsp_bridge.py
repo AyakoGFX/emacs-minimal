@@ -1,1 +1,0 @@
-/home/ayako/.emacs.d/straight/repos/lsp-bridge/lsp_bridge.py

@@ -1,1 +1,0 @@
-/home/ayako/.emacs.d/straight/repos/lsp-bridge/core/handler/csharp_uri_resolver.py

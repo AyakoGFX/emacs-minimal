@@ -16,6 +16,9 @@
 (use-package gruvbox-theme
   :ensure t)
 
+
+;; Leuven - by far the best theme for Org
+
 ;; This ensures that line numbers scale with the text by inheriting the default font attributes
 ;; https://emacs.stackexchange.com/questions/74507/constant-font-size-in-display-line-numbers-mode-when-zooming-in-and-out
 (set-face-attribute 'line-number nil :inherit 'default)
