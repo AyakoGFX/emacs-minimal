@@ -74,6 +74,8 @@
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/pdf.el")
+;; (load "~/.emacs.d/moduals/god-mode.el")
+;; (load "~/.emacs.d/moduals/meow.el")
 
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
@@ -107,10 +109,6 @@
 
 (use-package keycast
   :ensure t)
-
-;; (use-package theme-magic
-  ;; :ensure t)
-;; (theme-magic-export-theme-mode 1)
 
 ;; https://github.com/mkleehammer/surround/
 (use-package surround

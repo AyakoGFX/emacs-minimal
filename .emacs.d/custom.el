@@ -4,9 +4,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(doom-shades-of-purple))
+ '(custom-enabled-themes '(almost-mono-black))
  '(custom-safe-themes
-   '("93011fe35859772a6766df8a4be817add8bfe105246173206478a0706f88b33d"
+   '("0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
+     "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d"
+     "93011fe35859772a6766df8a4be817add8bfe105246173206478a0706f88b33d"
      "0c83e0b50946e39e237769ad368a08f2cd1c854ccbcd1a01d39fdce4d6f86478"
      "f64189544da6f16bab285747d04a92bd57c7e7813d8c24c30f382f087d460a33"
      "d0fd069415ef23ccc21ccb0e54d93bdbb996a6cce48ffce7f810826bb243502c"
@@ -55,19 +57,20 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu diredfl doom-themes dumb-jump
-         dwim-shell-command dwim-shell-commands eglot-booster
-         eldoc-box elfeed-autotag emmet-mode emojify erc-hl-nicks
-         erc-image evil ewal expand-region flycheck-ledger
-         flymake-proselint flyspell-correct go-mode god-mode
-         gruvbox-theme helpful jinx keycast ledger-mode lsp-bridge
-         lsp-latex lua-mode magit marginalia move-text
-         multiple-cursors nix-mode nix-ts-mode notink-theme orderless
-         org-noter org-noter-pdftools org-pdftools pdf-tools
-         proselint-flymake python-black pyvenv pywal sudo-edit
-         surround swiper tabspaces theme-magic treesit-auto vertico
-         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
-         vundo xah-fly-keys yasnippet zenburn-theme))
+         consult-denote denote-menu dired-subtree diredfl doom-themes
+         dumb-jump dwim-shell-command dwim-shell-commands
+         eglot-booster eldoc-box elfeed-autotag emmet-mode emojify
+         erc-hl-nicks erc-image evil ewal expand-region
+         flycheck-ledger flymake-proselint flyspell-correct
+         git-gutter-fringe go-mode god-mode gruvbox-theme helpful jinx
+         keycast ledger-mode lsp-bridge lsp-latex lua-mode magit
+         marginalia meow move-text multiple-cursors nix-mode
+         nix-ts-mode notink-theme orderless org-noter
+         org-noter-pdftools org-pdftools pdf-tools proselint-flymake
+         python-black pyvenv pywal sudo-edit surround swiper tabspaces
+         theme-magic treesit-auto vertico virtualenvwrapper
+         volatile-highlights vscode-dark-plus-theme vundo xah-fly-keys
+         yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"

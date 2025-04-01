@@ -149,7 +149,7 @@
 (keymap-set reb-lisp-mode-map "C-`" #'casual-re-builder-tmenu)
 (keymap-set bookmark-bmenu-mode-map "C-`" #'casual-bookmarks-tmenu)
 (keymap-set org-agenda-mode-map "C-`" #'casual-agenda-tmenu)
-(keymap-global-set "M-0" #'casual-avy-tmenu)
+(keymap-global-set "M-9" #'casual-avy-tmenu)
 (keymap-set symbol-overlay-map "C-`" #'casual-symbol-overlay-tmenu)
 (keymap-global-set "C-`" #'casual-editkit-main-tmenu)
 

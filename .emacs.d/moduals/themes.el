@@ -15,3 +15,17 @@
 
 (use-package gruvbox-theme
   :ensure t)
+
+;; This ensures that line numbers scale with the text by inheriting the default font attributes
+;; https://emacs.stackexchange.com/questions/74507/constant-font-size-in-display-line-numbers-mode-when-zooming-in-and-out
+(set-face-attribute 'line-number nil :inherit 'default)
+
+;; This removes all custom themes.
+;; (dolist (theme custom-enabled-themes)
+  ;; (disable-theme theme))
+
+;; (use-package theme-magic
+  ;; :ensure t)
+;; (theme-magic-export-theme-mode 1)
+
+;; (custom-set-faces '(line-number ((t (:foreground "cyan")))))

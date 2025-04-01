@@ -150,5 +150,13 @@ https://emacsdocs.org/
 
 * DONE todo in waybar
 * [2025-03-29 Sat 05:49:12 PM]
-* TODO bind replace-string
+* DONE bind replace-stringq
+
+* [2025-03-31 Mon 03:05:28 PM]
+**** TODO set keys to mark
+[[https://www.youtube.com/live/GK-Bx_uHXhc?si=Ti0RGTJxdFtZDRXK&t=438][emacs, most efficient ways to open file - YouTube]]
+
+
+* [2025-04-01 Tue 02:24:13 PM]
+**** TODO https://catbox.moe/faq.php
 

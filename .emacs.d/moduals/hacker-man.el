@@ -1,8 +1,6 @@
 (use-package dwim-shell-command
   :ensure t)
 
-
-
 (defun dwim-shell-commands-image-exif-metadata ()
   "View EXIF metadata in image(s)."
   (interactive)

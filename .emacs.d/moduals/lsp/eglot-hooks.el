@@ -7,8 +7,7 @@
 (add-hook 'js-ts-mode  'eglot-ensure)
 (add-hook 'tsx-ts-mode  'eglot-ensure)
 (add-hook 'typescript-ts-mode  'eglot-ensure)
-
-(add-hook 'python-mode-hook 'eglot-ensure) ;; python
+(add-hook 'python-ts-mode-hook 'eglot-ensure)
 
 
 ;; (add-to-list 'major-mode-remap-alist
