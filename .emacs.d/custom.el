@@ -4,7 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(almost-mono-black))
+ '(custom-enabled-themes '(doom-Iosvkem))
  '(custom-safe-themes
    '("0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
      "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d"
@@ -57,8 +57,8 @@
      default))
  '(package-selected-packages
    '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu dired-subtree diredfl doom-themes
-         dumb-jump dwim-shell-command dwim-shell-commands
+         consult-denote denote-menu diff-hl dired-subtree diredfl
+         doom-themes dumb-jump dwim-shell-command dwim-shell-commands
          eglot-booster eldoc-box elfeed-autotag emmet-mode emojify
          erc-hl-nicks erc-image evil ewal expand-region
          flycheck-ledger flymake-proselint flyspell-correct
