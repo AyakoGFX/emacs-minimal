@@ -76,6 +76,16 @@
 (load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/pdf.el")
 (load "~/.emacs.d/moduals/git.el")
+(load "~/.emacs.d/moduals/project.el")
+
+;; Emacs: display ugly ^L page breaks as tidy horizontal lines
+;; Navigate between them: Press C-x [ and C-x ] to move between page breaks.
+;; Delete them: Use M-% ^L RET RET to replace all occurrences with nothing.
+;; Insert manually: Type C-q C-l.
+(use-package page-break-lines
+  :ensure t)
+(page-break-lines-mode t)
+
 ;; (load "~/.emacs.d/moduals/god-mode.el")
 ;; (load "~/.emacs.d/moduals/meow.el")
 

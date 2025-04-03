@@ -5,6 +5,8 @@
 (global-unset-key (kbd "C-x C-c"))
 ;; Bind C-x C-c to upcase-initials-region
 (global-set-key (kbd "C-x C-c") 'upcase-initials-region)
+(global-set-key (kbd "C-x C-q") 'save-buffers-kill-terminal)
+
 
 
 ;; Emacs has commands for converting either a single word or any arbitrary range of text to upper case or to lower case.

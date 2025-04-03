@@ -1,3 +1,8 @@
+(use-package avy
+  :ensure t)
+(global-set-key (kbd "M-9") 'avy-goto-word-1)
+
+
 ;;; TIME
 (use-package time
   :ensure nil
@@ -90,38 +95,74 @@
     :ensure t
     :config
     (which-key-mode))
-
 (use-package vundo
   :commands (vundo)
   :ensure t
   :config
   ;; Take less on-screen space.
-  (setq vundo-compact-display t))
-  
+  (setq vundo-compact-display t)
+
   ;; Better contrasting highlight.
   (custom-set-faces
    '(vundo-node ((t (:foreground "#808080"))))
    '(vundo-stem ((t (:foreground "#808080"))))
    '(vundo-highlight ((t (:foreground "#FFFF00")))))
+
   ;; Use `HJKL` VIM-like motion, also Home/End to jump around.
-  (define-key vundo-mode-map (kbd "l") #'vundo-forward)
-  (define-key vundo-mode-map (kbd "<right>") #'vundo-forward)
-  (define-key vundo-mode-map (kbd "h") #'vundo-backward)
-  (define-key vundo-mode-map (kbd "<left>") #'vundo-backward)
-  (define-key vundo-mode-map (kbd "j") #'vundo-next)
-  (define-key vundo-mode-map (kbd "<down>") #'vundo-next)
-  (define-key vundo-mode-map (kbd "k") #'vundo-previous)
-  (define-key vundo-mode-map (kbd "<up>") #'vundo-previous)
-  (define-key vundo-mode-map (kbd "<home>") #'vundo-stem-root)
-  (define-key vundo-mode-map (kbd "<end>") #'vundo-stem-end)
-  (define-key vundo-mode-map (kbd "q") #'vundo-quit)
-  (define-key vundo-mode-map (kbd "C-g") #'vundo-quit)
-  (define-key vundo-mode-map (kbd "RET") #'vundo-confirm)
+  (with-eval-after-load 'vundo
+    (define-key vundo-mode-map (kbd "l") #'vundo-forward)
+    (define-key vundo-mode-map (kbd "<right>") #'vundo-forward)
+    (define-key vundo-mode-map (kbd "h") #'vundo-backward)
+    (define-key vundo-mode-map (kbd "<left>") #'vundo-backward)
+    (define-key vundo-mode-map (kbd "j") #'vundo-next)
+    (define-key vundo-mode-map (kbd "<down>") #'vundo-next)
+    (define-key vundo-mode-map (kbd "k") #'vundo-previous)
+    (define-key vundo-mode-map (kbd "<up>") #'vundo-previous)
+    (define-key vundo-mode-map (kbd "<home>") #'vundo-stem-root)
+    (define-key vundo-mode-map (kbd "<end>") #'vundo-stem-end)
+    (define-key vundo-mode-map (kbd "q") #'vundo-quit)
+    (define-key vundo-mode-map (kbd "C-g") #'vundo-quit)
+    (define-key vundo-mode-map (kbd "RET") #'vundo-confirm))
 
-(with-eval-after-load 'evil
-  (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo))
+  ;; If you're using Evil mode, define Evil keybindings.
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo)))
 
+;; Global keybinding to trigger vundo.
 (global-set-key (kbd "C-x C-u") 'vundo)
+
+
+;; (use-package vundo
+;;   :commands (vundo)
+;;   :ensure t
+;;   :config
+;;   ;; Take less on-screen space.
+;;   (setq vundo-compact-display t))
+  
+;;   ;; Better contrasting highlight.
+;;   (custom-set-faces
+;;    '(vundo-node ((t (:foreground "#808080"))))
+;;    '(vundo-stem ((t (:foreground "#808080"))))
+;;    '(vundo-highlight ((t (:foreground "#FFFF00")))))
+;;   ;; Use `HJKL` VIM-like motion, also Home/End to jump around.
+;;   (define-key vundo-mode-map (kbd "l") #'vundo-forward)
+;;   (define-key vundo-mode-map (kbd "<right>") #'vundo-forward)
+;;   (define-key vundo-mode-map (kbd "h") #'vundo-backward)
+;;   (define-key vundo-mode-map (kbd "<left>") #'vundo-backward)
+;;   (define-key vundo-mode-map (kbd "j") #'vundo-next)
+;;   (define-key vundo-mode-map (kbd "<down>") #'vundo-next)
+;;   (define-key vundo-mode-map (kbd "k") #'vundo-previous)
+;;   (define-key vundo-mode-map (kbd "<up>") #'vundo-previous)
+;;   (define-key vundo-mode-map (kbd "<home>") #'vundo-stem-root)
+;;   (define-key vundo-mode-map (kbd "<end>") #'vundo-stem-end)
+;;   (define-key vundo-mode-map (kbd "q") #'vundo-quit)
+;;   (define-key vundo-mode-map (kbd "C-g") #'vundo-quit)
+;;   (define-key vundo-mode-map (kbd "RET") #'vundo-confirm)
+
+;; (with-eval-after-load 'evil
+;;   (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo))
+
+;; (global-set-key (kbd "C-x C-u") 'vundo)
 
 
 (use-package 0x0
@@ -148,12 +189,22 @@
 (keymap-set reb-lisp-mode-map "C-`" #'casual-re-builder-tmenu)
 (keymap-set bookmark-bmenu-mode-map "C-`" #'casual-bookmarks-tmenu)
 (keymap-set org-agenda-mode-map "C-`" #'casual-agenda-tmenu)
-(keymap-global-set "M-9" #'casual-avy-tmenu)
+;; (keymap-global-set "C-M-9" #'casual-avy-tmenu)
+(keymap-global-set "M-(" #'casual-avy-tmenu)
 (keymap-set symbol-overlay-map "C-`" #'casual-symbol-overlay-tmenu)
 (keymap-global-set "C-`" #'casual-editkit-main-tmenu)
 
 
 ;; -------------------- not used -----------
+
+;; Emacs: display ugly ^L page breaks as tidy horizontal lines
+;; Navigate between them: Press C-x [ and C-x ] to move between page breaks.
+;; Delete them: Use M-% ^L RET RET to replace all occurrences with nothing.
+;; Insert manually: Type C-q C-l.
+;; (use-package page-break-lines
+;;   :ensure t)
+;; (page-break-lines-mode t)
+
 ;;(use-package calfw
 ;;  :ensure t)
 ;;(use-package calfw-org

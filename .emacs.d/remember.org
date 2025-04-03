@@ -160,3 +160,34 @@ https://emacsdocs.org/
 * [2025-04-01 Tue 02:24:13 PM]
 **** TODO https://catbox.moe/faq.php
 
+* [2025-04-02 Wed 03:53:36 PM]
+**** TODO make this async call external proces
+#+begin_src elisp
+`my-wayback-machine-save-webpage'
+#+end_src
+
+* [2025-04-02 Wed 04:44:25 PM]
+*** Recommendations on OCR software?
+1. Paperless-ngx
+2. OCRmyPDF
+3. normcap
+4. pdfsandwich
+5. OCRFeeder
+6. gImageReader-qt
+7. OCRvison
+8. pdf2searchablepdf https://github.com/ElectricRCAircraftGuy/PDF2SearchablePDF
+source = https://www.reddit.com/r/archlinux/comments/z8mr3p/recommendations_on_ocr_software/
+
+* [2025-04-02 Wed 05:07:46 PM]
+downloade all books of arthur-schopenhauer
+https://onemorelibrary.com/index.php/en/books/major-collections/arthur-schopenhauer-collection-359
+* [2025-04-02 Wed 06:43:50 PM]
+**** TODO  look in to poppler_utils
+
+
+* [2025-04-02 Wed 06:52:24 PM]
+
+previous selection regian in emacs
+* [2025-04-03 Thu 12:59:22 PM]
+[[https://youtu.be/g6YA4tiW1eQ?si=-ULLgqznoXu-wsPJ][Emacs: techniques to narrow Dired - YouTube]]
+

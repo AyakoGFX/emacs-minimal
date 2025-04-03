@@ -1,21 +1,47 @@
-(defun my-wayback-machine-save-webpage (url)
-  "Save a webpage to the Wayback Machine using the provided URL."
+(defun my/wayback-machine-save-webpage (url)
+  "Save a webpage to the Wayback Machine asynchronously and display the archived URL."
   (interactive "sEnter URL to save: ")
-  (let ((output-buffer "*Wayback Save Output*"))
-    (with-current-buffer (get-buffer-create output-buffer)
+  (let* ((output-buffer (get-buffer-create "*Wayback Save Output*"))
+         (api-url (concat "https://web.archive.org/save/" (url-hexify-string url))))
+    (with-current-buffer output-buffer
       (erase-buffer)
-      (let ((api-url (concat "https://web.archive.org/save/" (url-hexify-string url))))
-        (let ((response (with-temp-buffer
-                          (call-process "curl" nil (current-buffer) nil "-X" "GET" api-url)))
-              (exit-code (if (eq (call-process "curl" nil nil "-X" "GET" api-url) 0) 0 1)))
-          (if (zerop exit-code)
-              (progn
-                (display-buffer output-buffer)
-                (insert (format "Successfully saved: %s\n" url))
-                (insert (buffer-string)))  ;; Display the response from the Wayback Machine
-            (progn
-              (display-buffer output-buffer)
-              (insert (format "Failed to save: %s\n" url)))))))))
+      (insert (format "Saving: %s\n" url)))
+    (display-buffer output-buffer)
+    (make-process
+     :name "wayback-machine-save"
+     :buffer output-buffer
+     :command (list "curl" "-s" "-X" "GET" api-url)
+     :sentinel (lambda (process event)
+                 (when (string= event "finished\n")
+                   (with-current-buffer (process-buffer process)
+                     (goto-char (point-min))
+                     (if (re-search-forward "<a href=\"\\(/web/[0-9]+/https://[^\"]+\\)\"" nil t)
+                         (let ((archived-url (match-string 1)))
+                           (goto-char (point-max))
+                           (insert (format "\nSuccessfully saved: https://web.archive.org%s\n" archived-url)))
+                       (goto-char (point-max))
+                       (insert "\nFailed to extract archived URL.\n"))))))))
+
+
+;; ##############################################################
+;; (defun my/wayback-machine-save-webpage (url)
+;;   "Save a webpage to the Wayback Machine using the provided URL."
+;;   (interactive "sEnter URL to save: ")
+;;   (let ((output-buffer "*Wayback Save Output*"))
+;;     (with-current-buffer (get-buffer-create output-buffer)
+;;       (erase-buffer)
+;;       (let ((api-url (concat "https://web.archive.org/save/" (url-hexify-string url))))
+;;         (let ((response (with-temp-buffer
+;;                           (call-process "curl" nil (current-buffer) nil "-X" "GET" api-url)))
+;;               (exit-code (if (eq (call-process "curl" nil nil "-X" "GET" api-url) 0) 0 1)))
+;;           (if (zerop exit-code)
+;;               (progn
+;;                 (display-buffer output-buffer)
+;;                 (insert (format "Successfully saved: %s\n" url))
+;;                 (insert (buffer-string)))  ;; Display the response from the Wayback Machine
+;;             (progn
+;;               (display-buffer output-buffer)
+;;               (insert (format "Failed to save: %s\n" url)))))))))
 
 ;; ##############################################################
 
@@ -55,7 +81,6 @@
 
 (defun my/cycle-hyphen-lowline-space (&optional Begin End)
   "Cycle {hyphen lowline space} chars.
-
 The region to work on is by this order:
 1. if there is a selection, use that.
 2. If cursor is in a string quote or any type of bracket, and is within current line, work on that region.

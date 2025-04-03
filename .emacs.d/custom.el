@@ -66,11 +66,11 @@
          keycast ledger-mode lsp-bridge lsp-latex lua-mode magit
          magit-delta marginalia meow move-text multiple-cursors
          nix-mode nix-ts-mode notink-theme orderless org-noter
-         org-noter-pdftools org-pdftools pdf-tools proselint-flymake
-         python-black pyvenv pywal sudo-edit surround swiper tabspaces
-         theme-magic treesit-auto vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo
-         writeroom-mode xah-fly-keys yasnippet zenburn-theme))
+         org-noter-pdftools org-pdftools page-break-lines pdf-tools
+         proselint-flymake python-black pyvenv pywal sudo-edit
+         surround swiper tabspaces theme-magic treesit-auto vertico
+         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
+         vundo writeroom-mode xah-fly-keys yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"
