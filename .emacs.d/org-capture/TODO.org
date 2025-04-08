@@ -1,0 +1,22 @@
+* TODO [#C]  [2025-03-14 Fri 11:02:25 PM]
+look in to emacs-eat
+
+* TODO  [2025-03-28 Fri 11:56:57 PM]
+todo in waybar
+
+* TODO  [2025-03-31 Mon 03:05:28 PM]
+[[https://www.youtube.com/live/GK-Bx_uHXhc?si=Ti0RGTJxdFtZDRXK&t=438][emacs, most efficient ways to open file - YouTube]]
+set keys to mark
+
+* TODO  [2025-04-01 Tue 02:24:13 PM]
+https://catbox.moe/faq.php
+
+* DONE [2025-04-02 Wed 03:53:36 PM]
+make this async call external proces
+#+begin_src elisp
+`my-wayback-machine-save-webpage'
+#+end_src
+
+* TODO  [2025-04-02 Wed 06:43:50 PM]
+look in to poppler_utils
+

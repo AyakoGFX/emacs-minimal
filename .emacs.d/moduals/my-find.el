@@ -19,6 +19,17 @@
     (dired (completing-read "Find directory: " dirs nil t))))
 
 
+(defun my/find-org-capture ()
+  "Find a file recursively in ~/.emacs.d/org-capture/, using `fd` or `find`."
+  (interactive)
+  (let* ((default-directory (expand-file-name "~/.emacs.d/org-capture/"))
+         (files (if (executable-find "fd")
+                    (split-string (shell-command-to-string "fd --type f --hidden --follow --exclude .git") "\n" t)
+                  (split-string (shell-command-to-string "find . -type f 2>/dev/null") "\n" t))))
+    (find-file (completing-read "Find file: " files nil t))))
+
+
+(define-key global-map (kbd "C-c v") 'my/find-org-capture) ;; bind globally
 (define-key emacs-lisp-mode-map (kbd "C-c C-f") nil) ;; unbind in emacs-lisp-mode
 (define-key global-map (kbd "C-c C-f") 'my/find-file-recursively) ;; bind globally
 (define-key global-map (kbd "C-c C-d") 'my/find-dir-recursively) ;; bind globally

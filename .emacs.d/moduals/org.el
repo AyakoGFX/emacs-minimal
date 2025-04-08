@@ -28,3 +28,29 @@
   (add-to-list 'org-structure-template-alist '("go" . "src go"))
   (add-to-list 'org-structure-template-alist '("yaml" . "src yaml"))
   (add-to-list 'org-structure-template-alist '("json" . "src json")))
+
+
+(use-package org-appear
+  :ensure t)
+(add-hook 'org-mode-hook 'org-appear-mode)
+(setq org-appear-autoemphasis t
+      org-appear-autolinks t
+      org-appear-autosubmarkers t
+      org-appear-autoentities t
+      org-appear-autokeywords t
+      org-appear-inside-latex t)
+
+
+(setq org-default-notes-file "~/.emacs.d/org-capture/remember.org")
+(setq org-capture-templates
+      '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
+         "* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
+        ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
+         "* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;; %U Inactive timestamp
+;; %^ {Name} Prompt for something
+;; %i Active region
+;; %a Annotation (org-store-1ink) %i Active region
+;; %? Cursor ends up here

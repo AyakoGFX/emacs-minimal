@@ -4,9 +4,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(almost-mono-black))
+ '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
+   '("01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+     "0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
      "77fff78cc13a2ff41ad0a8ba2f09e8efd3c7e16be20725606c095f9a19c24d3d"
      "93011fe35859772a6766df8a4be817add8bfe105246173206478a0706f88b33d"
      "0c83e0b50946e39e237769ad368a08f2cd1c854ccbcd1a01d39fdce4d6f86478"
@@ -56,21 +57,23 @@
      "8f5b54bf6a36fe1c138219960dd324aad8ab1f62f543bed73ef5ad60956e36ae"
      default))
  '(package-selected-packages
-   '(0x0 almost-mono-themes auctex beframe casual-suite company
-         consult-denote denote-menu diff-hl dired-subtree diredfl
-         doom-themes dumb-jump dwim-shell-command dwim-shell-commands
-         eglot-booster eldoc-box elfeed-autotag emmet-mode emojify
-         erc-hl-nicks erc-image evil ewal expand-region
-         flycheck-ledger flymake-proselint flyspell-correct
-         git-gutter-fringe go-mode god-mode gruvbox-theme helpful jinx
+   '(0x0 almost-mono-themes auctex beframe casual-suite cider
+         clojure-mode company consult-denote denote-menu diff-hl
+         dired-subtree diredfl doom-themes dumb-jump
+         dwim-shell-command dwim-shell-commands eglot-booster
+         eldoc-box elfeed-autotag emmet-mode emojify erc-hl-nicks
+         erc-image evil ewal expand-region flycheck-ledger
+         flymake-proselint flyspell-correct git-gutter-fringe go-mode
+         god-mode gruber-darker-theme gruvbox-theme helpful jinx
          keycast ledger-mode lsp-bridge lsp-latex lua-mode magit
          magit-delta marginalia meow move-text multiple-cursors
-         nix-mode nix-ts-mode notink-theme orderless org-noter
-         org-noter-pdftools org-pdftools page-break-lines pdf-tools
-         proselint-flymake python-black pyvenv pywal sudo-edit
-         surround swiper tabspaces theme-magic treesit-auto vertico
-         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
-         vundo writeroom-mode xah-fly-keys yasnippet zenburn-theme))
+         nix-mode nix-ts-mode notink-theme orderless org-appear
+         org-noter org-noter-pdftools org-pdftools page-break-lines
+         paredit pdf-tools proselint-flymake python-black pyvenv pywal
+         sudo-edit surround swiper tabspaces theme-magic treesit-auto
+         vertico virtualenvwrapper volatile-highlights
+         vscode-dark-plus-theme vundo writeroom-mode xah-fly-keys
+         yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"

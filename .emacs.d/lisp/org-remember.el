@@ -20,6 +20,11 @@
 ;; C-c n v                    ; org-remember-view
 ;; C-c n s                    ; org-remember-search
 
+;; (require 'org-remember)
+;; (global-set-key (kbd "C-c r c") #'org-remember-capture)
+;; (global-set-key (kbd "C-c r v") #'org-remember-view)
+;; (global-set-key (kbd "C-c r s") #'org-remember-search)
+
 ;;; Code:
 
 (require 'org)

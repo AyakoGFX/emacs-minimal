@@ -10,6 +10,8 @@
   (add-to-list 'default-frame-alist
                '(font . "JetBrainsMono Nerd Font-20")))
 
+;; (load "~/.emacs.d/moduals/nano-emacs.el")
+
 ;; basic modes
 (global-hl-line-mode 1)
 (tool-bar-mode -1)
@@ -21,6 +23,7 @@
 (global-auto-revert-mode 1)
 (horizontal-scroll-bar-mode -1)
 
+
 (setq ring-bell-function 'ignore
       make-backup-files nil
       use-dialog-box nil
@@ -30,6 +33,11 @@
       global-auto-revert-non-file-buffers t
       ibuffer-expert t
       initial-scratch-message ";; M-x `org-remember-view'")
+
+;; clipboard
+(setq x-select-enable-clipboard t
+      save-interprogram-paste-before-kill t
+      yank-pop-change-selection t)
 
 ;; Short answers only please
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -67,10 +75,10 @@
 (load "~/.emacs.d/moduals/my-find.el")
 (load "~/.emacs.d/moduals/my-func.el")
 (load "~/.emacs.d/moduals/note.el")
-(load "~/.emacs.d/moduals/org.el")
-(load "~/.emacs.d/moduals/os.el")
-(load "~/.emacs.d/moduals/shell.el")
-(load "~/.emacs.d/moduals/spell.el")
+"~/.emacs.d/moduals/org.el")
+"~/.emacs.d/moduals/os.el")
+"~/.emacs.d/moduals/shell.el")
+"~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/workspace.el")
@@ -130,3 +138,4 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)

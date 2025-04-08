@@ -69,5 +69,5 @@
      consult--source-bookmark consult--source-file-register
      consult--source-recent-file consult--source-project-recent-file
      :preview-key '(:debounce 0.4 any))
-    (setq consult-find-args "fd --type f") ; Its value is "find . -not ( -path */.[A-Za-z]* -prune )"
+    ;; (setq consult-find-args "fd --type f") ; Its value is (setq consult-find-args "find . -not ( -path */.[A-Za-z]* -prune )")
     (setq consult-narrow-key "<"))  ;; Close consult package

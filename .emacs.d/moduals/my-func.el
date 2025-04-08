@@ -1,3 +1,11 @@
+(defun my/set-font-size ()
+  "Prompt for a font size and set it using the current font family."
+  (interactive)
+  (let* ((current-font (face-attribute 'default :family))
+         (size (read-number "Enter font size: ")))
+    (set-face-attribute 'default nil :family current-font :height (* size 10))))
+
+;; ##############################################################
 (defun my/wayback-machine-save-webpage (url)
   "Save a webpage to the Wayback Machine asynchronously and display the archived URL."
   (interactive "sEnter URL to save: ")
@@ -24,6 +32,7 @@
 
 
 ;; ##############################################################
+
 ;; (defun my/wayback-machine-save-webpage (url)
 ;;   "Save a webpage to the Wayback Machine using the provided URL."
 ;;   (interactive "sEnter URL to save: ")

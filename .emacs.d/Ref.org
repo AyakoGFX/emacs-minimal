@@ -14,6 +14,10 @@ https://github.com/daviwil
   https://github.com/LionyxML/emacs-solo
   https://github.com/LionyxML/emacs-kick
 
+- Modern looking Emacs Config
+  https://github.com/rougier/elegant-emacs
+  https://github.com/rougier/nano-emacs.git
+
 _Emacs_
 +Emacs+
 /Emacs/

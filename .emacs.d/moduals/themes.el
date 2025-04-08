@@ -16,6 +16,8 @@
 (use-package gruvbox-theme
   :ensure t)
 
+(use-package gruber-darker-theme
+  :ensure t)
 
 ;; Leuven - by far the best theme for Org
 

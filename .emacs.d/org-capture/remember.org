@@ -1,0 +1,196 @@
+* [2025-02-19 Wed 03:26:38 PM]
+emacs music played "EMMS emacs"
+
+* [2025-02-19 Wed 03:27:07 PM]
+https://github.com/Wilfred/helpful
+    
+* [2025-02-19 Wed 04:08:03 PM]
+Thunderbird vs Emacs Email
+https://www.reddit.com/r/emacs/comments/1it2eow/thunderbird_vs_emacs_email/
+
+* [2025-02-21 Fri 05:16:45 AM]
+NixOS best practices
+
+* [2025-02-22 Sat 02:20:10 PM]
+- dired-preview.el
+  https://protesilaos.com/emacs/dired-preview
+
+* [2025-02-22 Sat 02:26:57 PM]
+https://github.com/Zyphra/Zonos/issues/135
+
+* [2025-02-22 Sat 04:41:02 PM]
+https://github.com/susam/devil
+emacs in android devil-mode in termux
+https://www.youtube.com/live/WcDhmW3gB4A?si=9KQQP98lOz80wfKH&t=1001
+
+* [2025-02-22 Sat 05:23:55 PM]
+https://youtu.be/IifoxBN1wDY?si=1V_hF_nGTtOmA7CG
+
+* [2025-02-22 Sat 05:32:44 PM]
+https://github.com/jdtsmith/ultra-scroll.git
+
+* [2025-02-22 Sat 05:40:32 PM]
+Emacs completion preview mode
+https://www.youtube.com/live/WcDhmW3gB4A?si=SHdvoksKvDzRknZw&t=3549
+
+* [2025-02-22 Sat 05:42:35 PM]
+fido emacs
+http://xahlee.info/emacs/emacs/emacs_fido_mode.html
+
+* [2025-02-23 Sun 06:00:45 PM]
+learn about =fd= (Simple, fast and user-friendly alternative to find) 
+
+* [2025-02-26 Wed 06:52:44 PM]
+regnumidiotaes search in teligram museleni
+
+* [2025-02-26 Wed 11:33:44 PM]
+https://github.com/kakakaya/random-splash-image
+
+* [2025-02-26 Wed 11:35:24 PM]
+Image-Dired
+
+* [2025-02-28 Fri 03:27:29 AM]
+- WTF is is magic-wormhole look in to this if interested,
+  Description = get things from one computer to another, safely 
+
+* [2025-02-28 Fri 03:32:09 AM]
+- Term Utilities
+  ncdu,duf
+
+* [2025-03-02 Sun 01:38:18 AM]
+- dogears.el
+  https://github.com/alphapapa/dogears.el.git
+
+* [2025-03-02 Sun 01:41:14 AM]
+ergoemacs-mode
+
+* [2025-03-02 Sun 01:44:28 AM]
+- Compiling LaTeX document with AucTeX with a single comman d
+  https://www.reddit.com/r/emacs/comments/1iyz6wt/compiling_latex_document_with_auctex_with_a/
+
+* [2025-03-02 Sun 04:14:34 PM]
+how to stop charging laptop battery at 80 nixos
+
+* [2025-03-02 Sun 05:06:10 PM]
+- Black Arch Distro
+  https://blackarch.org/
+  Black Arch Distro
+
+* [2025-03-02 Sun 05:27:23 PM]
+- How to use GenP 
+  https://www.reddit.com/r/GenP/
+  https://youtu.be/Av57XP29jho?si=CEWnSPsLB1V0GdIk
+
+* [2025-03-03 Mon 03:31:20 AM]
+
+- configuring eww https://youtu.be/xSBStpCtCVw?si=rdebwgNYUkrTyUcC
+  https://github.com/LennyHirsch/dotfiles.git
+* [2025-03-05 Wed 03:41:01 AM]
+[[https://youtu.be/O0xpTtdPD4w?si=4MT2K-RQyMusNzwj][Convert Images to ASCII Art in Linux Terminal]]
+
+* [2025-03-07 Fri 01:40:14 AM]
+** DONE hyprland resize window with keybindings 
+
+* [2025-03-07 Fri 01:45:49 AM]
+Standalone Monocle Layout hyprland
+https://github.com/hyprwm/Hyprland/issues/2050
+
+* [2025-03-09 Sun 02:30:24 AM]
+- rebos
+  https://gitlab.com/Oglo12/rebos
+  https://gitlab.com/Oglo12/rebos-config
+
+* [2025-03-10 Mon 01:08:57 AM]
+colorful-mode.el
+
+* [2025-03-11 Tue 04:10:39 AM]
+[[https://youtu.be/fnCMv975Ywo?si=RUOVmSJRjgiQwdL8][Linux Literacy | TAR - YouTube]]
+
+* [2025-03-14 Fri 12:26:32 AM]
+fix beframe by removeing */scratch*/
+
+* [2025-03-14 Fri 09:32:18 PM]
+**** emacs mark mode not showing
+
+* [2025-03-14 Fri 11:14:18 PM]
+**** trool emacs users with this. (macro lock)
+<ashraz> Press F3 F3 F3 F4 M-100 F4 
+* [2025-03-15 Sat 03:10:18 PM]
+[[https://www.reddit.com/r/emacs/comments/skd03i/how_to_find_a_file_recursively_fuzzily_with/][How to find a file recursively, fuzzily, with vertico]] 
+* [2025-03-15 Sat 04:25:42 PM]
+[[https://github.com/astoff/isearch-mb][GitHub - astoff/isearch-mb]]
+
+* [#A] [2025-03-19 Wed 10:54:18 PM]
+Adolf Hitler reads Mein Kampf
+*** DONE https://www.youtube.com/@AIdiobook-u3m
+
+* [#B] [2025-03-20 Thu 12:58:46 PM]
+https://www.reddit.com/r/emacs/comments/8x4xtt/tip_how_i_use_ledger_to_track_my_money/
+
+* [2025-03-23 Sun 02:59:50 AM]
+https://www.reddit.com/r/emacs/comments/siuvpu/isnt_there_a_better_way_to_set_utf8/
+
+* [2025-03-23 Sun 03:53:23 AM]
+*** DONE [#A] http://xahlee.info/golang/golang_string.html = left in string
+
+* [2025-03-23 Sun 02:35:58 PM]
+*** DONE ia save link in internatarekive ?
+
+* [2025-03-23 Sun 09:31:43 PM]
+The modern documentation website Emacs deserves
+https://emacsdocs.org/
+
+
+
+
+
+* [2025-04-02 Wed 04:44:25 PM]
+*** Recommendations on OCR software?
+1. Paperless-ngx
+2. OCRmyPDF
+3. normcap
+4. pdfsandwich
+5. OCRFeeder
+6. gImageReader-qt
+7. OCRvison
+8. pdf2searchablepdf https://github.com/ElectricRCAircraftGuy/PDF2SearchablePDF
+source = https://www.reddit.com/r/archlinux/comments/z8mr3p/recommendations_on_ocr_software/
+
+* [2025-04-02 Wed 05:07:46 PM]
+**** DONE downloade all books of arthur-schopenhauer
+https://onemorelibrary.com/index.php/en/books/major-collections/arthur-schopenhauer-collection-359
+
+* [2025-04-02 Wed 06:52:24 PM]
+previous selection regian in emacs
+
+* [2025-04-03 Thu 12:59:22 PM]
+[[https://youtu.be/g6YA4tiW1eQ?si=-ULLgqznoXu-wsPJ][Emacs: techniques to narrow Dired - YouTube]]
+
+* [2025-04-03 Thu 04:37:56 PM]
+[[https://www.youtube.com/live/sDKUKDdtspQ?si=cSwdOUbmflcp_dI4][emacs lisp for beginner - YouTube]]
+
+* [2025-04-05 Sat 06:20:59 PM]
+Creatine 5g Daily And Caffeine A 2 Cup Increases IQ By 15 points a day
+
+* [2025-04-05 Sat 06:31:12 PM]
+SIMP = Sucker Idolizing Mediocre Pussy
+
+* [2025-04-06 Sun 12:34:31 AM]
+
+* DONE look in to Summa Theologica
+
+* [2025-04-07 Mon 02:04:46 AM]
+Emacs 31: New window commands 
+https://p.bauherren.ovh/blog/tech/new_window_cmds
+* [2025-04-07 Mon 02:20:29 AM]
+Setting up and using pyvenv 
+https://www.reddit.com/r/emacs/comments/1jl5ina/setting_up_and_using_pyvenv/
+
+* [2025-04-07 Mon 02:28:29 AM]
+
+Removing the Type column from the bookmarks list
+https://www.reddit.com/r/emacs/comments/1jhvj2f/removing_the_type_column_from_the_bookmarks_list/
+* [2025-04-07 Mon 03:32:34 PM]
+https://www.reddit.com/r/emacs/comments/anz0f8/my_emacs_calc_tutorials_have_found_a_new_home/
+* [2025-04-07 10:33:40 PM]
+ FOSS PDF Reader for Android =  [[https://apt.izzysoft.de/fdroid/index/apk/com.gitlab.mudlej.MjPdfReader][MJ PDF]]
