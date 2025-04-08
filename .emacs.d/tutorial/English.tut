@@ -1,4 +1,4 @@
-1336
+-7780
 50
 Emacs tutorial.  See end for copying conditions.
 
@@ -186,7 +186,7 @@ to type M-< also; without the shift key, you would be typing M-comma.
    Then use M-v repeatedly to move back here.
 
 You can also move the cursor with the arrow keys, if your terminal has
-arrow keys.  We recommend learning C-b, C-f, C-n and C-p for three
+qarrow keys.  We recommend learning C-b, C-f, C-n and C-p for three
 reasons.  First, they work on all kinds of terminals.  Second, once
 you gain practice at using Emacs, you will find that typing these Control
 characters is faster than typing the arrow keys (because you do not

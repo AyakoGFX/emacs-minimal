@@ -80,7 +80,6 @@
 (load "~/.emacs.d/moduals/shell.el")
 (load "~/.emacs.d/moduals/spell.el")
 (load "~/.emacs.d/moduals/themes.el")
-(load "~/.emacs.d/moduals/themes.el")
 (load "~/.emacs.d/moduals/workspace.el")
 (load "~/.emacs.d/moduals/pdf.el")
 (load "~/.emacs.d/moduals/git.el")
@@ -97,10 +96,11 @@
 ;; (load "~/.emacs.d/moduals/god-mode.el")
 ;; (load "~/.emacs.d/moduals/meow.el")
 
+(require 'kdl-mode)
+
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
-
 (require 'org-remember)
 (global-set-key (kbd "C-c r c") #'org-remember-capture)
 (global-set-key (kbd "C-c r v") #'org-remember-view)

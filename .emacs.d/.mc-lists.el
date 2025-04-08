@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        avy-goto-word-1
         beginning-of-visual-line
         comment-line
         cycle-spacing

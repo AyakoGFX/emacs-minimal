@@ -194,3 +194,5 @@ https://www.reddit.com/r/emacs/comments/1jhvj2f/removing_the_type_column_from_th
 https://www.reddit.com/r/emacs/comments/anz0f8/my_emacs_calc_tutorials_have_found_a_new_home/
 * [2025-04-07 10:33:40 PM]
  FOSS PDF Reader for Android =  [[https://apt.izzysoft.de/fdroid/index/apk/com.gitlab.mudlej.MjPdfReader][MJ PDF]]
+* [2025-04-08 03:24:55 PM]
+https://github.com/Alexays/Waybar/wiki/Module:-Group
