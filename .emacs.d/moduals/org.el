@@ -44,9 +44,9 @@
 (setq org-default-notes-file "~/.emacs.d/org-capture/remember.org")
 (setq org-capture-templates
       '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
-         "* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
+         "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
         ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
-         "* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
+         "\n* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; %U Inactive timestamp

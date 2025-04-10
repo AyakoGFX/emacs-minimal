@@ -196,3 +196,10 @@ https://www.reddit.com/r/emacs/comments/anz0f8/my_emacs_calc_tutorials_have_foun
  FOSS PDF Reader for Android =  [[https://apt.izzysoft.de/fdroid/index/apk/com.gitlab.mudlej.MjPdfReader][MJ PDF]]
 * [2025-04-08 03:24:55 PM]
 https://github.com/Alexays/Waybar/wiki/Module:-Group
+* [2025-04-09 07:03:14 PM]
+browser screen recorder 
+https://screen.now/
+* [2025-04-09 08:02:52 PM]
+Fiat currency is a government-issued currency not backed by a physical commodity like gold or silver, but rather by the government's authority and the public's trust in it
+* [2025-04-10 07:27:24 PM]
+

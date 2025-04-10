@@ -4,10 +4,10 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/emacs-minimal/.emacs.d/org-capture/remember.org")
- (front-context-string . "* [2025-04-08 03")
- (rear-context-string . "eader][MJ PDF]]\n")
- (position . 5927)
- (last-modified 26612 62069 348594 44000))
+ (front-context-string . "* [2025-04-09 08")
+ (rear-context-string . "s://screen.now/\n")
+ (position . 6079)
+ (last-modified 26614 34077 237456 543000))
 ("init.el"
  (filename . "~/emacs-minimal/.emacs.d/init.el")
  (front-context-string . "use-package evil")

@@ -20,3 +20,9 @@ make this async call external proces
 * TODO  [2025-04-02 Wed 06:43:50 PM]
 look in to poppler_utils
 
+* TODO [2025-04-10 07:25:44 PM]
+ test this search engins
+https://www.startpage.com/sp/search
+https://swisscows.com/en
+https://metager.org/
+https://kagi.com/
