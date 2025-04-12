@@ -36,5 +36,5 @@ find this documentary
 * TODO [2025-04-12 12:04:32 PM]
 enable_swallow in hyperland
 https://wiki.hyprland.org/Configuring/Variables/#misc
- 
-
+* TODO [2025-04-12 03:56:47 PM]
+ [[https://www.businessaccountingbasics.co.uk/debits-and-credits/][Debits And Credits | Double Entry Bookkeeping With Examples]]

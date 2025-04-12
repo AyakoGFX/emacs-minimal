@@ -4,7 +4,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruber-darker))
+ '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
    '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
      "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738"
@@ -67,15 +67,15 @@
          erc-image evil ewal expand-region flycheck-ledger
          flymake-proselint flyspell-correct git-gutter-fringe go-mode
          god-mode gruber-darker-theme gruvbox-theme helpful jinx
-         kdl-mode keycast ledger-mode lsp-bridge lsp-latex lua-mode
-         magit magit-delta marginalia meow move-text multiple-cursors
-         nix-mode nix-ts-mode notink-theme orderless org-appear
-         org-noter org-noter-pdftools org-pdftools page-break-lines
-         paredit pdf-tools proselint-flymake python-black pyvenv pywal
-         sudo-edit surround swiper tabspaces theme-magic treesit-auto
-         vertico virtualenvwrapper volatile-highlights
-         vscode-dark-plus-theme vundo writeroom-mode xah-fly-keys
-         yasnippet zenburn-theme))
+         kdl-mode keycast ledger ledger-mode lsp-bridge lsp-latex
+         lua-mode magit magit-delta marginalia meow move-text
+         multiple-cursors nix-mode nix-ts-mode notink-theme orderless
+         org-appear org-noter org-noter-pdftools org-pdftools
+         page-break-lines paredit pdf-tools proselint-flymake
+         python-black pyvenv pywal sudo-edit surround swiper tabspaces
+         theme-magic treesit-auto vertico virtualenvwrapper
+         volatile-highlights vscode-dark-plus-theme vundo
+         writeroom-mode xah-fly-keys yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"

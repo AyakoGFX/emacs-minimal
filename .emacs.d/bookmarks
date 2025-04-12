@@ -3,11 +3,11 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/emacs-minimal/.emacs.d/org-capture/remember.org")
- (front-context-string . "* [2025-04-11 04")
- (rear-context-string . "10 07:27:24 PM]\n")
- (position . 6305)
- (last-modified 26616 62655 225956 746000))
+ (filename . "~/emacs-minimal/.emacs.d/org-capture/TODO.org")
+ (front-context-string . "* TODO [2025-04-")
+ (rear-context-string . "Variables/#misc\n")
+ (position . 1112)
+ (last-modified 26618 16388 598590 511000))
 ("init.el"
  (filename . "~/emacs-minimal/.emacs.d/init.el")
  (front-context-string . "use-package evil")
