@@ -1,14 +1,14 @@
 * TODO [#C]  [2025-03-14 Fri 11:02:25 PM]
 look in to emacs-eat
 
-* TODO  [2025-03-28 Fri 11:56:57 PM]
+* DONE [2025-03-28 Fri 11:56:57 PM]
 todo in waybar
 
-* TODO  [2025-03-31 Mon 03:05:28 PM]
+* DONE [2025-03-31 Mon 03:05:28 PM]
 [[https://www.youtube.com/live/GK-Bx_uHXhc?si=Ti0RGTJxdFtZDRXK&t=438][emacs, most efficient ways to open file - YouTube]]
 set keys to mark
 
-* TODO  [2025-04-01 Tue 02:24:13 PM]
+* DONE [2025-04-01 Tue 02:24:13 PM]
 https://catbox.moe/faq.php
 
 * DONE [2025-04-02 Wed 03:53:36 PM]
@@ -33,8 +33,10 @@ find this documentary
 * TODO [2025-04-12 02:10:28 AM]
  Automatically adjust screen brightness based on the screen contents and amount of ambient light)
  - https://github.com/maximbaz/wluma.git
-* TODO [2025-04-12 12:04:32 PM]
+
+* DONE [2025-04-12 12:04:32 PM]
 enable_swallow in hyperland
 https://wiki.hyprland.org/Configuring/Variables/#misc
+
 * TODO [2025-04-12 03:56:47 PM]
  [[https://www.businessaccountingbasics.co.uk/debits-and-credits/][Debits And Credits | Double Entry Bookkeeping With Examples]]

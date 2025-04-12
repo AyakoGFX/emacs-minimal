@@ -1,10 +1,3 @@
-(use-package ledger
-  :ensure t
-  :config
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((ledger . t))))
-
 (use-package ledger-mode
   :ensure t
   :config
