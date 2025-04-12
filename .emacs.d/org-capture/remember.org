@@ -202,4 +202,23 @@ https://screen.now/
 * [2025-04-09 08:02:52 PM]
 Fiat currency is a government-issued currency not backed by a physical commodity like gold or silver, but rather by the government's authority and the public's trust in it
 * [2025-04-10 07:27:24 PM]
+* [2025-04-11 04:23:17 PM]
+Suggested Stack for Adobe Podcast–like Workflow
+#+begin_src 
+Recording:    Audacity or Ardour
+Transcript:   Whisper
+Editing:      AutoEdit (or manual edits in Audacity using transcript)
+Enhancement:  LMNT or Demucs/Spleeter for cleanup
+Export:       FFmpeg for conversion
+#+end_src
+* [2025-04-12 12:48:14 AM]
+Git trick! add this  "Co-authored-by: Linus Torvalds" to a commit message, which makes it look like Linus, the Linux creator, contributed to his project on GitHub
+ Co-authored-by: Linus Torvalds <torvalds@linux-foundation.org>
 
+* [2025-04-12 01:40:14 AM]
+ Code Reviews in Emacs
+ https://github.com/wandersoncferreira/code-review.git
+
+* [2025-04-12 02:04:18 AM]
+ Awesome list for Hyprland
+ - https://github.com/hyprland-community/awesome-hyprland.git

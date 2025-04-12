@@ -17,7 +17,7 @@ make this async call external proces
 `my-wayback-machine-save-webpage'
 #+end_src
 
-* TODO  [2025-04-02 Wed 06:43:50 PM]
+* DONE [2025-04-02 Wed 06:43:50 PM]
 look in to poppler_utils
 
 * TODO [2025-04-10 07:25:44 PM]
@@ -26,3 +26,15 @@ https://www.startpage.com/sp/search
 https://swisscows.com/en
 https://metager.org/
 https://kagi.com/
+
+* TODO [2025-04-10 10:30:15 PM]
+find this documentary
+ https://x.com/BATMAN_SPOTTED/status/1910180942418784516
+* TODO [2025-04-12 02:10:28 AM]
+ Automatically adjust screen brightness based on the screen contents and amount of ambient light)
+ - https://github.com/maximbaz/wluma.git
+* TODO [2025-04-12 12:04:32 PM]
+enable_swallow in hyperland
+https://wiki.hyprland.org/Configuring/Variables/#misc
+ 
+
