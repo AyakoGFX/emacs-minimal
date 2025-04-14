@@ -6,7 +6,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(doom-one))
  '(custom-safe-themes
-   '("8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
+   '("d6b934330450d9de1112cbb7617eaf929244d192c4ffb1b9e6b63ad574784aad"
+     "df79d12358d54f88b0c386d8d5cb9830275142ec95199d8df09b0c7fec46904e"
+     "3720bc0cba44696c65a573f6d2a64aa1228148ecdd8ea26ea45bdaaa2d8d6fbc"
+     "8c7e832be864674c220f9a9361c851917a93f921fedb7717b1b5ece47690c098"
      "da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738"
      "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
      "0d2c5679b6d087686dcfd4d7e57ed8e8aedcccc7f1a478cd69704c02e4ee36fe"
@@ -69,13 +72,14 @@
          god-mode gruber-darker-theme gruvbox-theme helpful jinx
          kdl-mode keycast ledger ledger-mode lsp-bridge lsp-latex
          lua-mode magit magit-delta marginalia meow move-text
-         multiple-cursors nix-mode nix-ts-mode notink-theme orderless
-         org-appear org-noter org-noter-pdftools org-pdftools
-         page-break-lines paredit pdf-tools proselint-flymake
-         python-black pyvenv pywal sudo-edit surround swiper tabspaces
-         theme-magic treesit-auto vertico virtualenvwrapper
-         volatile-highlights vscode-dark-plus-theme vundo
-         writeroom-mode xah-fly-keys yasnippet zenburn-theme))
+         multiple-cursors naga-theme nix-mode nix-ts-mode notink-theme
+         orderless org-appear org-noter org-noter-pdftools
+         org-pdftools page-break-lines paredit pdf-tools
+         proselint-flymake python-black pyvenv pywal rainbow-mode
+         sudo-edit surround swiper tabspaces theme-magic treesit-auto
+         typst-ts-mode vertico virtualenvwrapper volatile-highlights
+         vscode-dark-plus-theme vundo web-mode writeroom-mode
+         xah-fly-keys yasnippet zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"
@@ -85,14 +89,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-level-1 ((t (:height 1.4 :inherit outline-1 ultra-bold))))
- '(org-level-2 ((t (:height 1.3 :inherit outline-2 extra-bold))))
- '(org-level-3 ((t (:height 1.2 :inherit outline-3 bold))))
- '(org-level-4 ((t (:height 1.0 :inherit outline-4 semi-bold))))
- '(org-level-5 ((t (:height 1.0 :inherit outline-5 normal))))
- '(org-level-6 ((t (:height 0.9 :inherit outline-6 normal))))
- '(org-level-7 ((t (:height 0.9 :inherit outline-7 normal))))
- '(org-level-8 ((t (:height 0.9 :inherit outline-8 normal))))
  '(vundo-highlight ((t (:foreground "#FFFF00"))))
  '(vundo-node ((t (:foreground "#808080"))))
  '(vundo-stem ((t (:foreground "#808080")))))

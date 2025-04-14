@@ -1,3 +1,86 @@
+(defun my/normal-dired-compress-video ()
+  "Compress the video at point in Dired with lower quality and 24fps using ffmpeg."
+  (interactive)
+  (let* ((file (dired-get-file-for-visit))
+         (ext (file-name-extension file))
+         (base (file-name-sans-extension file))
+         (output (concat base "-compressed." ext)))
+    (start-process "video-compress"
+                   "*video-compress*"
+                   "ffmpeg"
+                   "-i" file
+                   "-vcodec" "libx264"
+                   "-crf" "32"        ;; more compression (lower quality)
+                   "-r" "24"          ;; force 24fps
+                   output)
+    (message "Compressing %s to %s..." file output)))
+
+(defun my/480p-dired-compress-video ()
+  "Compress the video at point in Dired with 480p resolution, lower quality, and 24fps using ffmpeg."
+  (interactive)
+  (let* ((file (dired-get-file-for-visit))
+         (ext (file-name-extension file))
+         (base (file-name-sans-extension file))
+         (output (concat base "-480p-compressed." ext)))
+    (start-process "video-compress-480p"
+                   "*video-compress*"
+                   "ffmpeg"
+                   "-i" file
+                   "-vcodec" "libx264"
+                   "-crf" "32"        ;; more compression (lower quality)
+                   "-r" "24"          ;; force 24fps
+                   "-vf" "scale=-2:480" ;; 480p resolution
+                   output)
+    (message "Compressing %s to %s..." file output)))
+
+(defun my/144p-dired-compress-video ()
+  "Compress the video at point in Dired with 144p resolution, lower quality, and 24fps using ffmpeg."
+  (interactive)
+  (let* ((file (dired-get-file-for-visit))
+         (ext (file-name-extension file))
+         (base (file-name-sans-extension file))
+         (output (concat base "-144p-compressed." ext)))
+    (start-process "video-compress-144p"
+                   "*video-compress*"
+                   "ffmpeg"
+                   "-i" file
+                   "-vcodec" "libx264"
+                   "-crf" "32"        ;; more compression (lower quality)
+                   "-r" "24"          ;; force 24fps
+                   "-vf" "scale=-2:144" ;; 144p resolution
+                   output)
+    (message "Compressing %s to %s..." file output)))
+
+(defun my/dired-convert-media ()
+  "Convert the media file at point in Dired to another format using ffmpeg."
+  (interactive)
+  (let* ((file (dired-get-file-for-visit))
+         (ext (file-name-extension file))
+         (base (file-name-sans-extension file))
+         (target-ext (read-string (format "Convert %s to: " ext)))
+         (output (concat base "." target-ext)))
+    (start-process "media-convert"
+                   "*media-convert*"
+                   "ffmpeg"
+                   "-i" file
+                   output)
+    (message "Converting %s to %s..." file output)))
+
+(defvar my/dired-media-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "v") #'my/normal-dired-compress-video)            ;; Original compression (default settings)
+    (define-key map (kbd "r") #'my/480p-dired-compress-video)       ;; 480p resolution compression
+    (define-key map (kbd "t") #'my/144p-dired-compress-video)       ;; 144p resolution compression
+    (define-key map (kbd "x") #'my/dired-convert-media)             ;; Conversion (custom, not changed here)
+    map)
+  "Custom keymap for media-related commands in Dired.")
+
+
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd ":") my/dired-media-map))
+
+;; ##############################################################
+
 (defun my/set-font-size ()
   "Prompt for a font size and set it using the current font family."
   (interactive)

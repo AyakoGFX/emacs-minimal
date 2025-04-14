@@ -1,18 +1,34 @@
 ;; Hide Org emphasis markers for cleaner display
 (setq org-hide-emphasis-markers t)
 
-(custom-set-faces
- ;; Font sizes and colors for Org mode headers using theme colors
- '(org-level-1 ((t (:height 1.4  :inherit outline-1 ultra-bold))))
- '(org-level-2 ((t (:height 1.3  :inherit outline-2 extra-bold))))
- '(org-level-3 ((t (:height 1.2  :inherit outline-3 bold))))
- '(org-level-4 ((t (:height 1.0  :inherit outline-4 semi-bold))))
- '(org-level-5 ((t (:height 1.0  :inherit outline-5 normal))))
- '(org-level-6 ((t (:height 0.9  :inherit outline-6 normal))))
- '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
- '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
- ;; more levels and colors as needed
- )
+(defvar my-org-headers
+  '((org-level-1 . 1.3)
+    (org-level-2 . 1.2)
+    (org-level-3 . 1.1)))
+
+(defun my/toggle-org-headers ()
+  (interactive)
+  (dolist (spec my-org-headers)
+    (let ((face (car spec))
+          (height (cdr spec)))
+      (set-face-attribute
+       face nil :height
+       (if (equal (face-attribute face :height) height)
+           'unspecified
+         height)))))
+
+;; (custom-set-faces
+;;  ;; Font sizes and colors for Org mode headers using theme colors
+;;  '(org-level-1 ((t (:height 1.4  :inherit outline-1 ultra-bold))))
+;;  '(org-level-2 ((t (:height 1.3  :inherit outline-2 extra-bold))))
+;;  '(org-level-3 ((t (:height 1.2  :inherit outline-3 bold))))
+;;  '(org-level-4 ((t (:height 1.0  :inherit outline-4 semi-bold))))
+;;  '(org-level-5 ((t (:height 1.0  :inherit outline-5 normal))))
+;;  '(org-level-6 ((t (:height 0.9  :inherit outline-6 normal))))
+;;  '(org-level-7 ((t (:height 0.9  :inherit outline-7 normal))))
+;;  '(org-level-8 ((t (:height 0.9  :inherit outline-8 normal))))
+;;  ;; more levels and colors as needed
+;;  )
 
 ;; Block Templates
 ;; This is needed as of Org 9.2
@@ -42,11 +58,22 @@
 
 
 (setq org-default-notes-file "~/.emacs.d/org-capture/remember.org")
+;; (setq org-capture-templates
+;;       '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
+;;          "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
+;;         ("q" "Quote" entry (file "~/.emacs.d/org-capture/quotes.org")
+;;          "+ \"%?\"\n  -- Name [%<%Y-%m-%d %I:%M %p>]")
+;;         ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
+;;          "\n* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
+
 (setq org-capture-templates
       '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
          "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
+        ("q" "Quote" entry (file "~/.emacs.d/org-capture/quotes.org")
+         "**** \"%?\"\n  -- Name [%<%Y-%m-%d %I:%M %p>]")
         ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
          "\n* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
+
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; %U Inactive timestamp

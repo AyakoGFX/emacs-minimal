@@ -222,3 +222,19 @@ Git trick! add this  "Co-authored-by: Linus Torvalds" to a commit message, which
 * [2025-04-12 02:04:18 AM]
  Awesome list for Hyprland
  - https://github.com/hyprland-community/awesome-hyprland.git
+* [2025-04-12 09:20:11 PM]
+[[https://thepiratebaye.org/][Download music, movies, games, software! The Pirate Bay - The galaxy's most resilient BitTorrent site]]
+ https://thepiratebaye.org/
+* [2025-04-12 09:20:59 PM]
+LINK = https://thepiratebaye.org/
+* [2025-04-13 06:33:19 PM]
+ https://wiby.me/?q=arthur+schopenhauer+essay+on+women
+* [2025-04-13 10:19:37 PM]
+ 
+q
+* [2025-04-14 12:16:16 AM]
+ https://emacs.dyerdwelling.family/emacs/20230730102057-emacs--shrinking-media-with-the-help-of-emacs/
+* [2025-04-14 01:46:57 AM]
+ https://github.com/DreamMaoMao/maomaowm
+* [2025-04-14 02:13:22 AM]
+ https://github.com/moverest/wl-kbptr.git

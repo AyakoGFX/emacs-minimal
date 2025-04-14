@@ -1,3 +1,6 @@
+(use-package naga-theme
+  :ensure t)
+
 (use-package almost-mono-themes
   :ensure t)
 
@@ -23,7 +26,12 @@
 
 ;; This ensures that line numbers scale with the text by inheriting the default font attributes
 ;; https://emacs.stackexchange.com/questions/74507/constant-font-size-in-display-line-numbers-mode-when-zooming-in-and-out
-(set-face-attribute 'line-number nil :inherit 'default)
+;; (set-face-attribute 'line-number nil :inherit 'default)
+;; (set-face-background 'region "#44475a") ; replace with a contrastive color
+;; (set-face-background 'hl-line "#2a2a2a") ; replace with a darker shade that suits your theme
+
+
+
 
 ;; This removes all custom themes.
 ;; (dolist (theme custom-enabled-themes)

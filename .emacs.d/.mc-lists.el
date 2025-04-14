@@ -7,6 +7,7 @@
         beginning-of-visual-line
         comment-line
         cycle-spacing
+        dired-next-line
         dired-toggle-read-only
         end-of-visual-line
         help-customize
@@ -27,5 +28,7 @@
 (setq mc/cmds-to-run-once
       '(
         beginning-of-buffer
+        dired-find-file
+        dired-previous-line
         text-scale-adjust
         ))
