@@ -129,7 +129,7 @@
     (evil-define-key 'normal 'global (kbd "C-M-u") 'vundo)))
 
 ;; Global keybinding to trigger vundo.
-(global-set-key (kbd "C-x C-u") 'vundo)
+;; (global-set-key (kbd "C-x C-u") 'vundo)
 
 
 ;; (use-package vundo
