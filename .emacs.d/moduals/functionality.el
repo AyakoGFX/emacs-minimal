@@ -1,7 +1,7 @@
 (use-package avy
   :ensure t)
-(global-set-key (kbd "M-9") 'avy-goto-word-1)
-
+;; (global-set-key (kbd "M-9") 'avy-goto-word-1)
+(global-set-key (kbd "M-j") 'avy-goto-char-timer)
 
 ;;; TIME
 (use-package time

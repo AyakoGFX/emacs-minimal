@@ -1,3 +1,54 @@
+(defun my/copy-file-name ()
+  "Copy the current buffer file name (no path) to clipboard."
+  (interactive)
+  (when buffer-file-name
+    (kill-new (file-name-nondirectory buffer-file-name))
+    (message "Copied file name: %s" (file-name-nondirectory buffer-file-name))))
+
+(defun my/copy-file-path ()
+  "Copy the current buffer file path to clipboard."
+  (interactive)
+  (when buffer-file-name
+    (kill-new buffer-file-name)
+    (message "Copied file path: %s" buffer-file-name)))
+
+;; ##############################################################
+
+(defun my/convert-military-time ()
+  "Prompt for military time in HH:MM format and display 12-hour format with AM/PM."
+  (interactive)
+  (let* ((input (read-string "Enter military time (HH:MM): "))
+         (parts (split-string input ":"))
+         (hour (string-to-number (nth 0 parts)))
+         (minute (nth 1 parts))
+         (suffix (if (>= hour 12) "PM" "AM"))
+         (hour-12 (cond ((= hour 0) 12)
+                        ((> hour 12) (- hour 12))
+                        (t hour))))
+    (message "%d:%s %s" hour-12 minute suffix)))
+
+;; ##############################################################
+
+(defun my/new-empty-buffer ()
+  "Create a new empty buffer.
+Returns the buffer object.
+New buffer is named untitled, untitled<2>, etc.
+Warning: new buffer is not prompted for save when killed, see `kill-buffer'.
+Or manually `save-buffer'
+URL `http://xahlee.info/emacs/emacs/emacs_new_empty_buffer.html'
+Created: 2017-11-01
+Version: 2022-04-05"
+  (interactive)
+  (let ((xbuf (generate-new-buffer "untitled")))
+    (switch-to-buffer xbuf)
+    (funcall initial-major-mode)
+    xbuf
+    ))
+
+;; Start Emacs with Empty Buffer
+(setq initial-buffer-choice 'my/new-empty-buffer)
+
+;; ##############################################################
 (defun my/normal-dired-compress-video ()
   "Compress the video at point in Dired with lower quality and 24fps using ffmpeg."
   (interactive)
@@ -143,6 +194,7 @@
     ("rumble" . "https://rumble.com/search/all?q=")
     ("brave" . "https://search.brave.com/search?q=")
     ("flathub" . "https://flathub.org/apps/search?q=")
+    ("wiby" . "https://wiby.me/?q=")
     ("x" . "https://x.com/search?q=")
     ("nixpkgs" . "https://search.nixos.org/packages?channel=24.11&from=0&size=50&sort=relevance&type=packages&query="))
   "Alist of search engines with their base URLs.")
@@ -210,6 +262,8 @@ The region to work on is by this order:
 )
 ;; Bind the function to a key, e.g., C-M-0
 (global-set-key (kbd "C-M-0") #'my/cycle-hyphen-lowline-space)
+
+
 
 ;; ##############################################################
 

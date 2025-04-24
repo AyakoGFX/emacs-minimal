@@ -22,7 +22,7 @@
 (save-place-mode 1)
 (global-auto-revert-mode 1)
 (horizontal-scroll-bar-mode -1)
-
+(delete-selection-mode t) ;; overwrite selected text
 
 (setq ring-bell-function 'ignore
       make-backup-files nil
@@ -32,6 +32,7 @@
       inhibit-startup-message t
       global-auto-revert-non-file-buffers t
       ibuffer-expert t
+      column-number-mode t
       initial-scratch-message ";; M-x `org-remember-view'")
 
 ;; clipboard
@@ -90,6 +91,8 @@
 
 
 
+
+
 ;; Emacs: display ugly ^L page breaks as tidy horizontal lines
 ;; Navigate between them: Press C-x [ and C-x ] to move between page breaks.
 ;; Delete them: Use M-% ^L RET RET to replace all occurrences with nothing.
@@ -106,10 +109,13 @@
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
+
 (require 'org-remember)
 (global-set-key (kbd "C-c r c") #'org-remember-capture)
 (global-set-key (kbd "C-c r v") #'org-remember-view)
 (global-set-key (kbd "C-c r s") #'org-remember-search)
+
+(require 'life-path)
 
 (require 'espeak)
 (global-set-key (kbd "C-c e") #'espeak-region)
@@ -144,3 +150,4 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)

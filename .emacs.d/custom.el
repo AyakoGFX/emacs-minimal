@@ -74,7 +74,7 @@
          lua-mode magit magit-delta marginalia meow move-text
          multiple-cursors naga-theme nix-mode nix-ts-mode notink-theme
          orderless org-appear org-noter org-noter-pdftools
-         org-pdftools page-break-lines paredit pdf-tools
+         org-pdftools page-break-lines paredit pdf-tools perspective
          proselint-flymake python-black pyvenv pywal rainbow-mode
          sudo-edit surround swiper tabspaces theme-magic treesit-auto
          typst-ts-mode vertico virtualenvwrapper volatile-highlights

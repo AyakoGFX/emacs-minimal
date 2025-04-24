@@ -231,10 +231,16 @@ LINK = https://thepiratebaye.org/
  https://wiby.me/?q=arthur+schopenhauer+essay+on+women
 * [2025-04-13 10:19:37 PM]
  
-q
 * [2025-04-14 12:16:16 AM]
  https://emacs.dyerdwelling.family/emacs/20230730102057-emacs--shrinking-media-with-the-help-of-emacs/
 * [2025-04-14 01:46:57 AM]
  https://github.com/DreamMaoMao/maomaowm
 * [2025-04-14 02:13:22 AM]
  https://github.com/moverest/wl-kbptr.git
+* [2025-04-23 12:20:37 AM]
+ i wan to 
+* [2025-04-23 03:42:17 PM]
+ Turn your Android tablet into a second monitor on Linux
+ https://github.com/santiagofdezg/linux-extend-screen.git
+ https://github.com/any1/wayvnc.git
+https://www.reddit.com/r/hyprland/comments/1cube4v/spacedesk_on_hyprland/

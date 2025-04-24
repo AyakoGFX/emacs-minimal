@@ -29,17 +29,39 @@
 
 ;;;###autoload
 (defun life-path-calculate ()
-  "Prompt for DOB and calculate Life Path number."
+  "Prompt for DOB and calculate Life Path number, showing result in a new buffer."
   (interactive)
   (let* ((day (read-number "Day (1–31): "))
          (month (read-number "Month (1–12): "))
          (year (read-number "Year (e.g., 1990): "))
          (lp (life-path--date-parts day month year))
-         (traits (assoc lp life-path--traits)))
-    (if traits
-        (message "Life Path Number: %s\nStrengths: %s\nWeaknesses: %s"
-                 lp (car (cdr traits)) (cdr (cdr traits)))
-      (message "Life Path Number: %s\n(No trait info found)" lp))))
+         (traits (assoc lp life-path--traits))
+         (buffer (get-buffer-create "*Life Path Result*")))
+    (with-current-buffer buffer
+      (read-only-mode -1)
+      (erase-buffer)
+      (insert (format "Date of Birth: %02d/%02d/%d\n" day month year))
+      (insert (format "Life Path Number: %d\n\n" lp))
+      (if traits
+          (insert (format "Strengths: %s\nWeaknesses: %s\n"
+                          (car (cdr traits)) (cdr (cdr traits))))
+        (insert "No trait information found.\n"))
+      (goto-char (point-min))
+      (read-only-mode 1))
+    (display-buffer buffer)))
+
+;; (defun life-path-calculate ()
+;;   "Prompt for DOB and calculate Life Path number."
+;;   (interactive)
+;;   (let* ((day (read-number "Day (1–31): "))
+;;          (month (read-number "Month (1–12): "))
+;;          (year (read-number "Year (e.g., 1990): "))
+;;          (lp (life-path--date-parts day month year))
+;;          (traits (assoc lp life-path--traits)))
+;;     (if traits
+;;         (message "Life Path Number: %s\nStrengths: %s\nWeaknesses: %s"
+;;                  lp (car (cdr traits)) (cdr (cdr traits)))
+;;       (message "Life Path Number: %s\n(No trait info found)" lp))))
 
 (provide 'life-path)
 ;;; life-path.el ends here

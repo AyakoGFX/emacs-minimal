@@ -1,12 +1,16 @@
-(use-package beframe
-  :ensure t)
+;; (use-package beframe
+  ;; :ensure t)
 ;; (setq beframe-global-buffers '("*scratch*" "*Messages*" "*Backtrace*"))
-(beframe-mode 1)
+;; (beframe-mode 1)
 
-
-
-
-
+(use-package perspective
+  :ensure t
+  :bind
+  ("C-x C-a" . persp-list-buffers)         ; or use a nicer switcher, see below
+  :custom
+  (persp-mode-prefix-key (kbd "C-c TAB"))  ; pick your own prefix key here
+  :init
+  (persp-mode))
 
 
 ;; (use-package tab-bar
