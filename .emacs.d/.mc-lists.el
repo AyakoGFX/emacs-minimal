@@ -30,5 +30,6 @@
         beginning-of-buffer
         dired-find-file
         dired-previous-line
+        mark-sexp
         text-scale-adjust
         ))

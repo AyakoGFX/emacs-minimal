@@ -3,6 +3,7 @@
 (global-set-key (kbd "M-1") 'previous-buffer)
 (global-set-key (kbd "M-2") 'next-buffer)
 (global-set-key (kbd "C-;") 'comment-line)
+(global-set-key (kbd "C-c r") 'rot13)
 (global-set-key (kbd "C-c f") #'find-file-at-point)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "<f8>") 'save-buffer)

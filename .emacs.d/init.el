@@ -110,11 +110,6 @@
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
 
-(require 'org-remember)
-(global-set-key (kbd "C-c r c") #'org-remember-capture)
-(global-set-key (kbd "C-c r v") #'org-remember-view)
-(global-set-key (kbd "C-c r s") #'org-remember-search)
-
 (require 'life-path)
 
 (require 'espeak)

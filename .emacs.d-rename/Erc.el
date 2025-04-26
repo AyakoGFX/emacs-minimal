@@ -1,7 +1,7 @@
 (use-package erc
   :ensure t)
   (setq erc-server "irc.libera.chat"
-	erc-nick "zherk"    ; Change this!
+	erc-nick "gob"    ; Change this!
 	erc-user-full-name "Emacs User"  ; And this!
 	erc-track-shorten-start 8
 	erc-autojoin-channels-alist '(("irc.libera.chat" "#systemcrafters" "#emacs"))

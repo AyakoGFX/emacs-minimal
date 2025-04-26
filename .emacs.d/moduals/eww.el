@@ -38,7 +38,7 @@
 (my/add-recommended-site "Google" "https://google.com")
 (my/add-recommended-site "IslamAwakened" "https://www.islamawakened.com/quran/12/111/default.htm")
 
-(global-set-key (kbd "C-c w") 'my/open-recommended-links) ;; Bind to `C-c w`
+(global-set-key (kbd "C-c u") 'my/open-recommended-links) ;; Bind to `C-c w`
 
 ;; minimal rendering by default
 ;; (setq-default shr-inhibit-images nil)   ; toggle with `I`

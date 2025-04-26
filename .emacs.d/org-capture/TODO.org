@@ -49,6 +49,6 @@ do ad video on this topic
  in emacs add left right sound check
 * DONE [2025-04-23 12:20:51 AM]
  do the video
-* TODO [2025-04-24 04:34:40 AM]
+* DONE [2025-04-24 04:34:40 AM]
  Sewing Embroidery 
 [[~/denote/20250424T042502--sewing-embroidery__embroidery_sewing.org]]

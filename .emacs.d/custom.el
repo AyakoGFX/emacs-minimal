@@ -66,20 +66,21 @@
          clojure-mode company consult-denote denote-menu diff-hl
          dired-subtree diredfl doom-themes dumb-jump
          dwim-shell-command dwim-shell-commands eglot-booster
-         eldoc-box elfeed-autotag emmet-mode emojify erc-hl-nicks
-         erc-image evil ewal expand-region flycheck-ledger
-         flymake-proselint flyspell-correct git-gutter-fringe go-mode
-         god-mode gruber-darker-theme gruvbox-theme helpful jinx
-         kdl-mode keycast ledger ledger-mode lsp-bridge lsp-latex
-         lua-mode magit magit-delta marginalia meow move-text
-         multiple-cursors naga-theme nix-mode nix-ts-mode notink-theme
-         orderless org-appear org-noter org-noter-pdftools
-         org-pdftools page-break-lines paredit pdf-tools perspective
-         proselint-flymake python-black pyvenv pywal rainbow-mode
-         sudo-edit surround swiper tabspaces theme-magic treesit-auto
-         typst-ts-mode vertico virtualenvwrapper volatile-highlights
-         vscode-dark-plus-theme vundo web-mode writeroom-mode
-         xah-fly-keys yasnippet zenburn-theme))
+         eldoc-box elfeed-autotag elfeed-goodies emmet-mode emojify
+         erc-hl-nicks erc-image evil ewal expand-region
+         flycheck-ledger flymake-proselint flyspell-correct
+         git-gutter-fringe go-mode god-mode gruber-darker-theme
+         gruvbox-theme helpful jinx kdl-mode keycast ledger
+         ledger-mode lsp-bridge lsp-latex lua-mode magit magit-delta
+         marginalia meow move-text multiple-cursors naga-theme
+         nix-mode nix-ts-mode notink-theme orderless org-appear
+         org-noter org-noter-pdftools org-pdftools page-break-lines
+         paredit pdf-tools perspective proselint-flymake python-black
+         pyvenv pywal rainbow-mode sudo-edit surround swiper tabspaces
+         theme-magic treesit-auto typst-ts-mode vertico
+         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
+         vundo web-mode writeroom-mode xah-fly-keys yasnippet
+         zenburn-theme))
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"

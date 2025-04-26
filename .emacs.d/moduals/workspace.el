@@ -8,9 +8,19 @@
   :bind
   ("C-x C-a" . persp-list-buffers)         ; or use a nicer switcher, see below
   :custom
-  (persp-mode-prefix-key (kbd "C-c TAB"))  ; pick your own prefix key here
+  (persp-mode-prefix-key (kbd "C-c u"))  ; pick your own prefix key here
   :init
   (persp-mode))
+
+(require 'sessionizer)
+(setq sessionizer-base-dirs '("~/" "~/nixos" "~/Documents" "~/.config" "~/dev" "~/.dotfiles"))
+(setq sessionizer-include-projects nil)
+(global-set-key (kbd "C-c w") 'sessionizer) ;; Bind to `C-c w`
+
+
+
+
+
 
 
 ;; (use-package tab-bar
@@ -43,3 +53,16 @@
 ;;   (tabspaces-session t)
 ;;   (tabspaces-session-auto-restore t)
 ;;   (tab-bar-new-tab-choice "*scratch*"))
+
+
+
+
+
+
+
+
+
+
+
+
+

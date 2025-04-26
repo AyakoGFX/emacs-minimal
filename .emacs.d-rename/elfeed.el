@@ -4,6 +4,9 @@
 (setq elfeed-feeds (quote
                     (("https://www.reddit.com/r/linux.rss" reddit linux)
                      ("https://www.reddit.com/r/commandline.rss" reddit commandline)
+                     ("https://nixos.org/blog/newsletters-rss.xml" NixOS linux)
+                     ("https://nixos.org/blog/announcements-rss.xml" NixOS linux)
+                     ("https://nixos.org/blog/stories-rss.xml" NixOS linux)                     
                      ;; ("https://www.reddit.com/r/distrotube.rss" reddit distrotube)
                      ("https://www.reddit.com/r/emacs.rss" reddit emacs)
                      ("https://www.gamingonlinux.com/article_rss.php" gaming linux)
