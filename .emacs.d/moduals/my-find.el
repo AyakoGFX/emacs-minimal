@@ -22,7 +22,7 @@
 (defun my/find-org-capture ()
   "Find a file recursively in ~/.emacs.d/org-capture/, using `fd` or `find`."
   (interactive)
-  (let* ((default-directory (expand-file-name "~/.emacs.d/org-capture/"))
+  (let* ((default-directory (expand-file-name "~/denote/org-capture/"))
          (files (if (executable-find "fd")
                     (split-string (shell-command-to-string "fd --type f --hidden --follow --exclude .git") "\n" t)
                   (split-string (shell-command-to-string "find . -type f 2>/dev/null") "\n" t))))

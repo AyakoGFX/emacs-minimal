@@ -57,21 +57,15 @@
       org-appear-inside-latex t)
 
 
-(setq org-default-notes-file "~/.emacs.d/org-capture/remember.org")
-;; (setq org-capture-templates
-;;       '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
-;;          "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
-;;         ("q" "Quote" entry (file "~/.emacs.d/org-capture/quotes.org")
-;;          "+ \"%?\"\n  -- Name [%<%Y-%m-%d %I:%M %p>]")
-;;         ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
-;;          "\n* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
-
+(setq org-default-notes-file "~/denote/org-capture/remember.org")
 (setq org-capture-templates
-      '(("r" "Remember" entry (file "~/.emacs.d/org-capture/remember.org")
+      '(("r" "Remember" entry (file "~/denote/org-capture/remember.org")
          "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
-        ("q" "Quote" entry (file "~/.emacs.d/org-capture/quotes.org")
+        ("q" "Quote" entry (file "~/denote/org-capture/quotes.org")
          "**** \"%?\"\n  -- Name [%<%Y-%m-%d %I:%M %p>]")
-        ("t" "Todo" entry (file "~/.emacs.d/org-capture/TODO.org")
+        ("l" "Link" entry (file "~/denote/org-capture/link.org")
+         "\n* [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")
+        ("t" "Todo" entry (file "~/denote/org-capture/TODO.org")
          "\n* TODO [%<%Y-%m-%d %I:%M:%S %p>]\n %?\n")))
 
 (global-set-key (kbd "C-c c") 'org-capture)

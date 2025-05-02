@@ -12,12 +12,13 @@
   :init
   (persp-mode))
 
+
+;; recommaned packages for better compilation
+;; vertico orderless
 (require 'sessionizer)
 (setq sessionizer-base-dirs '("~/" "~/nixos" "~/Documents" "~/.config" "~/dev" "~/.dotfiles"))
 (setq sessionizer-include-projects nil)
 (global-set-key (kbd "C-c w") 'sessionizer) ;; Bind to `C-c w`
-
-
 
 
 
