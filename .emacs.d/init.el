@@ -45,8 +45,10 @@
 (setq-default use-short-answers t)
 
 ;; Disable tabs globally and set tab width
+
+
 (setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
-;; (setq-default tab-width 4)            ;; Set tab width to 4 spaces
+(setq-default tab-width 4)            ;; Set tab width to 4 spaces
 ;; Converting Tabs and Spaces
     ;; Convert Tabs to Spaces: Use M-x untabify
     ;; Convert Spaces to Tabs: Use M-x tabify
@@ -109,6 +111,8 @@
 (require 'org-link-desc)
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
+
+
 
 (require 'life-path)
 

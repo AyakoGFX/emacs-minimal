@@ -8,6 +8,11 @@
   :init
   (vertico-mode))
 
+;; vertico-buffer-mode
+;; vertico-mouse-mode
+;; vertico-flat-mode
+;; vertico-reverse-mode
+
 (use-package vertico-directory
   :after vertico
   :ensure nil
