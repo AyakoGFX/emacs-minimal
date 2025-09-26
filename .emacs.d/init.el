@@ -92,9 +92,6 @@
 
 
 
-
-
-
 ;; Emacs: display ugly ^L page breaks as tidy horizontal lines
 ;; Navigate between them: Press C-x [ and C-x ] to move between page breaks.
 ;; Delete them: Use M-% ^L RET RET to replace all occurrences with nothing.
@@ -112,13 +109,25 @@
 (define-key org-mode-map (kbd "C-c l f") 'org-link-desc-insert-link-with-file-name)
 (define-key org-mode-map (kbd "C-c l l") 'org-link-desc-insert-link-with-url-title)
 
-
-
 (require 'life-path)
 
-(require 'espeak)
-(global-set-key (kbd "C-c e") #'espeak-region)
-(global-set-key (kbd "C-c q") #'espeak-cancel)
+;; (require 'espeak)
+;; (global-set-key (kbd "C-c e") #'espeak-region)
+;; (global-set-key (kbd "C-c q") #'espeak-cancel)
+
+;; (global-set-key (kbd "C-c e") #'speak-region)
+;; (global-set-key (kbd "C-c q") #'cancel)
+
+(require 'piper)
+(global-set-key (kbd "C-c e") #'piper-speak-region)
+(global-set-key (kbd "C-c q") #'piper-stop)
+(global-set-key (kbd "C-c t") #'piper-speak)            ;; speak typed text 
+(global-set-key (kbd "C-c p") #'piper-speak-paragraph)  ;; speak current paragraph
+;; Optional: set Piper install dir if not in PATH
+;; (setq piper-install-dir "/path/to/piper/bin")
+;; Set the voice model
+(setq piper-voice-model "~/emacs-minimal/tts/en_US-arctic-medium.onnx")
+
 
 
 (require 'dired-dragon)

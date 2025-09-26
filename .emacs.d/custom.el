@@ -61,26 +61,7 @@
      "cbd85ab34afb47003fa7f814a462c24affb1de81ebf172b78cb4e65186ba59d2"
      "8f5b54bf6a36fe1c138219960dd324aad8ab1f62f543bed73ef5ad60956e36ae"
      default))
- '(package-selected-packages
-   '(0x0 almost-mono-themes auctex beframe casual-suite cider
-         clojure-mode company consult-denote denote-menu diff-hl
-         dired-subtree diredfl doom-themes dumb-jump
-         dwim-shell-command dwim-shell-commands eglot-booster
-         eldoc-box elfeed-autotag elfeed-goodies emmet-mode emojify
-         erc-hl-nicks erc-image evil ewal expand-region
-         flycheck-ledger flymake-proselint flyspell-correct
-         git-gutter-fringe go-mode god-mode gruber-darker-theme
-         gruvbox-theme helpful jinx kdl-mode keycast ledger
-         ledger-mode lsp-bridge lsp-latex lua-mode magit magit-delta
-         marginalia meow move-text multiple-cursors naga-theme
-         nix-mode nix-ts-mode notink-theme orderless org-appear
-         org-noter org-noter-pdftools org-pdftools page-break-lines
-         paredit pdf-tools perspective proselint-flymake python-black
-         pyvenv pywal rainbow-mode sudo-edit surround swiper tabspaces
-         theme-magic treesit-auto typst-ts-mode vertico
-         virtualenvwrapper volatile-highlights vscode-dark-plus-theme
-         vundo web-mode writeroom-mode xah-fly-keys yasnippet
-         zenburn-theme))
+ '(package-selected-packages nil)
  '(package-vc-selected-packages
    '((lsp-bridge :url "https://github.com/manateelazycat/lsp-bridge")
      (eglot-booster :url "https://github.com/jdtsmith/eglot-booster"
