@@ -40,16 +40,28 @@ If nil, assumes `piper` is in PATH."
   "pw-play --raw --rate 24000 --format s16 --channels 1 -")
 
 (defun piper--start-process (text)
-  "Start Piper process to speak TEXT."
-  (piper-stop) ;; stop existing
-  (let ((cmd (format "echo %S | %s --model %s --output-raw | %s"
-                     text
-                     (piper--binary)
-                     (shell-quote-argument (expand-file-name piper-voice-model))
-                     (piper--play-cmd))))
+  "Start Piper process to speak TEXT as a single block."
+  (piper-stop) ;; stop any running process
+  (let* ((clean-text (replace-regexp-in-string "[\n\r]+" " " text)) ; remove newlines
+         (cmd (format "echo %s | %s --model %s --output-raw | %s"
+                      (shell-quote-argument clean-text)
+                      (piper--binary)
+                      (shell-quote-argument (expand-file-name piper-voice-model))
+                      (piper--play-cmd))))
     (setq piper--process
-          (start-process-shell-command "piper-tts" "*piper-tts*"
-                                       cmd))))
+          (start-process-shell-command "piper-tts" "*piper-tts*" cmd))))
+
+;; (defun piper--start-process (text)
+;;   "Start Piper process to speak TEXT."
+;;   (piper-stop) ;; stop existing
+;;   (let ((cmd (format "echo %S | %s --model %s --output-raw | %s"
+;;                      text
+;;                      (piper--binary)
+;;                      (shell-quote-argument (expand-file-name piper-voice-model))
+;;                      (piper--play-cmd))))
+;;     (setq piper--process
+;;           (start-process-shell-command "piper-tts" "*piper-tts*"
+;;                                        cmd))))
 
 ;;;###autoload
 (defun piper-speak (text)
