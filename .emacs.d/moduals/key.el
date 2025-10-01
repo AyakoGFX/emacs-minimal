@@ -1,5 +1,5 @@
-(global-set-key [mouse-9] #'next-buffer)
-(global-set-key [mouse-8] #'previous-buffer)
+;; (global-set-key [mouse-9] #'next-buffer)
+;; (global-set-key [mouse-8] #'previous-buffer)
 (global-set-key (kbd "M-1") 'previous-buffer)
 (global-set-key (kbd "M-2") 'next-buffer)
 (global-set-key (kbd "C-;") 'comment-line)

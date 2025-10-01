@@ -10,10 +10,13 @@
   (add-to-list 'default-frame-alist
                '(font . "JetBrainsMono Nerd Font-20")))
 
+(setq-default cursor-type 'bar)       ;; Options: 'box, 'bar, 'hollow, 'hbar
+
 ;; (load "~/.emacs.d/moduals/nano-emacs.el")
 
 ;; basic modes
 (global-hl-line-mode 1)
+(context-menu-mode 1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -91,7 +94,6 @@
 (load "~/.emacs.d/moduals/sound.el")
 
 
-
 ;; Emacs: display ugly ^L page breaks as tidy horizontal lines
 ;; Navigate between them: Press C-x [ and C-x ] to move between page breaks.
 ;; Delete them: Use M-% ^L RET RET to replace all occurrences with nothing.
@@ -121,6 +123,9 @@
 (require 'piper)
 (global-set-key (kbd "C-c e") #'piper-speak-region)
 (global-set-key (kbd "C-c q") #'piper-stop)
+(global-set-key [mouse-9] #'piper-speak-region)
+(global-set-key [mouse-8] #'piper-stop)
+
 (global-set-key (kbd "C-c t") #'piper-speak)            ;; speak typed text 
 (global-set-key (kbd "C-c p") #'piper-speak-paragraph)  ;; speak current paragraph
 ;; Optional: set Piper install dir if not in PATH

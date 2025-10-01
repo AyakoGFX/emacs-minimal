@@ -1,3 +1,7 @@
+;; sed -r 's/\r$//;/^[0-9]+$/{N;/\n[0-9]/d;}' ./test.srt | sed '/^$/d' | awk '{print}' ORS=' ' > subtitle.txt
+
+;; ##############################################################
+
 (defun my/copy-file-name ()
   "Copy the current buffer file name (no path) to clipboard."
   (interactive)
